@@ -29,6 +29,7 @@
 		9B2FB70E217F53AB00610D43 /* RxMoya.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B2FB70D217F53AB00610D43 /* RxMoya.framework */; };
 		9B2FB710217F53C600610D43 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B2FB70F217F53C600610D43 /* Result.framework */; };
 		9B2FB712217F53D500610D43 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B2FB711217F53D500610D43 /* Alamofire.framework */; };
+		9B2FB71421840B2500610D43 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B2FB71321840B2500610D43 /* Realm.framework */; };
 		9B31C9BD216B372000470A57 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B31C9BC216B372000470A57 /* TabBarController.swift */; };
 /* End PBXBuildFile section */
 
@@ -80,6 +81,7 @@
 		9B2FB70D217F53AB00610D43 /* RxMoya.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxMoya.framework; path = Carthage/Build/iOS/RxMoya.framework; sourceTree = "<group>"; };
 		9B2FB70F217F53C600610D43 /* Result.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Result.framework; path = Carthage/Build/iOS/Result.framework; sourceTree = "<group>"; };
 		9B2FB711217F53D500610D43 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
+		9B2FB71321840B2500610D43 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
 		9B31C9BC216B372000470A57 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		9B4EB1D9A129BE59B66DD696 /* Pods-SwiftAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftAppUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftAppUITests/Pods-SwiftAppUITests.release.xcconfig"; sourceTree = "<group>"; };
 		C6AA177836C48D6FD5BA004E /* Pods-SwiftAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftAppTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftAppTests/Pods-SwiftAppTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -92,6 +94,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9B2FB71421840B2500610D43 /* Realm.framework in Frameworks */,
 				9B2FB712217F53D500610D43 /* Alamofire.framework in Frameworks */,
 				9B2FB710217F53C600610D43 /* Result.framework in Frameworks */,
 				9B2FB70E217F53AB00610D43 /* RxMoya.framework in Frameworks */,
@@ -125,6 +128,7 @@
 		04BA78E2CD58F06B07585F43 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9B2FB71321840B2500610D43 /* Realm.framework */,
 				9B2FB711217F53D500610D43 /* Alamofire.framework */,
 				9B2FB70F217F53C600610D43 /* Result.framework */,
 				9B2FB70D217F53AB00610D43 /* RxMoya.framework */,
@@ -164,7 +168,7 @@
 		9B083FCB212AFF6F00C537D5 /* SwiftApp */ = {
 			isa = PBXGroup;
 			children = (
-				9B2FB701217E029600610D43 /* generals */,
+				9B2FB701217E029600610D43 /* Shared */,
 				9B083FFA212B09F700C537D5 /* sample1 */,
 				9B083FCC212AFF6F00C537D5 /* AppDelegate.swift */,
 				9B083FCE212AFF6F00C537D5 /* ViewController.swift */,
@@ -206,12 +210,12 @@
 			path = sample1;
 			sourceTree = "<group>";
 		};
-		9B2FB701217E029600610D43 /* generals */ = {
+		9B2FB701217E029600610D43 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
 				9B2FB702217E02F400610D43 /* Service.swift */,
 			);
-			path = generals;
+			path = Shared;
 			sourceTree = "<group>";
 		};
 		EB156EBD71D333205E721981 /* Pods */ = {
@@ -395,15 +399,17 @@
 				"$(SRCROOT)/Carthage/Build/iOS/RxMoya.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Result.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Realm.framework",
 			);
 			name = "Run Script For Carthage";
 			outputFileListPaths = (
 			);
 			outputPaths = (
+				"",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n";
+			shellScript = "/usr/local/bin/carthage copy-frameworks\n\n";
 		};
 		CCCFECCD6FB100BAB04A3BD2 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
