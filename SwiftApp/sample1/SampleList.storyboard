@@ -42,10 +42,11 @@
             </objects>
             <point key="canvasLocation" x="1372" y="-242"/>
         </scene>
-        <!--TODO-->
+        <!--GitHub Repository List-->
         <scene sceneID="thJ-6c-4lY">
             <objects>
-                <viewController id="L2k-d2-lzV" customClass="SampleView" customModule="SwiftApp" customModuleProvider="target" sceneMemberID="viewController">
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DNm-8Y-12I" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController storyboardIdentifier="SampleView" id="L2k-d2-lzV" userLabel="GitHub Repository List" customClass="SampleView" customModule="SwiftApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="v0K-CB-5hx">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -129,7 +130,6 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="TODO" id="ztv-5s-n7H"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="DNm-8Y-12I" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="653.60000000000002" y="-577.06146926536735"/>
         </scene>
