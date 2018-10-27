@@ -8,3 +8,10 @@
 //
 
 import Foundation
+
+struct Profile: Codable {
+    let login: String
+    let url: URL
+    let name: String?
+    let email: String?
+}

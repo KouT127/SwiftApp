@@ -9,6 +9,8 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import Moya
+import RxMoya
 
 class SampleView: UIViewController {
 
@@ -16,6 +18,18 @@ class SampleView: UIViewController {
         super.viewDidLoad()
         
         
+        let disposeBag = DisposeBag()
+        
+        let provider = MoyaProvider<GitHub>()
+        provider.rx.request(.userProfile("KouT127"))
+            .filterSuccessfulStatusCodes()
+            .map(Profile.self)
+            .subscribe(onSuccess: { profile in
+                print(profile)
+            }) { (error) in
+                print("errorだお")
+            }
+//            .disposed(by: disposeBag)
 
         // Do any additional setup after loading the view.
     }
