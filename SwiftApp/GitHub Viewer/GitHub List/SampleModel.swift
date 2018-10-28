@@ -39,9 +39,10 @@ struct Item: Codable {
     let htmlUrl: String
     let description: String?
     let watchers: Int
+    let language: String?
     
     enum Keys: String, CodingKey {
-        case name, owner, description, watchers
+        case name, owner, description, watchers, language
         case fullName = "full_name"
         case htmlUrl = "html_url"
     }
@@ -54,6 +55,7 @@ struct Item: Codable {
         self.htmlUrl = try container.decode(String.self, forKey: .htmlUrl)
         self.description = try container.decode(String?.self, forKey: .description)
         self.watchers = try container.decode(Int.self, forKey: .watchers)
+        self.language = try container.decode(String?.self, forKey: .language)
     }
 }
 

@@ -30,16 +30,18 @@ class SampleView: UIViewController {
             )
         )
         self.viewModel = viewModel
-
+        
         viewModel.items
             .observeOn(MainScheduler.instance)
-            .subscribe(onNext: { item in
-                print(item.first)
-            })
+            .bind(to: tableView.rx.items) {[unowned self](_, _, element) in
+                let cell = self.tableView.dequeueReusableCell(withIdentifier: "GitHubCell") as! GitHubCell
+                cell.name.text = element.fullName
+                cell.githubDescription.text = element.description
+                cell.watcher.text = String(element.watchers)
+                cell.language.text = element.language
+                return cell
+            }
             .disposed(by: disposeBag)
-
-        // Do any additional setup after loading the view.
-    
     }
 
     override func didReceiveMemoryWarning() {

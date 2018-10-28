@@ -61,11 +61,11 @@
                                             <string>Title</string>
                                         </scopeButtonTitles>
                                     </searchBar>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ljF-hw-7fu">
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="80" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ljF-hw-7fu">
                                         <rect key="frame" x="0.0" y="66.666666666666686" width="414" height="600.33333333333326"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="83" id="HeH-ts-W9f">
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="GitHubCell" rowHeight="83" id="HeH-ts-W9f" customClass="GitHubCell" customModule="SwiftApp" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="28" width="414" height="83"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="HeH-ts-W9f" id="ibL-4C-daF">
@@ -75,31 +75,55 @@
                                                         <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="m2f-0E-mOE">
                                                             <rect key="frame" x="5" y="0.0" width="404" height="82.666666666666671"/>
                                                             <subviews>
-                                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="a6t-fn-XZ1">
-                                                                    <rect key="frame" x="0.0" y="6.3333333333333357" width="70" height="70"/>
-                                                                    <constraints>
-                                                                        <constraint firstAttribute="height" constant="70" id="I5e-3n-HTx"/>
-                                                                        <constraint firstAttribute="width" constant="70" id="tFl-Z4-2I5"/>
-                                                                    </constraints>
-                                                                </imageView>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="USG-t2-e0f">
-                                                                    <rect key="frame" x="80" y="13.333333333333332" width="324" height="56.333333333333343"/>
+                                                                    <rect key="frame" x="0.0" y="18.666666666666668" width="254.66666666666666" height="45.333333333333329"/>
                                                                     <subviews>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wanima" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dej-8y-5DR">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="324" height="20.333333333333332"/>
-                                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="swift/GitHub" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dej-8y-5DR">
+                                                                            <rect key="frame" x="0.0" y="0.0" width="254.66666666666666" height="22.666666666666668"/>
+                                                                            <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="17"/>
                                                                             <nil key="textColor"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="いいから" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="taY-hU-xrX">
-                                                                            <rect key="frame" x="0.0" y="20.333333333333329" width="324" height="36"/>
-                                                                            <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GitHubDescription" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="taY-hU-xrX">
+                                                                            <rect key="frame" x="0.0" y="22.666666666666664" width="254.66666666666666" height="22.666666666666664"/>
+                                                                            <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="20"/>
                                                                             <nil key="textColor"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                     </subviews>
+                                                                    <constraints>
+                                                                        <constraint firstItem="taY-hU-xrX" firstAttribute="height" secondItem="dej-8y-5DR" secondAttribute="height" id="vn7-CU-6aq"/>
+                                                                    </constraints>
                                                                 </stackView>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Language" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Hwa-nv-Oet">
+                                                                    <rect key="frame" x="264.66666666666669" y="32.333333333333336" width="72.666666666666686" height="18"/>
+                                                                    <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="16"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P6j-mS-PwZ" userLabel="Star">
+                                                                    <rect key="frame" x="347.33333333333331" y="0.0" width="56.666666666666686" height="82.666666666666671"/>
+                                                                    <subviews>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="300" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FJ9-hj-n6M" userLabel="watchers">
+                                                                            <rect key="frame" x="0.0" y="0.0" width="56.666666666666664" height="82.666666666666671"/>
+                                                                            <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="17"/>
+                                                                            <nil key="textColor"/>
+                                                                            <nil key="highlightedColor"/>
+                                                                        </label>
+                                                                    </subviews>
+                                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="trailing" secondItem="FJ9-hj-n6M" secondAttribute="trailing" id="2cf-sd-AWQ"/>
+                                                                        <constraint firstItem="FJ9-hj-n6M" firstAttribute="top" secondItem="P6j-mS-PwZ" secondAttribute="top" id="6qJ-dp-4Zd"/>
+                                                                        <constraint firstItem="FJ9-hj-n6M" firstAttribute="leading" secondItem="P6j-mS-PwZ" secondAttribute="leading" id="lBE-sb-wm3"/>
+                                                                        <constraint firstAttribute="bottom" secondItem="FJ9-hj-n6M" secondAttribute="bottom" id="vcI-Bp-lA4"/>
+                                                                    </constraints>
+                                                                </view>
                                                             </subviews>
+                                                            <constraints>
+                                                                <constraint firstItem="USG-t2-e0f" firstAttribute="width" secondItem="m2f-0E-mOE" secondAttribute="width" multiplier="0.63" id="DG9-C7-ySA"/>
+                                                                <constraint firstItem="Hwa-nv-Oet" firstAttribute="width" secondItem="m2f-0E-mOE" secondAttribute="width" multiplier="0.18" id="xka-56-Ama"/>
+                                                            </constraints>
                                                         </stackView>
                                                     </subviews>
                                                     <constraints>
@@ -109,6 +133,12 @@
                                                         <constraint firstAttribute="bottom" secondItem="m2f-0E-mOE" secondAttribute="bottom" id="wVO-b6-n7e"/>
                                                     </constraints>
                                                 </tableViewCellContentView>
+                                                <connections>
+                                                    <outlet property="githubDescription" destination="taY-hU-xrX" id="GJ0-Mn-ns7"/>
+                                                    <outlet property="language" destination="Hwa-nv-Oet" id="7lf-27-2KY"/>
+                                                    <outlet property="name" destination="dej-8y-5DR" id="iCh-ur-wuY"/>
+                                                    <outlet property="watcher" destination="FJ9-hj-n6M" id="C7B-cR-U63"/>
+                                                </connections>
                                             </tableViewCell>
                                         </prototypes>
                                     </tableView>
