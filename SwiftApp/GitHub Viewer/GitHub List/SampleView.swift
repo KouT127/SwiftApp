@@ -14,17 +14,27 @@ import RxMoya
 
 class SampleView: UIViewController {
     
+    @IBOutlet weak var search: UISearchBar!
+    @IBOutlet weak var tableView: UITableView!
+    
+    var viewModel: SampleViewModel?
     let disposeBag = DisposeBag()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let provider = Provider.shared
-        provider.requestRepositories()
-            .subscribe(onSuccess: { profile in
-                print(profile)
-            }, onError: { error in
-                print(error)
+        let viewModel = SampleViewModel(
+            input: (
+                search: search.rx.text.orEmpty.asObservable(),
+                listTaps: tableView.rx.modelSelected(Item.self).asObservable()
+            )
+        )
+        self.viewModel = viewModel
+
+        viewModel.items
+            .observeOn(MainScheduler.instance)
+            .subscribe(onNext: { item in
+                print(item.first)
             })
             .disposed(by: disposeBag)
 

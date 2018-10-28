@@ -7,7 +7,18 @@
 //
 
 import Foundation
+import Moya
+import RxMoya
+import RxSwift
+import RxCocoa
 
-class sampleRepository {
+class SampleRepository {
     
+    private let provider = MoyaProvider<GitHub>()
+    
+    func requestRepositories(_ query: String) -> Single<Repositories>  {
+        return provider.rx.request(.repositories(query))
+            .filterSuccessfulStatusCodes()
+            .map(Repositories.self)
+    }
 }

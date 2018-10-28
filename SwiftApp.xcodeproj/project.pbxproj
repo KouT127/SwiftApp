@@ -205,6 +205,7 @@
 		9B083FFA212B09F700C537D5 /* GitHub Viewer */ = {
 			isa = PBXGroup;
 			children = (
+				9B084001212C516F00C537D5 /* SampleList.storyboard */,
 				9B2FB7192185C1BE00610D43 /* GitHub List */,
 				9B31C9BC216B372000470A57 /* TabBarController.swift */,
 			);
@@ -227,7 +228,6 @@
 				9B083FFD212B0B7E00C537D5 /* SampleViewModel.swift */,
 				9B2FB71521840BC300610D43 /* SampleRepository.swift */,
 				9B083FFF212B0B8D00C537D5 /* SampleModel.swift */,
-				9B084001212C516F00C537D5 /* SampleList.storyboard */,
 			);
 			path = "GitHub List";
 			sourceTree = "<group>";
