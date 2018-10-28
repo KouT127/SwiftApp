@@ -18,4 +18,9 @@ class Provider {
             .filterSuccessfulStatusCodes()
             .map(Profile.self)
     }
+    func requestRepositories() -> Single<Repositories>  {
+        return provider.rx.request(.repositories("ruby"))
+            .filterSuccessfulStatusCodes()
+            .map(Repositories.self)
+    }
 }

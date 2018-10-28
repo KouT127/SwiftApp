@@ -12,6 +12,7 @@ import Moya
 
 enum GitHub {
     case userProfile(String)
+    case repositories(String)
 }
 
 extension GitHub: TargetType {
@@ -20,8 +21,20 @@ extension GitHub: TargetType {
         switch self {
         case .userProfile(let name):
             return "/users/\(name.urlEscaped)"
+        case .repositories:
+            return "/search/repositories"
         }
     }
+//    var parameters: [String: String]? {
+//        switch self {
+//        case .repositories(let query):
+//            var params: [String : String] = [:]
+//            params["q"] = query
+//            return params
+//        default:
+//            return nil
+//        }
+//    }
     var method: Moya.Method {
         return .get
     }
@@ -29,6 +42,8 @@ extension GitHub: TargetType {
         switch self {
         case .userProfile(_):
             return .requestPlain
+        case .repositories(let query):
+            return .requestParameters(parameters: ["q": query], encoding: URLEncoding.default)
         }
     }
     
@@ -37,13 +52,15 @@ extension GitHub: TargetType {
     // Mock
     var sampleData: Data {
         let path = Bundle.main.path(forResource: "samples", ofType: "json")!
-        return FileHandle(forReadingAtPath: path)!.readDataToEndOfFile()
+        print(FileHandle(forReadingAtPath: path)!.readDataToEndOfFile())
+        return Data()
     }
 }
 
 private extension String {
     var urlEscaped: String {
-        return addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!
+        print(self.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) ?? "")
+        return self.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) ?? ""
     }
     
     var utf8Encoded: Data {

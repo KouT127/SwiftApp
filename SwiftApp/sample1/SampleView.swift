@@ -20,11 +20,11 @@ class SampleView: UIViewController {
         super.viewDidLoad()
         
         let provider = Provider.shared
-        provider.request()
+        provider.requestRepositories()
             .subscribe(onSuccess: { profile in
                 print(profile)
             }, onError: { error in
-                print("errorだよ")
+                print(error)
             })
             .disposed(by: disposeBag)
 
