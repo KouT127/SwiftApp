@@ -143,6 +143,7 @@
                                         </prototypes>
                                     </tableView>
                                 </subviews>
+                                <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstItem="5Pr-mW-TMX" firstAttribute="height" secondItem="ZIU-Ob-Yr3" secondAttribute="height" multiplier="0.1" id="88m-cC-guU"/>
                                 </constraints>
@@ -170,7 +171,6 @@
         <!--Navigation Controller-->
         <scene sceneID="c7n-fD-mhc">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="xWx-I1-Qxm" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController navigationBarHidden="YES" id="8Es-rJ-6xR" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="1E3-0r-wOw">
                         <autoresizingMask key="autoresizingMask"/>
@@ -182,13 +182,13 @@
                         <segue destination="avk-hm-5bW" kind="relationship" relationship="rootViewController" id="aLK-ts-6EO"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xWx-I1-Qxm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1597" y="-242"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="kwI-5l-LNL">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Q8M-lb-Es0" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tabBarController id="avk-hm-5bW" customClass="TabBarController" customModule="SwiftApp" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="XLh-ma-e1t"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="B8R-cU-Agt">
@@ -202,6 +202,7 @@
                         <segue destination="xLW-Q4-hLM" kind="relationship" relationship="viewControllers" id="Ykn-hW-tZG"/>
                     </connections>
                 </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Q8M-lb-Es0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-194" y="-242"/>
         </scene>

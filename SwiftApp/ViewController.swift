@@ -33,7 +33,7 @@ class ViewController: UIViewController {
     }
     
     private func getStoryBoard() -> UIStoryboard {
-        return UIStoryboard(name: "SampleWebView", bundle: nil)
+        return UIStoryboard(name: "SampleList", bundle: nil)
     }
 
 

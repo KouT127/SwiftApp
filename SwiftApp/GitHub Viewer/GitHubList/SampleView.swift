@@ -42,11 +42,35 @@ class SampleView: UIViewController {
                 return cell
             }
             .disposed(by: disposeBag)
+        
+        tableView.rx.modelSelected(Item.self)
+            .asObservable()
+            .subscribe(onNext: { [unowned self] item in
+                self.toBrowser(url: item.htmlUrl)
+            })
+            .disposed(by: disposeBag)
+        
+        hideKeyBoard()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    private func hideKeyBoard() {
+        search.rx.searchButtonClicked.asDriver()
+            .drive(onNext: { gesture in
+                self.view.endEditing(true)
+            })
+            .disposed(by: disposeBag)
+    }
+    
+    private func toBrowser(url: String) {
+        let storyboard = UIStoryboard(name: "SampleWebView", bundle: nil)
+        let viewController = storyboard.instantiateInitialViewController() as! SampleWebView
+        viewController.url = url
+        self.navigationController?.pushViewController(viewController, animated: true)
     }
 
     deinit {
