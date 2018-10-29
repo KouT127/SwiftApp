@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="1Bb-fy-Lxr">
+    <device id="retina6_5" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Sample Web View-->
+        <scene sceneID="RnC-9r-oTw">
+            <objects>
+                <viewController id="1Bb-fy-Lxr" customClass="SampleWebView" customModule="SwiftApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="1hC-tf-FcN">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="pcB-Wf-Mkr">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <subviews>
+                                    <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="CcJ-0T-TSv">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="2"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="2" id="M0f-FL-Lkp"/>
+                                        </constraints>
+                                    </progressView>
+                                    <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pmB-cW-f50">
+                                        <rect key="frame" x="0.0" y="2" width="414" height="816"/>
+                                        <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <wkWebViewConfiguration key="configuration">
+                                            <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                            <wkPreferences key="preferences"/>
+                                        </wkWebViewConfiguration>
+                                    </wkWebView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="pcB-Wf-Mkr" firstAttribute="trailing" secondItem="agG-dg-gSS" secondAttribute="trailing" id="P5c-H4-DMb"/>
+                            <constraint firstItem="pcB-Wf-Mkr" firstAttribute="top" secondItem="agG-dg-gSS" secondAttribute="top" id="lGa-h0-Oqm"/>
+                            <constraint firstItem="agG-dg-gSS" firstAttribute="bottom" secondItem="pcB-Wf-Mkr" secondAttribute="bottom" id="r9y-WH-FnQ"/>
+                            <constraint firstItem="pcB-Wf-Mkr" firstAttribute="leading" secondItem="agG-dg-gSS" secondAttribute="leading" id="uuM-gu-WWg"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="agG-dg-gSS"/>
+                    </view>
+                    <connections>
+                        <outlet property="progressView" destination="CcJ-0T-TSv" id="vHZ-78-2U4"/>
+                        <outlet property="webView" destination="pmB-cW-f50" id="507-Vi-ygi"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4lI-I4-IL6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-185" y="208"/>
+        </scene>
+    </scenes>
+</document>

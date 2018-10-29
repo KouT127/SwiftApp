@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="avk-hm-5bW">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="8Es-rJ-6xR">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -167,10 +167,30 @@
             </objects>
             <point key="canvasLocation" x="653.60000000000002" y="-577.06146926536735"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="c7n-fD-mhc">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xWx-I1-Qxm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <navigationController navigationBarHidden="YES" id="8Es-rJ-6xR" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="1E3-0r-wOw">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Zdz-jB-I2o">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
+                    <connections>
+                        <segue destination="avk-hm-5bW" kind="relationship" relationship="rootViewController" id="aLK-ts-6EO"/>
+                    </connections>
+                </navigationController>
+            </objects>
+            <point key="canvasLocation" x="-1597" y="-242"/>
+        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="kwI-5l-LNL">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Q8M-lb-Es0" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tabBarController id="avk-hm-5bW" customClass="TabBarController" customModule="SwiftApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="XLh-ma-e1t"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="B8R-cU-Agt">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -182,7 +202,6 @@
                         <segue destination="xLW-Q4-hLM" kind="relationship" relationship="viewControllers" id="Ykn-hW-tZG"/>
                     </connections>
                 </tabBarController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Q8M-lb-Es0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-194" y="-242"/>
         </scene>
