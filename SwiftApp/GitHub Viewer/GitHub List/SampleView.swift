@@ -39,6 +39,7 @@ class SampleView: UIViewController {
                 cell.githubDescription.text = element.description
                 cell.watcher.text = String(element.watchers)
                 cell.language.text = element.language
+                print(element)
                 return cell
             }
             .disposed(by: disposeBag)
