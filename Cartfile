@@ -2,3 +2,4 @@ github "ReactiveX/RxSwift" ~> 4.0
 github "realm/realm-cocoa" ~> 3.7.5
 github "RxSwiftCommunity/RxRealm" ~> 0.7.5
 github "Moya/Moya" ~> 11.0
+github "andreamazz/AMScrollingNavbar" ~> 5.0.1

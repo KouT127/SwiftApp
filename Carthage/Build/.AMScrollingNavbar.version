@@ -1,0 +1,9 @@
+{
+  "commitish" : "5.1.1",
+  "iOS" : [
+    {
+      "name" : "AMScrollingNavbar",
+      "hash" : "fe71fd24a6b33fddc160ce87a4d9771720055eab1cd9116373a26973551ce3c7"
+    }
+  ]
+}
