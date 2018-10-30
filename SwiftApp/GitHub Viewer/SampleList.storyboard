@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="avk-hm-5bW">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="8Es-rJ-6xR">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -143,6 +143,7 @@
                                         </prototypes>
                                     </tableView>
                                 </subviews>
+                                <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstItem="5Pr-mW-TMX" firstAttribute="height" secondItem="ZIU-Ob-Yr3" secondAttribute="height" multiplier="0.1" id="88m-cC-guU"/>
                                 </constraints>
@@ -157,7 +158,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Rxr-h9-kh1"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="TODO" id="ztv-5s-n7H"/>
+                    <tabBarItem key="tabBarItem" title="List" id="ztv-5s-n7H"/>
                     <connections>
                         <outlet property="search" destination="5Pr-mW-TMX" id="gJH-K4-UMt"/>
                         <outlet property="tableView" destination="ljF-hw-7fu" id="xP8-aj-2HY"/>
@@ -167,10 +168,29 @@
             </objects>
             <point key="canvasLocation" x="653.60000000000002" y="-577.06146926536735"/>
         </scene>
+        <!--Scrolling Navigation Controller-->
+        <scene sceneID="c7n-fD-mhc">
+            <objects>
+                <navigationController navigationBarHidden="YES" id="8Es-rJ-6xR" customClass="ScrollingNavigationController" customModule="AMScrollingNavbar" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="1E3-0r-wOw">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Zdz-jB-I2o">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
+                    <connections>
+                        <segue destination="avk-hm-5bW" kind="relationship" relationship="rootViewController" id="aLK-ts-6EO"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xWx-I1-Qxm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1597" y="-242"/>
+        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="kwI-5l-LNL">
             <objects>
                 <tabBarController id="avk-hm-5bW" customClass="TabBarController" customModule="SwiftApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="XLh-ma-e1t"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="B8R-cU-Agt">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>

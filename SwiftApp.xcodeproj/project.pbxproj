@@ -33,7 +33,10 @@
 		9B2FB71621840BC300610D43 /* SampleRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2FB71521840BC300610D43 /* SampleRepository.swift */; };
 		9B2FB71821840C1800610D43 /* Provider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2FB71721840C1800610D43 /* Provider.swift */; };
 		9B31C9BD216B372000470A57 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B31C9BC216B372000470A57 /* TabBarController.swift */; };
+		9B340ED6218721EC001149D4 /* AMScrollingNavbar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B340ED5218721EC001149D4 /* AMScrollingNavbar.framework */; };
 		9BC803142185ED8B00E16993 /* GitHubCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BC803132185ED8B00E16993 /* GitHubCell.swift */; };
+		9BC803192186CAA000E16993 /* SampleWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BC803182186CAA000E16993 /* SampleWebView.swift */; };
+		9BC8031B2186CB0200E16993 /* SampleWebView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9BC8031A2186CB0200E16993 /* SampleWebView.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -88,8 +91,11 @@
 		9B2FB71521840BC300610D43 /* SampleRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleRepository.swift; sourceTree = "<group>"; };
 		9B2FB71721840C1800610D43 /* Provider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Provider.swift; sourceTree = "<group>"; };
 		9B31C9BC216B372000470A57 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		9B340ED5218721EC001149D4 /* AMScrollingNavbar.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AMScrollingNavbar.framework; path = Carthage/Build/iOS/AMScrollingNavbar.framework; sourceTree = "<group>"; };
 		9B4EB1D9A129BE59B66DD696 /* Pods-SwiftAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftAppUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftAppUITests/Pods-SwiftAppUITests.release.xcconfig"; sourceTree = "<group>"; };
 		9BC803132185ED8B00E16993 /* GitHubCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubCell.swift; sourceTree = "<group>"; };
+		9BC803182186CAA000E16993 /* SampleWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleWebView.swift; sourceTree = "<group>"; };
+		9BC8031A2186CB0200E16993 /* SampleWebView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SampleWebView.storyboard; sourceTree = "<group>"; };
 		C6AA177836C48D6FD5BA004E /* Pods-SwiftAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftAppTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftAppTests/Pods-SwiftAppTests.release.xcconfig"; sourceTree = "<group>"; };
 		E0C69683FEB70C72C0370B04 /* Pods_SwiftAppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftAppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E57E2F5B7473ACB4AA8EEC27 /* Pods-SwiftAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftAppUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftAppUITests/Pods-SwiftAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -100,6 +106,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9B340ED6218721EC001149D4 /* AMScrollingNavbar.framework in Frameworks */,
 				9B2FB71421840B2500610D43 /* Realm.framework in Frameworks */,
 				9B2FB712217F53D500610D43 /* Alamofire.framework in Frameworks */,
 				9B2FB710217F53C600610D43 /* Result.framework in Frameworks */,
@@ -134,6 +141,7 @@
 		04BA78E2CD58F06B07585F43 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9B340ED5218721EC001149D4 /* AMScrollingNavbar.framework */,
 				9B2FB71321840B2500610D43 /* Realm.framework */,
 				9B2FB711217F53D500610D43 /* Alamofire.framework */,
 				9B2FB70F217F53C600610D43 /* Result.framework */,
@@ -208,7 +216,8 @@
 			isa = PBXGroup;
 			children = (
 				9B084001212C516F00C537D5 /* SampleList.storyboard */,
-				9B2FB7192185C1BE00610D43 /* GitHub List */,
+				9B2FB7192185C1BE00610D43 /* GitHubList */,
+				9BC803172186C9E900E16993 /* GitHubBrowser */,
 				9B31C9BC216B372000470A57 /* TabBarController.swift */,
 			);
 			path = "GitHub Viewer";
@@ -223,7 +232,7 @@
 			path = Shared;
 			sourceTree = "<group>";
 		};
-		9B2FB7192185C1BE00610D43 /* GitHub List */ = {
+		9B2FB7192185C1BE00610D43 /* GitHubList */ = {
 			isa = PBXGroup;
 			children = (
 				9B083FFB212B0A3900C537D5 /* SampleView.swift */,
@@ -232,7 +241,16 @@
 				9B083FFF212B0B8D00C537D5 /* SampleModel.swift */,
 				9BC803132185ED8B00E16993 /* GitHubCell.swift */,
 			);
-			path = "GitHub List";
+			path = GitHubList;
+			sourceTree = "<group>";
+		};
+		9BC803172186C9E900E16993 /* GitHubBrowser */ = {
+			isa = PBXGroup;
+			children = (
+				9BC803182186CAA000E16993 /* SampleWebView.swift */,
+				9BC8031A2186CB0200E16993 /* SampleWebView.storyboard */,
+			);
+			path = GitHubBrowser;
 			sourceTree = "<group>";
 		};
 		EB156EBD71D333205E721981 /* Pods */ = {
@@ -359,6 +377,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9BC8031B2186CB0200E16993 /* SampleWebView.storyboard in Resources */,
 				9B083FD7212AFF7000C537D5 /* LaunchScreen.storyboard in Resources */,
 				9B083FD4212AFF7000C537D5 /* Assets.xcassets in Resources */,
 				9B084002212C516F00C537D5 /* SampleList.storyboard in Resources */,
@@ -417,6 +436,7 @@
 				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Result.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Realm.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/AMScrollingNavbar.framework",
 			);
 			name = "Run Script For Carthage";
 			outputFileListPaths = (
@@ -474,6 +494,7 @@
 				9B084000212B0B8D00C537D5 /* SampleModel.swift in Sources */,
 				9B083FCF212AFF6F00C537D5 /* ViewController.swift in Sources */,
 				9BC803142185ED8B00E16993 /* GitHubCell.swift in Sources */,
+				9BC803192186CAA000E16993 /* SampleWebView.swift in Sources */,
 				9B2FB703217E02F400610D43 /* Service.swift in Sources */,
 				9B2FB71621840BC300610D43 /* SampleRepository.swift in Sources */,
 				9B2FB71821840C1800610D43 /* Provider.swift in Sources */,
