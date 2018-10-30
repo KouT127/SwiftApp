@@ -158,7 +158,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Rxr-h9-kh1"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="TODO" id="ztv-5s-n7H"/>
+                    <tabBarItem key="tabBarItem" title="List" id="ztv-5s-n7H"/>
                     <connections>
                         <outlet property="search" destination="5Pr-mW-TMX" id="gJH-K4-UMt"/>
                         <outlet property="tableView" destination="ljF-hw-7fu" id="xP8-aj-2HY"/>
@@ -168,10 +168,10 @@
             </objects>
             <point key="canvasLocation" x="653.60000000000002" y="-577.06146926536735"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Scrolling Navigation Controller-->
         <scene sceneID="c7n-fD-mhc">
             <objects>
-                <navigationController navigationBarHidden="YES" id="8Es-rJ-6xR" sceneMemberID="viewController">
+                <navigationController navigationBarHidden="YES" id="8Es-rJ-6xR" customClass="ScrollingNavigationController" customModule="AMScrollingNavbar" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="1E3-0r-wOw">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

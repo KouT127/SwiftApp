@@ -9,8 +9,7 @@
 import UIKit
 import RxSwift
 import RxCocoa
-import Moya
-import RxMoya
+import AMScrollingNavbar
 
 class SampleView: UIViewController {
     
