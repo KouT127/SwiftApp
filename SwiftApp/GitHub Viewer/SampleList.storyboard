@@ -174,6 +174,11 @@
                 <navigationController navigationBarHidden="YES" id="8Es-rJ-6xR" customClass="ScrollingNavigationController" customModule="AMScrollingNavbar" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="1E3-0r-wOw">
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" red="0.22495539619999999" green="0.50408234959999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="barTintColor" red="0.22495539619999999" green="0.50408234959999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <color key="textColor" red="0.22495539619999999" green="0.50408234959999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        </textAttributes>
                     </navigationBar>
                     <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Zdz-jB-I2o">
                         <autoresizingMask key="autoresizingMask"/>
