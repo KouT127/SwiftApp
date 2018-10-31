@@ -37,12 +37,13 @@
                                         </wkWebViewConfiguration>
                                         <connections>
                                             <outletCollection property="gestureRecognizers" destination="zP2-nR-QTH" appends="YES" id="hsS-hY-NKP"/>
+                                            <outletCollection property="gestureRecognizers" destination="3rV-9S-QfJ" appends="YES" id="T86-VJ-CJK"/>
                                         </connections>
                                     </wkWebView>
                                 </subviews>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.22495539619999999" green="0.50408234959999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="pcB-Wf-Mkr" firstAttribute="trailing" secondItem="agG-dg-gSS" secondAttribute="trailing" id="P5c-H4-DMb"/>
                             <constraint firstItem="pcB-Wf-Mkr" firstAttribute="top" secondItem="agG-dg-gSS" secondAttribute="top" id="lGa-h0-Oqm"/>
@@ -53,11 +54,13 @@
                     </view>
                     <connections>
                         <outlet property="progressView" destination="CcJ-0T-TSv" id="vHZ-78-2U4"/>
+                        <outlet property="upSwipe" destination="3rV-9S-QfJ" id="30a-8Y-zWs"/>
                         <outlet property="webView" destination="pmB-cW-f50" id="507-Vi-ygi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4lI-I4-IL6" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="zP2-nR-QTH"/>
+                <swipeGestureRecognizer direction="down" id="3rV-9S-QfJ"/>
             </objects>
             <point key="canvasLocation" x="-185" y="208"/>
         </scene>

@@ -10,11 +10,13 @@ import UIKit
 import WebKit
 import RxSwift
 import RxCocoa
+import AMScrollingNavbar
 
 class SampleWebView: UIViewController {
     
     @IBOutlet weak var webView: WKWebView!
     @IBOutlet weak var progressView: UIProgressView!
+    @IBOutlet weak var upSwipe: UISwipeGestureRecognizer!
     var url: String = ""
     
     let disposeBag = DisposeBag()
@@ -22,7 +24,6 @@ class SampleWebView: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupWebView()
-        
     }
         
     private func setupWebView() {
@@ -56,10 +57,25 @@ class SampleWebView: UIViewController {
         let urlRequest = URLRequest(url: url!)
         webView.load(urlRequest)
         
-        navigationController?.hidesBarsOnSwipe = true
-        navigationController?.setNavigationBarHidden(false, animated: true)
+        var items = [UIBarButtonItem]()
         
+        items.append( UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil) )
+        items.append( UIBarButtonItem(barButtonSystemItem: .add, target: self, action: nil ) ) // replace add with your function
         
+        self.toolbarItems = items
+//        upSwipe.rx.event
+
+        
+        let swipeGestureRecog = UISwipeGestureRecognizer(target: self, action: Selector(("swipeGesture")))
+        swipeGestureRecog.direction = .down
+        self.webView.addGestureRecognizer(swipeGestureRecog)
+        swipeGestureRecog.rx.event
+            .asObservable()
+            .subscribe(onNext: {[unowned self] event in
+                self.navigationController?.setToolbarHidden(false, animated: true)
+                self.navigationController?.setNavigationBarHidden(false, animated: true)
+            })
+            .disposed(by: disposeBag)
         
         
 //        webView.scrollView.delegate = self
@@ -67,20 +83,22 @@ class SampleWebView: UIViewController {
 //        webView.translatesAutoresizingMaskIntoConstraints = false
     }
     
-//    override func viewWillAppear(_ animated: Bool) {
-//        super.viewWillAppear(animated)
-//        if let navigationController = navigationController as? ScrollingNavigationController {
-//            navigationController.followScrollView(webView, delay: 50.0)
-//        }
-//    }
+    func swipeGesture(sender: UISwipeGestureRecognizer) {
+        
+        if sender.direction.contains(.down) {
+            print("Right!")
+        }
+    }
     
-//    override func viewDidDisappear(_ animated: Bool) {
-//        super.viewDidDisappear(animated)
-//        navigationController?.setNavigationBarHidden(true, animated: true)
-//        if let navigationController = navigationController as? ScrollingNavigationController {
-//            navigationController.stopFollowingScrollView()
-//        }
-//    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setToolbarHidden(false, animated: false)
+        navigationController?.setNavigationBarHidden(false, animated: false)
+        navigationController?.hidesBarsOnSwipe = true
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

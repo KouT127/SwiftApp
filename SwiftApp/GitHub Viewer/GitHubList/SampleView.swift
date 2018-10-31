@@ -51,6 +51,11 @@ class SampleView: UIViewController {
         
         hideKeyBoard()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.setToolbarHidden(true, animated: false)
+        navigationController?.setNavigationBarHidden(true, animated: false)
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
