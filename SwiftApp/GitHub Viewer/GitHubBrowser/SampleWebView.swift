@@ -17,6 +17,12 @@ class SampleWebView: UIViewController {
     @IBOutlet weak var webView: WKWebView!
     @IBOutlet weak var progressView: UIProgressView!
     @IBOutlet weak var upSwipe: UISwipeGestureRecognizer!
+    
+    let backButton = UIBarButtonItem(image: UIImage(named: "BackButton"), style: .done, target: self, action: nil)
+    let nextButton = UIBarButtonItem(image: UIImage(named: "NextButton"), style: .done, target: self, action: nil)
+    let fixed = UIBarButtonItem(barButtonSystemItem: .fixedSpace, target: self, action: nil)
+    let flexible = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil)
+    
     var url: String = ""
     
     let disposeBag = DisposeBag()
@@ -24,13 +30,34 @@ class SampleWebView: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupWebView()
+        setUpToolBar()
+    }
+    
+    private func setUpToolBar() {
+        fixed.width = 20
+        self.toolbarItems = [backButton, fixed, nextButton, flexible]
+        
+        nextButton.isEnabled = false
+        backButton.isEnabled = false
+        
+        backButton.rx.tap
+            .asDriver()
+            .drive(onNext: {[unowned self] tap in
+                self.webView.goBack()
+            })
+            .disposed(by: disposeBag)
+        
+        nextButton.rx.tap
+            .asDriver()
+            .drive(onNext: {[unowned self] tap in
+                self.webView.goForward()
+            })
+            .disposed(by: disposeBag)
     }
         
     private func setupWebView() {
         
-        let loadingObservable = webView.rx.observe(Bool.self, "loading")
-            .flatMap { $0.flatMap { Observable.just($0) } ?? Observable.empty() }
-            .share()
+        let loadingObservable = webView.rx.loading.share()
         
         loadingObservable
             .map { !$0 }
@@ -46,48 +73,25 @@ class SampleWebView: UIViewController {
             .disposed(by: disposeBag)
         
         // プログレスバーのゲージ制御
-        webView.rx.observe(Double.self, "estimatedProgress")
-            .flatMap { $0.flatMap { Observable.just($0) } ?? Observable.empty() }
-            .map { return Float($0) }
+        webView.rx.estimatedProgress
             .observeOn(MainScheduler.instance)
             .bind(to: progressView.rx.progress)
             .disposed(by: disposeBag)
         
-        let url = URL(string: self.url)
-        let urlRequest = URLRequest(url: url!)
-        webView.load(urlRequest)
+        webView.rx.canGoForward
+            .observeOn(MainScheduler.instance)
+            .bind(to: nextButton.rx.isEnabled)
+            .disposed(by: disposeBag)
         
-        var items = [UIBarButtonItem]()
-        
-        items.append( UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil) )
-        items.append( UIBarButtonItem(barButtonSystemItem: .add, target: self, action: nil ) ) // replace add with your function
-        
-        self.toolbarItems = items
-//        upSwipe.rx.event
-
-        
-        let swipeGestureRecog = UISwipeGestureRecognizer(target: self, action: Selector(("swipeGesture")))
-        swipeGestureRecog.direction = .down
-        self.webView.addGestureRecognizer(swipeGestureRecog)
-        swipeGestureRecog.rx.event
-            .asObservable()
-            .subscribe(onNext: {[unowned self] event in
-                self.navigationController?.setToolbarHidden(false, animated: true)
-                self.navigationController?.setNavigationBarHidden(false, animated: true)
-            })
+        webView.rx.canGoBack
+            .observeOn(MainScheduler.instance)
+            .bind(to: backButton.rx.isEnabled)
             .disposed(by: disposeBag)
         
         
-//        webView.scrollView.delegate = self
-//        webView.scrollView.scrollsToTop = true
-//        webView.translatesAutoresizingMaskIntoConstraints = false
-    }
-    
-    func swipeGesture(sender: UISwipeGestureRecognizer) {
-        
-        if sender.direction.contains(.down) {
-            print("Right!")
-        }
+        let url = URL(string: self.url)
+        let urlRequest = URLRequest(url: url!)
+        webView.load(urlRequest)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -95,9 +99,13 @@ class SampleWebView: UIViewController {
         navigationController?.setToolbarHidden(false, animated: false)
         navigationController?.setNavigationBarHidden(false, animated: false)
         navigationController?.hidesBarsOnSwipe = true
+        tabBarItem.isEnabled = true
+        tabBarController?.tabBar.isHidden = true
     }
     
     override func viewDidDisappear(_ animated: Bool) {
+        tabBarItem.isEnabled = false
+        tabBarController?.tabBar.isHidden = false
     }
     
     override func didReceiveMemoryWarning() {
