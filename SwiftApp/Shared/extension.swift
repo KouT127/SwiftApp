@@ -18,4 +18,25 @@ extension Reactive where Base: WKWebView {
             .flatMap { $0.flatMap { Observable.just($0) } ?? Observable.empty() }
             .map{ Float($0) }
     }
+    
+    public var loading: Observable<Bool> {
+        return self.observe(Bool.self, "loading")
+            .flatMap { $0.flatMap { Observable.just($0) } ?? Observable.empty() }
+    }
+    
+    public var url: Observable<URL> {
+        return self.observe(URL.self, "URL")
+            .flatMap { $0.flatMap { Observable.just($0) } ?? Observable.empty() }
+    }
+    
+    public var canGoBack: Observable<Bool> {
+        return self.observe(Bool.self, "canGoBack")
+            .flatMap { $0.flatMap { Observable.just($0) } ?? Observable.empty() }
+    }
+    
+    public var canGoForward: Observable<Bool> {
+        return self.observe(Bool.self, "canGoForward")
+            .flatMap { $0.flatMap { Observable.just($0) } ?? Observable.empty() }
+    }
+    
 }
