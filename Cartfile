@@ -3,3 +3,4 @@ github "realm/realm-cocoa" ~> 3.7.5
 github "RxSwiftCommunity/RxRealm" ~> 0.7.5
 github "Moya/Moya" ~> 11.0
 github "andreamazz/AMScrollingNavbar" ~> 5.0.1
+github "SVProgressHUD/SVProgressHUD" ~> 2.2.5

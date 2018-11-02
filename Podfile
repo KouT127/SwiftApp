@@ -7,6 +7,16 @@ target 'SwiftApp' do
 
 # Pods for SampleApp
 pod 'SwiftLint', '~> 0.25'
+pod 'Firebase/Core'
+pod 'Firebase/Messaging'
+pod 'Firebase/Database'
+pod 'Fabric'
+pod 'Crashlytics'
+pod 'Firebase/Auth'
+pod 'Firebase/Storage'
+pod 'Firebase/Functions'
+pod 'Firebase/MLVision'
+pod 'Firebase/MLVisionBarcodeModel'
 
   # Pods for SwiftApp
 
