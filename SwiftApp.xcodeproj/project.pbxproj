@@ -35,6 +35,8 @@
 		9B31C9BD216B372000470A57 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B31C9BC216B372000470A57 /* TabBarController.swift */; };
 		9B340ED6218721EC001149D4 /* AMScrollingNavbar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B340ED5218721EC001149D4 /* AMScrollingNavbar.framework */; };
 		9BB63EC5218B338E00BEB6BE /* extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BB63EC4218B338E00BEB6BE /* extension.swift */; };
+		9BB63EC7218B456800BEB6BE /* SVProgressHUD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BB63EC6218B456800BEB6BE /* SVProgressHUD.framework */; };
+		9BB63ECA218C828A00BEB6BE /* FirebaseAuth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9BB63EC9218C828A00BEB6BE /* FirebaseAuth.storyboard */; };
 		9BC803142185ED8B00E16993 /* GitHubCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BC803132185ED8B00E16993 /* GitHubCell.swift */; };
 		9BC803192186CAA000E16993 /* SampleWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BC803182186CAA000E16993 /* SampleWebView.swift */; };
 		9BC8031B2186CB0200E16993 /* SampleWebView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9BC8031A2186CB0200E16993 /* SampleWebView.storyboard */; };
@@ -95,6 +97,8 @@
 		9B340ED5218721EC001149D4 /* AMScrollingNavbar.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AMScrollingNavbar.framework; path = Carthage/Build/iOS/AMScrollingNavbar.framework; sourceTree = "<group>"; };
 		9B4EB1D9A129BE59B66DD696 /* Pods-SwiftAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftAppUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftAppUITests/Pods-SwiftAppUITests.release.xcconfig"; sourceTree = "<group>"; };
 		9BB63EC4218B338E00BEB6BE /* extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = extension.swift; sourceTree = "<group>"; };
+		9BB63EC6218B456800BEB6BE /* SVProgressHUD.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SVProgressHUD.framework; path = Carthage/Build/iOS/SVProgressHUD.framework; sourceTree = "<group>"; };
+		9BB63EC9218C828A00BEB6BE /* FirebaseAuth.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FirebaseAuth.storyboard; sourceTree = "<group>"; };
 		9BC803132185ED8B00E16993 /* GitHubCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubCell.swift; sourceTree = "<group>"; };
 		9BC803182186CAA000E16993 /* SampleWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleWebView.swift; sourceTree = "<group>"; };
 		9BC8031A2186CB0200E16993 /* SampleWebView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SampleWebView.storyboard; sourceTree = "<group>"; };
@@ -108,6 +112,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9BB63EC7218B456800BEB6BE /* SVProgressHUD.framework in Frameworks */,
 				9B340ED6218721EC001149D4 /* AMScrollingNavbar.framework in Frameworks */,
 				9B2FB71421840B2500610D43 /* Realm.framework in Frameworks */,
 				9B2FB712217F53D500610D43 /* Alamofire.framework in Frameworks */,
@@ -143,6 +148,7 @@
 		04BA78E2CD58F06B07585F43 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9BB63EC6218B456800BEB6BE /* SVProgressHUD.framework */,
 				9B340ED5218721EC001149D4 /* AMScrollingNavbar.framework */,
 				9B2FB71321840B2500610D43 /* Realm.framework */,
 				9B2FB711217F53D500610D43 /* Alamofire.framework */,
@@ -185,7 +191,8 @@
 			isa = PBXGroup;
 			children = (
 				9B2FB701217E029600610D43 /* Shared */,
-				9B083FFA212B09F700C537D5 /* GitHub Viewer */,
+				9B083FFA212B09F700C537D5 /* GitHubViewer */,
+				9BB63EC8218C81F200BEB6BE /* FirebaseSample */,
 				9B083FCC212AFF6F00C537D5 /* AppDelegate.swift */,
 				9B083FCE212AFF6F00C537D5 /* ViewController.swift */,
 				9B083FD0212AFF6F00C537D5 /* Main.storyboard */,
@@ -214,7 +221,7 @@
 			path = SwiftAppUITests;
 			sourceTree = "<group>";
 		};
-		9B083FFA212B09F700C537D5 /* GitHub Viewer */ = {
+		9B083FFA212B09F700C537D5 /* GitHubViewer */ = {
 			isa = PBXGroup;
 			children = (
 				9B084001212C516F00C537D5 /* SampleList.storyboard */,
@@ -222,7 +229,7 @@
 				9BC803172186C9E900E16993 /* GitHubBrowser */,
 				9B31C9BC216B372000470A57 /* TabBarController.swift */,
 			);
-			path = "GitHub Viewer";
+			path = GitHubViewer;
 			sourceTree = "<group>";
 		};
 		9B2FB701217E029600610D43 /* Shared */ = {
@@ -245,6 +252,14 @@
 				9BC803132185ED8B00E16993 /* GitHubCell.swift */,
 			);
 			path = GitHubList;
+			sourceTree = "<group>";
+		};
+		9BB63EC8218C81F200BEB6BE /* FirebaseSample */ = {
+			isa = PBXGroup;
+			children = (
+				9BB63EC9218C828A00BEB6BE /* FirebaseAuth.storyboard */,
+			);
+			path = FirebaseSample;
 			sourceTree = "<group>";
 		};
 		9BC803172186C9E900E16993 /* GitHubBrowser */ = {
@@ -281,6 +296,7 @@
 				9B083FC6212AFF6F00C537D5 /* Frameworks */,
 				9B083FC7212AFF6F00C537D5 /* Resources */,
 				9B2FB704217F531100610D43 /* Run Script For Carthage */,
+				8724ACDC3834C4665D6C3CF3 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -383,6 +399,7 @@
 				9BC8031B2186CB0200E16993 /* SampleWebView.storyboard in Resources */,
 				9B083FD7212AFF7000C537D5 /* LaunchScreen.storyboard in Resources */,
 				9B083FD4212AFF7000C537D5 /* Assets.xcassets in Resources */,
+				9BB63ECA218C828A00BEB6BE /* FirebaseAuth.storyboard in Resources */,
 				9B084002212C516F00C537D5 /* SampleList.storyboard in Resources */,
 				9B083FD2212AFF6F00C537D5 /* Main.storyboard in Resources */,
 			);
@@ -423,6 +440,52 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		8724ACDC3834C4665D6C3CF3 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-SwiftApp/Pods-SwiftApp-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/BoringSSL/openssl.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleAPIClientForREST/GoogleAPIClientForREST.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC/GRPCClient.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-C++/grpcpp.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-ProtoRPC/ProtoRPC.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-RxLibrary/RxLibrary.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleAPIClientForREST.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GRPCClient.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpcpp.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ProtoRPC.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxLibrary.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SwiftApp/Pods-SwiftApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		9B2FB704217F531100610D43 /* Run Script For Carthage */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -440,6 +503,7 @@
 				"$(SRCROOT)/Carthage/Build/iOS/Result.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Realm.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/AMScrollingNavbar.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/SVProgressHUD.framework",
 			);
 			name = "Run Script For Carthage";
 			outputFileListPaths = (
