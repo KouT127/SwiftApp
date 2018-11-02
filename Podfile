@@ -9,7 +9,7 @@ target 'SwiftApp' do
 pod 'SwiftLint', '~> 0.25'
 pod 'Firebase/Core'
 pod 'Firebase/Messaging'
-pod 'Firebase/Database'
+pod 'Firebase/Firestore'
 pod 'Fabric'
 pod 'Crashlytics'
 pod 'Firebase/Auth'
