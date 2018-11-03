@@ -41,6 +41,7 @@
 		9BB63ECE218DE4C400BEB6BE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9BB63ECD218DE4C400BEB6BE /* GoogleService-Info.plist */; };
 		9BB63ED0218DE65500BEB6BE /* AuthSampleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BB63ECF218DE65500BEB6BE /* AuthSampleView.swift */; };
 		9BB63ED2218DEA9200BEB6BE /* FirebaseAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BB63ED1218DEA9200BEB6BE /* FirebaseAuth.swift */; };
+		9BB63ED4218E09C600BEB6BE /* AuthResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BB63ED3218E09C600BEB6BE /* AuthResult.swift */; };
 		9BC803142185ED8B00E16993 /* GitHubCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BC803132185ED8B00E16993 /* GitHubCell.swift */; };
 		9BC803192186CAA000E16993 /* SampleWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BC803182186CAA000E16993 /* SampleWebView.swift */; };
 		9BC8031B2186CB0200E16993 /* SampleWebView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9BC8031A2186CB0200E16993 /* SampleWebView.storyboard */; };
@@ -107,6 +108,7 @@
 		9BB63ECD218DE4C400BEB6BE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		9BB63ECF218DE65500BEB6BE /* AuthSampleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthSampleView.swift; sourceTree = "<group>"; };
 		9BB63ED1218DEA9200BEB6BE /* FirebaseAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAuth.swift; sourceTree = "<group>"; };
+		9BB63ED3218E09C600BEB6BE /* AuthResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthResult.swift; sourceTree = "<group>"; };
 		9BC803132185ED8B00E16993 /* GitHubCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubCell.swift; sourceTree = "<group>"; };
 		9BC803182186CAA000E16993 /* SampleWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleWebView.swift; sourceTree = "<group>"; };
 		9BC8031A2186CB0200E16993 /* SampleWebView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SampleWebView.storyboard; sourceTree = "<group>"; };
@@ -270,6 +272,7 @@
 			children = (
 				9BB63EC9218C828A00BEB6BE /* FirebaseAuth.storyboard */,
 				9BB63ECF218DE65500BEB6BE /* AuthSampleView.swift */,
+				9BB63ED3218E09C600BEB6BE /* AuthResult.swift */,
 			);
 			path = FirebaseSample;
 			sourceTree = "<group>";
@@ -583,6 +586,7 @@
 				9B2FB71821840C1800610D43 /* Provider.swift in Sources */,
 				9B083FFC212B0A3900C537D5 /* SampleView.swift in Sources */,
 				9B31C9BD216B372000470A57 /* TabBarController.swift in Sources */,
+				9BB63ED4218E09C600BEB6BE /* AuthResult.swift in Sources */,
 				9BB63ED2218DEA9200BEB6BE /* FirebaseAuth.swift in Sources */,
 				9B083FFE212B0B7E00C537D5 /* SampleViewModel.swift in Sources */,
 				9B083FCD212AFF6F00C537D5 /* AppDelegate.swift in Sources */,

@@ -9,7 +9,6 @@
 import UIKit
 import RxSwift
 import RxCocoa
-import FirebaseAuth
 
 class AuthSampleView: UIViewController {
 
@@ -23,15 +22,24 @@ class AuthSampleView: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let auth = FirebaseAuth()
+        let auth = FirebaseAuth.shared
 
-        let email = self.email.rx.text.orEmpty.asObservable()
+        let email = self.email.rx.text.orEmpty.asObservable().debug()
         let password = self.password.rx.text.orEmpty.asObservable()
+        let inputInfo = Observable.combineLatest(email, password).debug()
         
-        Observable.combineLatest(email, password)
+        self.loginButton.rx.tap
+            .asObservable()
+            .withLatestFrom(inputInfo)
+            .debug()
             .flatMap{ auth.signIn(withEmail: $0, password: $1)}
             .subscribe(onNext: { authResult in
-                print(authResult)
+                switch authResult {
+                case .success(let data):
+                    print(data)
+                case .failed(let error):
+                    print(error)
+                }
             })
             .disposed(by: disposeBag)
     }

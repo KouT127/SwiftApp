@@ -8,13 +8,16 @@
 
 import FirebaseAuth
 import RxSwift
+import RxCocoa
 
 class FirebaseAuth {
     
     let auth = Auth.auth()
+    static let shared = FirebaseAuth()
     
-    public func signIn(withEmail email: String, password: String) -> Observable<AuthDataResult> {
-        //RxFirebaseを入れた場合の、想定としてこの様な形とした。
+    public func signIn(withEmail email: String, password: String) -> Observable<AuthResult> {
         return auth.rx.signIn(withEmail: email, password: password)
+            .map { .success(result: $0) }
+            .catchError { Observable.just(.failed(error: $0))}
     }
 }
