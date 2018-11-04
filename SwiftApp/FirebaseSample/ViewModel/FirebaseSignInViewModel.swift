@@ -51,9 +51,8 @@ class FirebaseSignInViewModel {
             }
         
         let authFailedMessage = authResult
-            .map { result -> String in
-                return repository.errorMessage(result: result)
-        }
+            .map { repository.errorMessage(result: $0) }
+            .flatMap { $0.flatMap { Observable.just($0) } ?? Observable.empty() }
         
         let alertResult = authFailedMessage
             .map { message in

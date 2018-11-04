@@ -20,7 +20,7 @@ class FirebaseSignInRepository {
             .catchError { Observable.just(.failed(error: $0))}
     }
     
-    func errorMessage(result: AuthResult) -> String{
+    func errorMessage(result: AuthResult) -> String? {
         switch result {
         case .failed( let error ):
             let firebaseError = error as NSError
@@ -33,7 +33,7 @@ class FirebaseSignInRepository {
         default:
             break
         }
-        return "不明なエラー"
+        return nil
     }
     
     func createAuthUser(new: AuthDataResult) -> AuthUser{

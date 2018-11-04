@@ -46,6 +46,7 @@ class FirebaseSignInView: UIViewController {
                 if result {
                     //TODO:繊維処理
                 }
+                print(result)
             })
             .disposed(by: disposeBag)
         
