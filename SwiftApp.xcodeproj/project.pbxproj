@@ -48,6 +48,7 @@
 		9BB63EE7218ED75A00BEB6BE /* Realm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BB63EE6218ED75A00BEB6BE /* Realm.swift */; };
 		9BB63EE9218F158C00BEB6BE /* AuthUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BB63EE8218F158C00BEB6BE /* AuthUser.swift */; };
 		9BB63EEB218F227600BEB6BE /* DefaultWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BB63EEA218F227600BEB6BE /* DefaultWireframe.swift */; };
+		9BB63EEE218F3C1E00BEB6BE /* FirebaseChat.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9BB63EED218F3C1E00BEB6BE /* FirebaseChat.storyboard */; };
 		9BC803142185ED8B00E16993 /* GitHubCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BC803132185ED8B00E16993 /* GitHubCell.swift */; };
 		9BC803192186CAA000E16993 /* SampleWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BC803182186CAA000E16993 /* SampleWebView.swift */; };
 		9BC8031B2186CB0200E16993 /* SampleWebView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9BC8031A2186CB0200E16993 /* SampleWebView.storyboard */; };
@@ -121,6 +122,7 @@
 		9BB63EE6218ED75A00BEB6BE /* Realm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Realm.swift; sourceTree = "<group>"; };
 		9BB63EE8218F158C00BEB6BE /* AuthUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthUser.swift; sourceTree = "<group>"; };
 		9BB63EEA218F227600BEB6BE /* DefaultWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultWireframe.swift; sourceTree = "<group>"; };
+		9BB63EED218F3C1E00BEB6BE /* FirebaseChat.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FirebaseChat.storyboard; sourceTree = "<group>"; };
 		9BC803132185ED8B00E16993 /* GitHubCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubCell.swift; sourceTree = "<group>"; };
 		9BC803182186CAA000E16993 /* SampleWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleWebView.swift; sourceTree = "<group>"; };
 		9BC8031A2186CB0200E16993 /* SampleWebView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SampleWebView.storyboard; sourceTree = "<group>"; };
@@ -331,6 +333,7 @@
 			children = (
 				9BB63ED5218EACF500BEB6BE /* FirebaseAuth.storyboard */,
 				9BB63EC9218C828A00BEB6BE /* FirebaseSignIn.storyboard */,
+				9BB63EED218F3C1E00BEB6BE /* FirebaseChat.storyboard */,
 			);
 			path = StoryBoard;
 			sourceTree = "<group>";
@@ -486,6 +489,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9BC8031B2186CB0200E16993 /* SampleWebView.storyboard in Resources */,
+				9BB63EEE218F3C1E00BEB6BE /* FirebaseChat.storyboard in Resources */,
 				9B083FD7212AFF7000C537D5 /* LaunchScreen.storyboard in Resources */,
 				9B083FD4212AFF7000C537D5 /* Assets.xcassets in Resources */,
 				9BB63ECA218C828A00BEB6BE /* FirebaseSignIn.storyboard in Resources */,
