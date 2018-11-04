@@ -29,6 +29,11 @@ class FirebaseSignInView: UIViewController {
                 email: self.email.rx.text.orEmpty.asObservable(),
                 password: self.password.rx.text.orEmpty.asObservable(),
                 loginTaps: self.loginButton.rx.tap.asObservable()
+            ),
+            dependency: (
+                repository: FirebaseSignInRepository(),
+                accessor: .shared,
+                wireframe: .shared
             )
         )
         self.viewModel = viewModel

@@ -15,6 +15,11 @@ typealias Input = (
     password: Observable<String>,
     loginTaps: Observable<Void>
 )
+typealias Dependency = (
+    repository: FirebaseSignInRepository,
+    accessor: Accessor,
+    wireframe: DefaultWireframe
+)
 
 class FirebaseSignInViewModel {
     
@@ -23,7 +28,7 @@ class FirebaseSignInViewModel {
     
     let disposeBag = DisposeBag()
     
-    init(input: Input, repository: FirebaseSignInRepository = FirebaseSignInRepository(), accessor: Accessor = .shared) {
+    init(input: Input, dependency: Dependency) {
         
         let inputInfo = Observable
             .combineLatest(input.email, input.password)
@@ -35,15 +40,15 @@ class FirebaseSignInViewModel {
         
         let authResult = input.loginTaps
             .withLatestFrom(inputInfo)
-            .flatMap { repository.signIn(withEmail: $0, password: $1)}
+            .flatMap { dependency.repository.signIn(withEmail: $0, password: $1)}
             .share()
         
         authSucceed = authResult
             .map { result in
                 switch result {
                 case .succeed( let data ):
-                    let user = repository.createAuthUser(new: data)
-                    return accessor.write(object: user)
+                    let user = dependency.repository.createAuthUser(new: data)
+                    return dependency.accessor.write(object: user)
                 default:
                     break
                 }
@@ -51,7 +56,7 @@ class FirebaseSignInViewModel {
             }
         
         let authFailedMessage = authResult
-            .map { repository.errorMessage(result: $0) }
+            .map { dependency.repository.errorMessage(result: $0) }
             .flatMap { $0.flatMap { Observable.just($0) } ?? Observable.empty() }
         
         let alertResult = authFailedMessage
@@ -59,7 +64,7 @@ class FirebaseSignInViewModel {
                 let firebaseAlertInfo = AlertInfo(title: "エラー", message: message, cancel: .ok)
                 return firebaseAlertInfo
             }.flatMap { alertInfo in
-                DefaultWireframe.shared.promptFor(alertInfo)
+                dependency.wireframe.promptFor(alertInfo)
             }
         
         alertResult
