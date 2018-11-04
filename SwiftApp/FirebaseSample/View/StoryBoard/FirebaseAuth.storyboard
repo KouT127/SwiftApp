@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="saj-r9-NCc">
+    <device id="retina6_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -10,22 +10,22 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Auth Sample View-->
+        <!--Firebase Auth View-->
         <scene sceneID="So6-Kz-L7f">
             <objects>
-                <viewController id="saj-r9-NCc" customClass="AuthSampleView" customModule="SwiftApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="saj-r9-NCc" customClass="FirebaseAuthView" customModule="SwiftApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Vy4-1D-4Mi">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="64E-cu-nVI">
-                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="852"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nsD-ec-K4u" userLabel="Title View">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="323.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="426"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sample" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xWh-hF-pmb">
-                                                <rect key="frame" x="0.0" y="0.0" width="375" height="323.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="426"/>
                                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="80"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -39,16 +39,16 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nPh-eW-lk7" userLabel="Spacer View">
-                                        <rect key="frame" x="0.0" y="323.5" width="375" height="45.5"/>
+                                        <rect key="frame" x="0.0" y="426" width="414" height="85.333333333333314"/>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nkw-Ov-Ctl" userLabel="Login View">
-                                        <rect key="frame" x="0.0" y="369" width="375" height="213.5"/>
+                                        <rect key="frame" x="0.0" y="511.33333333333331" width="414" height="255.33333333333331"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="P9E-zc-xlw">
-                                                <rect key="frame" x="30" y="30" width="315" height="153.5"/>
+                                                <rect key="frame" x="30" y="30" width="354" height="195.33333333333334"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8k9-BH-u9e">
-                                                        <rect key="frame" x="0.0" y="0.0" width="315" height="66.5"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="354" height="87.666666666666671"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="20"/>
                                                         <state key="normal" title="新規登録">
@@ -56,7 +56,7 @@
                                                         </state>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="572-pj-5VA">
-                                                        <rect key="frame" x="0.0" y="86.5" width="315" height="67"/>
+                                                        <rect key="frame" x="0.0" y="107.66666666666663" width="354" height="87.666666666666686"/>
                                                         <color key="backgroundColor" red="0.45098039220000002" green="0.6705882353" blue="0.74509803919999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="20"/>
                                                         <state key="normal" title="サインイン">
@@ -77,12 +77,12 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vEg-NF-gzs" userLabel="SignUp View">
-                                        <rect key="frame" x="0.0" y="582.5" width="375" height="64.5"/>
+                                        <rect key="frame" x="0.0" y="766.66666666666663" width="414" height="85.333333333333371"/>
                                         <color key="backgroundColor" red="0.27825477679999999" green="0.47843137250000001" blue="0.7424900968" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     </view>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="nkw-Ov-Ctl" firstAttribute="height" secondItem="64E-cu-nVI" secondAttribute="height" multiplier="0.33" id="4Xj-ed-MLv"/>
+                                    <constraint firstItem="nkw-Ov-Ctl" firstAttribute="height" secondItem="64E-cu-nVI" secondAttribute="height" multiplier="0.3" id="4Xj-ed-MLv"/>
                                     <constraint firstItem="nsD-ec-K4u" firstAttribute="height" secondItem="64E-cu-nVI" secondAttribute="height" multiplier="0.5" id="Gch-gf-cZh"/>
                                     <constraint firstItem="vEg-NF-gzs" firstAttribute="height" secondItem="64E-cu-nVI" secondAttribute="height" multiplier="0.1" id="sQO-si-X0A"/>
                                 </constraints>
@@ -98,7 +98,7 @@
                         <viewLayoutGuide key="safeArea" id="LFu-iZ-NxM"/>
                     </view>
                     <connections>
-                        <outlet property="loginButton" destination="8k9-BH-u9e" id="qxf-Lz-lnT"/>
+                        <outlet property="signInButton" destination="572-pj-5VA" id="eo5-0m-1as"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="arR-69-oN4" userLabel="First Responder" sceneMemberID="firstResponder"/>

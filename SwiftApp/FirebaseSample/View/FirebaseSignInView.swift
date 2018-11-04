@@ -15,6 +15,7 @@ class FirebaseSignInView: UIViewController {
     @IBOutlet weak var email: UITextField!
     @IBOutlet weak var password: UITextField!
     
+    @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var loginButton: UIButton!
     
     var viewModel: FirebaseSignInViewModel?
@@ -39,18 +40,25 @@ class FirebaseSignInView: UIViewController {
             })
             .disposed(by: disposeBag)
         
-        viewModel.authResult
+        viewModel.authSucceed
             .observeOn(MainScheduler.instance)
-            .subscribe(onNext: { authResult in
-                switch authResult {
-                case .succeed(let data):
-                    //TODO 遷移処理
-                    print(data)
-                case .failed(let error):
-                    print(error)
+            .subscribe(onNext: { result in
+                if result {
+                    //TODO:繊維処理
                 }
             })
             .disposed(by: disposeBag)
+        
+        backButton.rx.tap
+            .asDriver()
+            .drive(onNext: {[unowned self] _ in
+                self.back()
+            })
+            .disposed(by: disposeBag)
+    }
+    
+    private func back() {
+        self.dismiss(animated: true, completion: nil)
     }
     
 }

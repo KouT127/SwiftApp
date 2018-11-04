@@ -19,9 +19,11 @@ typealias Input = (
 class FirebaseSignInViewModel {
     
     let isValid: Driver<Bool>
-    let authResult: Observable<AuthResult>
+    let authSucceed: Observable<Bool>
     
-    init(input: Input, repository: FirebaseSignInRepository = FirebaseSignInRepository()) {
+    let disposeBag = DisposeBag()
+    
+    init(input: Input, repository: FirebaseSignInRepository = FirebaseSignInRepository(), accessor: Accessor = .shared) {
         
         let inputInfo = Observable
             .combineLatest(input.email, input.password)
@@ -31,9 +33,41 @@ class FirebaseSignInViewModel {
             .map { $0.count >= 3 && $1.count >= 6 }
             .asDriver(onErrorJustReturn: false)
         
-        authResult = inputInfo
+        let authResult = input.loginTaps
+            .withLatestFrom(inputInfo)
             .flatMap { repository.signIn(withEmail: $0, password: $1)}
+            .share()
         
+        authSucceed = authResult
+            .map { result in
+                switch result {
+                case .succeed( let data ):
+                    let user = repository.createAuthUser(new: data)
+                    return accessor.write(object: user)
+                default:
+                    break
+                }
+                return false
+            }
+        
+        let authFailedMessage = authResult
+            .map { result -> String in
+                return repository.errorMessage(result: result)
+        }
+        
+        let alertResult = authFailedMessage
+            .map { message in
+                let firebaseAlertInfo = AlertInfo(title: "エラー", message: message, cancel: .ok)
+                return firebaseAlertInfo
+            }.flatMap { alertInfo in
+                DefaultWireframe.shared.promptFor(alertInfo)
+            }
+        
+        alertResult
+            .subscribe(onNext: { action in
+                //TODO: actionによって使い分ける。
+                return
+            })
+            .disposed(by: disposeBag)
     }
-    
 }

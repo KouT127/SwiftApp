@@ -16,8 +16,8 @@ import RxCocoa
 import RxRealm
 
 
-class RealmAccessor {
-    static let shared = RealmAccessor()
+class Accessor {
+    static let shared = Accessor()
     private let realm: Realm
     
     private init() {
@@ -37,7 +37,6 @@ class RealmAccessor {
     
     ///データ書込
     func write(object: Object) -> Bool {
-        
         self.realm.beginWrite()
         self.realm.add(object)
         

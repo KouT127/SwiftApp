@@ -33,7 +33,7 @@ class ViewController: UIViewController {
     }
     
     private func getStoryBoard() -> UIStoryboard {
-        return UIStoryboard(name: "FirebaseSignIn", bundle: nil)
+        return UIStoryboard(name: "FirebaseAuth", bundle: nil)
     }
 
 

@@ -39,13 +39,15 @@
 		9BB63ECA218C828A00BEB6BE /* FirebaseSignIn.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9BB63EC9218C828A00BEB6BE /* FirebaseSignIn.storyboard */; };
 		9BB63ECC218DE0EE00BEB6BE /* FirebaseAuth+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BB63ECB218DE0EE00BEB6BE /* FirebaseAuth+Rx.swift */; };
 		9BB63ECE218DE4C400BEB6BE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9BB63ECD218DE4C400BEB6BE /* GoogleService-Info.plist */; };
-		9BB63ED0218DE65500BEB6BE /* AuthSampleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BB63ECF218DE65500BEB6BE /* AuthSampleView.swift */; };
+		9BB63ED0218DE65500BEB6BE /* FirebaseAuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BB63ECF218DE65500BEB6BE /* FirebaseAuthView.swift */; };
 		9BB63ED4218E09C600BEB6BE /* AuthResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BB63ED3218E09C600BEB6BE /* AuthResult.swift */; };
 		9BB63ED6218EACF500BEB6BE /* FirebaseAuth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9BB63ED5218EACF500BEB6BE /* FirebaseAuth.storyboard */; };
 		9BB63ED8218EBCBF00BEB6BE /* FirebaseSignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BB63ED7218EBCBF00BEB6BE /* FirebaseSignInView.swift */; };
 		9BB63EDF218EC02500BEB6BE /* FirebaseSignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BB63EDE218EC02500BEB6BE /* FirebaseSignInViewModel.swift */; };
 		9BB63EE2218EC4C900BEB6BE /* FirebaseSignInRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BB63EE1218EC4C900BEB6BE /* FirebaseSignInRepository.swift */; };
 		9BB63EE7218ED75A00BEB6BE /* Realm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BB63EE6218ED75A00BEB6BE /* Realm.swift */; };
+		9BB63EE9218F158C00BEB6BE /* AuthUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BB63EE8218F158C00BEB6BE /* AuthUser.swift */; };
+		9BB63EEB218F227600BEB6BE /* DefaultWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BB63EEA218F227600BEB6BE /* DefaultWireframe.swift */; };
 		9BC803142185ED8B00E16993 /* GitHubCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BC803132185ED8B00E16993 /* GitHubCell.swift */; };
 		9BC803192186CAA000E16993 /* SampleWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BC803182186CAA000E16993 /* SampleWebView.swift */; };
 		9BC8031B2186CB0200E16993 /* SampleWebView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9BC8031A2186CB0200E16993 /* SampleWebView.storyboard */; };
@@ -110,13 +112,15 @@
 		9BB63EC9218C828A00BEB6BE /* FirebaseSignIn.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FirebaseSignIn.storyboard; sourceTree = "<group>"; };
 		9BB63ECB218DE0EE00BEB6BE /* FirebaseAuth+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FirebaseAuth+Rx.swift"; sourceTree = "<group>"; };
 		9BB63ECD218DE4C400BEB6BE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		9BB63ECF218DE65500BEB6BE /* AuthSampleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthSampleView.swift; sourceTree = "<group>"; };
+		9BB63ECF218DE65500BEB6BE /* FirebaseAuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAuthView.swift; sourceTree = "<group>"; };
 		9BB63ED3218E09C600BEB6BE /* AuthResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthResult.swift; sourceTree = "<group>"; };
 		9BB63ED5218EACF500BEB6BE /* FirebaseAuth.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FirebaseAuth.storyboard; sourceTree = "<group>"; };
 		9BB63ED7218EBCBF00BEB6BE /* FirebaseSignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseSignInView.swift; sourceTree = "<group>"; };
 		9BB63EDE218EC02500BEB6BE /* FirebaseSignInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseSignInViewModel.swift; sourceTree = "<group>"; };
 		9BB63EE1218EC4C900BEB6BE /* FirebaseSignInRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseSignInRepository.swift; sourceTree = "<group>"; };
 		9BB63EE6218ED75A00BEB6BE /* Realm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Realm.swift; sourceTree = "<group>"; };
+		9BB63EE8218F158C00BEB6BE /* AuthUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthUser.swift; sourceTree = "<group>"; };
+		9BB63EEA218F227600BEB6BE /* DefaultWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultWireframe.swift; sourceTree = "<group>"; };
 		9BC803132185ED8B00E16993 /* GitHubCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubCell.swift; sourceTree = "<group>"; };
 		9BC803182186CAA000E16993 /* SampleWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleWebView.swift; sourceTree = "<group>"; };
 		9BC8031A2186CB0200E16993 /* SampleWebView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SampleWebView.storyboard; sourceTree = "<group>"; };
@@ -259,6 +263,7 @@
 				9B2FB702217E02F400610D43 /* Service.swift */,
 				9B2FB71721840C1800610D43 /* Provider.swift */,
 				9BB63ECB218DE0EE00BEB6BE /* FirebaseAuth+Rx.swift */,
+				9BB63EEA218F227600BEB6BE /* DefaultWireframe.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -298,6 +303,7 @@
 			isa = PBXGroup;
 			children = (
 				9BB63ED3218E09C600BEB6BE /* AuthResult.swift */,
+				9BB63EE8218F158C00BEB6BE /* AuthUser.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -307,7 +313,7 @@
 			children = (
 				9BB63EDD218EC00000BEB6BE /* StoryBoard */,
 				9BB63ED7218EBCBF00BEB6BE /* FirebaseSignInView.swift */,
-				9BB63ECF218DE65500BEB6BE /* AuthSampleView.swift */,
+				9BB63ECF218DE65500BEB6BE /* FirebaseAuthView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -643,15 +649,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9BB63EEB218F227600BEB6BE /* DefaultWireframe.swift in Sources */,
 				9BB63EE2218EC4C900BEB6BE /* FirebaseSignInRepository.swift in Sources */,
 				9B084000212B0B8D00C537D5 /* SampleModel.swift in Sources */,
+				9BB63EE9218F158C00BEB6BE /* AuthUser.swift in Sources */,
 				9B083FCF212AFF6F00C537D5 /* ViewController.swift in Sources */,
 				9BB63ED8218EBCBF00BEB6BE /* FirebaseSignInView.swift in Sources */,
 				9BC803142185ED8B00E16993 /* GitHubCell.swift in Sources */,
 				9BB63EC5218B338E00BEB6BE /* extension.swift in Sources */,
 				9BC803192186CAA000E16993 /* SampleWebView.swift in Sources */,
 				9BB63ECC218DE0EE00BEB6BE /* FirebaseAuth+Rx.swift in Sources */,
-				9BB63ED0218DE65500BEB6BE /* AuthSampleView.swift in Sources */,
+				9BB63ED0218DE65500BEB6BE /* FirebaseAuthView.swift in Sources */,
 				9B2FB703217E02F400610D43 /* Service.swift in Sources */,
 				9B2FB71621840BC300610D43 /* SampleRepository.swift in Sources */,
 				9B2FB71821840C1800610D43 /* Provider.swift in Sources */,
