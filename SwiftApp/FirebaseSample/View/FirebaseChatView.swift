@@ -12,10 +12,11 @@ import MessageKit
 class FirebaseChatView: MessagesViewController {
     
     var messageList: [MockMessage] = []
+    var prevSentDate: Date?
     
     lazy var formatter: DateFormatter = {
         let formatter = DateFormatter()
-        formatter.dateStyle = .medium
+        formatter.dateStyle = .short
         return formatter
     }()
     
@@ -39,58 +40,14 @@ class FirebaseChatView: MessagesViewController {
         messageInputBar.delegate = self
         messageInputBar.sendButton.tintColor = UIColor.lightGray
         
-        
-        //        // メッセージ入力欄の左に画像選択ボタンを追加
-        //        // 画像選択とかしたいときに
-        //        let items = [
-        //            makeButton(named: "clip.png").onTextViewDidChange { button, textView in
-        //                button.tintColor = UIColor.lightGray
-        //                button.isEnabled = textView.text.isEmpty
-        //            }
-        //        ]
-        //        items.forEach { $0.tintColor = .lightGray }
-        //        messageInputBar.setStackViewItems(items, forStack: .left, animated: false)
-        //        messageInputBar.setLeftStackViewWidthConstant(to: 45, animated: false)
-        
-        
         // メッセージ入力時に一番下までスクロール
-        scrollsToBottomOnKeybordBeginsEditing = true // default false
-        maintainPositionOnKeyboardFrameChanged = true // default false
+        scrollsToBottomOnKeybordBeginsEditing = true
+        maintainPositionOnKeyboardFrameChanged = true 
     }
     
-    //    // ボタンの作成
-    //    func makeButton(named: String) -> InputBarButtonItem {
-    //        return InputBarButtonItem()
-    //            .configure {
-    //                $0.spacing = .fixed(10)
-    //                $0.image = UIImage(named: named)?.withRenderingMode(.alwaysTemplate)
-    //                $0.setSize(CGSize(width: 30, height: 30), animated: true)
-    //            }.onSelected {
-    //                $0.tintColor = UIColor.gray
-    //            }.onDeselected {
-    //                $0.tintColor = UIColor.lightGray
-    //            }.onTouchUpInside { _ in
-    //                print("Item Tapped")
-    //        }
-    //    }
-    
-    // サンプル用に適当なメッセージ
+    // ここでFirebaseのメッセージ等を取得する。
     func getMessages() -> [MockMessage] {
-        return [
-            createMessage(text: "あ"),
-            createMessage(text: "い"),
-            createMessage(text: "う"),
-            createMessage(text: "え"),
-            createMessage(text: "お"),
-            createMessage(text: "か"),
-            createMessage(text: "き"),
-            createMessage(text: "く"),
-            createMessage(text: "け"),
-            createMessage(text: "こ"),
-            createMessage(text: "さ"),
-            createMessage(text: "し"),
-            createMessage(text: "すせそたちつてとなにぬねのはひふへほまみむめもやゆよらりるれろわをん"),
-        ]
+        return []
     }
     
     func createMessage(text: String) -> MockMessage {
@@ -107,7 +64,7 @@ class FirebaseChatView: MessagesViewController {
 extension FirebaseChatView: MessagesDataSource {
     
     func currentSender() -> Sender {
-        return Sender(id: "123", displayName: "自分")
+        return Sender(id: "123", displayName: "")
     }
     
     func otherSender() -> Sender {
@@ -124,25 +81,35 @@ extension FirebaseChatView: MessagesDataSource {
     
     // メッセージの上に文字を表示
     func cellTopLabelAttributedText(for message: MessageType, at indexPath: IndexPath) -> NSAttributedString? {
-        if indexPath.section % 3 == 0 {
-            return NSAttributedString(
-                string: MessageKitDateFormatter.shared.string(from: message.sentDate),
-                attributes: [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 10),
-                             NSAttributedString.Key.foregroundColor: UIColor.darkGray]
-            )
+        if let prevSentData = prevSentDate {
+            if prevSentData > message.sentDate {
+                self.prevSentDate = message.sentDate
+                return cellTopReturnString(date: message.sentDate)
+            }
+            return nil
+        } else {
+            prevSentDate = message.sentDate
+            return cellTopReturnString(date: message.sentDate)
         }
-        return nil
     }
     
-    // メッセージの上に文字を表示（名前）
+    private func cellTopReturnString(date: Date) -> NSAttributedString {
+        return NSAttributedString(
+            string: MessageKitDateFormatter.shared.string(from: date),
+            attributes: [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 10),
+                         NSAttributedString.Key.foregroundColor: UIColor.darkGray]
+        )
+    }
+    
+    // メッセージの上に文字を表示
     func messageTopLabelAttributedText(for message: MessageType, at indexPath: IndexPath) -> NSAttributedString? {
         let name = message.sender.displayName
         return NSAttributedString(string: name, attributes: [NSAttributedString.Key.font: UIFont.preferredFont(forTextStyle: .caption1)])
     }
     
-    // メッセージの下に文字を表示（日付）
+    // メッセージの下に文字を表示
     func messageBottomLabelAttributedText(for message: MessageType, at indexPath: IndexPath) -> NSAttributedString? {
-        let dateString = formatter.string(from: message.sentDate)
+        let dateString = message.sentDate.toString("HH:mm", timeZone: true)//formatter.string(from: message.sentDate)
         return NSAttributedString(string: dateString, attributes: [NSAttributedString.Key.font: UIFont.preferredFont(forTextStyle: .caption2)])
     }
 }
@@ -164,8 +131,7 @@ extension FirebaseChatView: MessagesDisplayDelegate {
     
     // メッセージの枠にしっぽを付ける
     func messageStyle(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> MessageStyle {
-        let corner: MessageStyle.TailCorner = isFromCurrentSender(message: message) ? .bottomRight : .bottomLeft
-        return .bubbleTail(corner, .curved)
+        return .bubble
     }
     
     // アイコンをセット
@@ -225,3 +191,4 @@ extension FirebaseChatView: MessageInputBarDelegate {
         messagesCollectionView.scrollToBottom()
     }
 }
+
