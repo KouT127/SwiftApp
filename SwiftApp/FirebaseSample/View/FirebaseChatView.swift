@@ -50,11 +50,11 @@ class FirebaseChatView: MessagesViewController {
         return []
     }
     
-    func createMessage(text: String) -> MockMessage {
-        let attributedText = NSAttributedString(string: text, attributes: [.font: UIFont.systemFont(ofSize: 15),
-                                                                           .foregroundColor: UIColor.black])
-        return MockMessage(attributedText: attributedText, sender: otherSender(), messageId: UUID().uuidString, date: Date())
-    }
+//    func createMessage(text: String) -> MockMessage {
+//        let attributedText = NSAttributedString(string: text, attributes: [.font: UIFont.systemFont(ofSize: 15),
+//                                                                           .foregroundColor: UIColor.black])
+//        return MockMessage(attributedText: attributedText, sender: otherSender(), messageId: UUID().uuidString, date: Date())
+//    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -64,11 +64,7 @@ class FirebaseChatView: MessagesViewController {
 extension FirebaseChatView: MessagesDataSource {
     
     func currentSender() -> Sender {
-        return Sender(id: "123", displayName: "")
-    }
-    
-    func otherSender() -> Sender {
-        return Sender(id: "456", displayName: "知らない人")
+        return Sender(id: "123", displayName: "Kou")
     }
     
     func numberOfSections(in messagesCollectionView: MessagesCollectionView) -> Int {
@@ -79,7 +75,7 @@ extension FirebaseChatView: MessagesDataSource {
         return messageList[indexPath.section]
     }
     
-    // メッセージの上に文字を表示
+    // 日毎に表示
     func cellTopLabelAttributedText(for message: MessageType, at indexPath: IndexPath) -> NSAttributedString? {
         if let prevSentData = prevSentDate {
             if prevSentData > message.sentDate {
@@ -114,41 +110,38 @@ extension FirebaseChatView: MessagesDataSource {
     }
 }
 
-// メッセージのdelegate
 extension FirebaseChatView: MessagesDisplayDelegate {
     
-    // メッセージの色を変更（デフォルトは自分：白、相手：黒）
+    // メッセージの色を変更
     func textColor(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> UIColor {
         return isFromCurrentSender(message: message) ? .white : .darkText
     }
     
-    // メッセージの背景色を変更している（デフォルトは自分：緑、相手：グレー）
+    // メッセージの背景色を変更している
     func backgroundColor(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> UIColor {
         return isFromCurrentSender(message: message) ?
             UIColor(red: 69/255, green: 193/255, blue: 89/255, alpha: 1) :
             UIColor(red: 230/255, green: 230/255, blue: 230/255, alpha: 1)
     }
     
-    // メッセージの枠にしっぽを付ける
+    // メッセージの形を設定
     func messageStyle(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> MessageStyle {
         return .bubble
     }
     
-    // アイコンをセット
+    // アイコンの設定
     func configureAvatarView(_ avatarView: AvatarView, for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) {
-        // message.sender.displayNameとかで送信者の名前を取得できるので
-        // そこからイニシャルを生成するとよい
-        let avatar = Avatar(initials: "人")
+        //TODO: 画像
+        let avatar = Avatar(initials: String(message.sender.displayName.prefix(1)))
         avatarView.set(avatar: avatar)
     }
 }
 
 
-// 各ラベルの高さを設定（デフォルト0なので必須）
+// 各ラベルの高さを設定
 extension FirebaseChatView: MessagesLayoutDelegate {
     
     func cellTopLabelHeight(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> CGFloat {
-        if indexPath.section % 3 == 0 { return 10 }
         return 0
     }
     
@@ -162,10 +155,10 @@ extension FirebaseChatView: MessagesLayoutDelegate {
 }
 
 extension FirebaseChatView: MessageCellDelegate {
-    // メッセージをタップした時の挙動
-    func didTapMessage(in cell: MessageCollectionViewCell) {
-        print("Message tapped")
-    }
+    //画像やUrlで遷移用
+//    func didTapMessage(in cell: MessageCollectionViewCell) {
+//        print("Message tapped")
+//    }
 }
 
 extension FirebaseChatView: MessageInputBarDelegate {
