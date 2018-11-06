@@ -8,11 +8,15 @@
 
 import UIKit
 import MessageKit
+import FirebaseFirestore
 
 class FirebaseChatView: MessagesViewController {
     
-    var messageList: [MockMessage] = []
+    var messageList: [Message] = []
     var prevSentDate: Date?
+    
+    private let db = Firestore.firestore()
+    private var reference: CollectionReference?
     
     lazy var formatter: DateFormatter = {
         let formatter = DateFormatter()
@@ -42,11 +46,39 @@ class FirebaseChatView: MessagesViewController {
         
         // メッセージ入力時に一番下までスクロール
         scrollsToBottomOnKeybordBeginsEditing = true
-        maintainPositionOnKeyboardFrameChanged = true 
+        maintainPositionOnKeyboardFrameChanged = true
+        
+        let roomReference = db.collection("rooms")
+        //docの名前
+        let roomDocRef = roomReference.document("dXS1HoTFRwI3NaDxjZQS")
+        roomDocRef.getDocument{ (documents, error) in
+            if let documents = documents {
+                print(documents.data())
+                //                let i = document.dictionaryWithValues(forKeys: ["content", "senderName"])
+            } else {
+                print("Document does not exist")
+            }
+        }
+        reference = roomDocRef.collection("messages")
+        
+        //reference = db.collection(["rooms", id, "messages"].joined(separator: "/"))
+
     }
     
+    
     // ここでFirebaseのメッセージ等を取得する。
-    func getMessages() -> [MockMessage] {
+    func getMessages() -> [Message] {
+        reference?.getDocuments { (documents, error) in
+            if let documents = documents {
+                for doc in documents.documents {
+                    
+                    print("doc: \(doc.data())")
+                }
+//                let i = document.dictionaryWithValues(forKeys: ["content", "senderName"])
+            } else {
+                print("Document does not exist")
+            }
+        }
         return []
     }
     
@@ -58,6 +90,17 @@ class FirebaseChatView: MessagesViewController {
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+    
+    private func save(_ message: Message) {
+        reference?.addDocument(data: ["content": "value"]) { error in
+            if let e = error {
+                print("Error sending message: \(e.localizedDescription)")
+                return
+            }
+            
+            self.messagesCollectionView.scrollToBottom()
+        }
     }
 }
 
@@ -165,17 +208,11 @@ extension FirebaseChatView: MessageInputBarDelegate {
     // メッセージ送信ボタンをタップした時の挙動
     func messageInputBar(_ inputBar: MessageInputBar, didPressSendButtonWith text: String) {
         for component in inputBar.inputTextView.components {
-            if let image = component as? UIImage {
-                
-                let imageMessage = MockMessage(image: image, sender: currentSender(), messageId: UUID().uuidString, date: Date())
-                messageList.append(imageMessage)
-                messagesCollectionView.insertSections([messageList.count - 1])
-                
-            } else if let text = component as? String {
+            if let text = component as? String {
                 
                 let attributedText = NSAttributedString(string: text, attributes: [.font: UIFont.systemFont(ofSize: 15),
                                                                                    .foregroundColor: UIColor.white])
-                let message = MockMessage(attributedText: attributedText, sender: currentSender(), messageId: UUID().uuidString, date: Date())
+                let message = Message(kind: .attributedText(attributedText), sender: currentSender(), messageId: UUID().uuidString, content: text, date: Date())//Message(attributedText: attributedText, sender: currentSender(), messageId: UUID().uuidString, date: Date())
                 messageList.append(message)
                 messagesCollectionView.insertSections([messageList.count - 1])
             }
@@ -185,3 +222,10 @@ extension FirebaseChatView: MessageInputBarDelegate {
     }
 }
 
+//if let image = component as? UIImage {
+//    
+//    let imageMessage = Message(image: image, sender: currentSender(), messageId: UUID().uuidString, date: Date())
+//    messageList.append(imageMessage)
+//    messagesCollectionView.insertSections([messageList.count - 1])
+//    
+//} else 
