@@ -50,16 +50,16 @@ class FirebaseChatView: MessagesViewController {
         
         let roomReference = db.collection("rooms")
         //docの名前
-        let roomDocRef = roomReference.document("dXS1HoTFRwI3NaDxjZQS")
-        roomDocRef.getDocument{ (documents, error) in
+        let roomDocRef = roomReference.document("dXS1HoTFRwI3NaDxjZQS").collection("messages")
+        roomDocRef.getDocuments{ (documents, error) in
             if let documents = documents {
-                print(documents.data())
+                print(documents.documentChanges.first?.document.data())
                 //                let i = document.dictionaryWithValues(forKeys: ["content", "senderName"])
             } else {
                 print("Document does not exist")
             }
         }
-        reference = roomDocRef.collection("messages")
+//        reference = roomDocRef.collection("messages")
         
         //reference = db.collection(["rooms", id, "messages"].joined(separator: "/"))
 
@@ -68,18 +68,26 @@ class FirebaseChatView: MessagesViewController {
     
     // ここでFirebaseのメッセージ等を取得する。
     func getMessages() -> [Message] {
-        reference?.getDocuments { (documents, error) in
-            if let documents = documents {
-                for doc in documents.documents {
+        let firestore = Firestore.firestore()
+        var messages: [Message] = []
+        firestore.collection("rooms").document("dXS1HoTFRwI3NaDxjZQS").collection("messages").addSnapshotListener{ snapShot, error in
+            guard let value = snapShot else { return }
+            value.documentChanges.forEach { diff in
+                if diff.type == .added {
+                    let chatDatas = diff.document.data()
+                    let chatData = chatDatas
+                    guard let content = chatData["content"] as? String else { return }
+                    guard let messageId = chatData["messageId"] as? String else { return }
+                    guard let senderName = chatData["senderName"] as? String else { return }
+                    guard let sentDate = chatData["sentDate"] as? Date else { return }
                     
-                    print("doc: \(doc.data())")
+                    let newMessage = Message(kind: MessageKind.text(content), sender: Sender(id: "1", displayName: senderName), messageId: messageId, content: senderName, date: sentDate)
+                    print("newMessage:\(newMessage)")
+                    messages.append(newMessage)
                 }
-//                let i = document.dictionaryWithValues(forKeys: ["content", "senderName"])
-            } else {
-                print("Document does not exist")
             }
         }
-        return []
+        return messages
     }
     
 //    func createMessage(text: String) -> MockMessage {
