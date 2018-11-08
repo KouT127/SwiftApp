@@ -9,6 +9,7 @@
 import UIKit
 import MessageKit
 import FirebaseFirestore
+import RealmSwift
 
 class FirebaseChatView: MessagesViewController {
     
@@ -16,7 +17,9 @@ class FirebaseChatView: MessagesViewController {
     var prevSentDate: Date?
     
     private let db = Firestore.firestore()
+    private let accessor: Accessor = .shared
     private var reference: CollectionReference?
+    private var uid: String?
     
     lazy var formatter: DateFormatter = {
         let formatter = DateFormatter()
@@ -27,7 +30,11 @@ class FirebaseChatView: MessagesViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        uid = accessor.realm.objects(AuthUser.self).first?.uid
+        
         self.setFirebaseListener()
+        
+        
         
         messagesCollectionView.messagesDataSource = self
         messagesCollectionView.messagesLayoutDelegate = self
@@ -53,14 +60,15 @@ class FirebaseChatView: MessagesViewController {
                 guard let value = snapShot else { return }
                 value.documentChanges.forEach { diff in
                     if diff.type == .added || diff.type == .modified {
-                        let chatDatas = diff.document.data()
-                        let chatData = chatDatas
-                        guard let content = chatData["content"] as? String else { return }
-                        guard let messageId = chatData["messageId"] as? String else { return }
-                        guard let senderName = chatData["senderName"] as? String else { return }
-                        guard let sentDate = chatData["sentDate"] as? Date else { return }
-                        
-                        let newMessage = Message(kind: MessageKind.text(content), sender: Sender(id: "1", displayName: senderName), messageId: messageId, content: senderName, date: sentDate)
+                        let data = diff.document.data()
+                        guard let content = data["content"] as? String else { return }
+                        guard let messageId = data["messageId"] as? String else { return }
+                        guard let senderId = data["senderId"] as? String else { return }
+                        guard let senderName = data["senderName"] as? String else { return }
+                        guard let sentDate = data["sentDate"] as? Date else { return }
+                    
+                        let sender = senderId == self.uid ? self.currentSender() : Sender(id: senderId, displayName: senderName) 
+                        let newMessage = Message(kind: MessageKind.text(content), sender: sender, messageId: messageId, content: senderName, date: sentDate)
                         self.messageList.append(newMessage)
                         self.messagesCollectionView.insertSections([self.messageList.count - 1])
                         self.messagesCollectionView.reloadData()
@@ -79,23 +87,12 @@ class FirebaseChatView: MessagesViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-    
-    private func save(_ message: Message) {
-        reference?.addDocument(data: ["content": "value"]) { error in
-            if let e = error {
-                print("Error sending message: \(e.localizedDescription)")
-                return
-            }
-            
-            self.messagesCollectionView.scrollToBottom()
-        }
-    }
 }
 
 extension FirebaseChatView: MessagesDataSource {
     
     func currentSender() -> Sender {
-        return Sender(id: "123", displayName: "Kou")
+        return Sender(id: uid ?? "", displayName: "Kou")
     }
     
     func numberOfSections(in messagesCollectionView: MessagesCollectionView) -> Int {
@@ -198,14 +195,22 @@ extension FirebaseChatView: MessageInputBarDelegate {
         for component in inputBar.inputTextView.components {
             if let text = component as? String {
                 
-                let message: [String: Any] = ["content":text, "messageId": "123", "senderName":"Kou", "sentDate": FieldValue.serverTimestamp()]
-                db.collection("rooms").document("dXS1HoTFRwI3NaDxjZQS").collection("messages").addDocument(data: message)
+                let message: [String: Any] = ["content":text,
+                                              "messageId": "123",
+                                              "senderId": uid ?? "",
+                                              "senderName":"Kou",
+                                              "sentDate": FieldValue.serverTimestamp()]
+                
+                db.collection("rooms")
+                    .document("dXS1HoTFRwI3NaDxjZQS")
+                    .collection("messages")
+                    .addDocument(data: message)
                 
                 let attributedText = NSAttributedString(string: text, attributes: [.font: UIFont.systemFont(ofSize: 15),
                                                                                    .foregroundColor: UIColor.white])
                 let displayMessage = Message(kind: .attributedText(attributedText), sender: currentSender(), messageId: UUID().uuidString, content: text, date: Date())//Message(attributedText: attributedText, sender: currentSender(), messageId: UUID().uuidString, date: Date())
-                messageList.append(displayMessage)
-                messagesCollectionView.insertSections([messageList.count - 1])
+//                messageList.append(displayMessage)
+//                messagesCollectionView.insertSections([messageList.count - 1])
             }
         }
         inputBar.inputTextView.text = String()
