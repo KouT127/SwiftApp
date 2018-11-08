@@ -52,7 +52,7 @@ class FirebaseChatView: MessagesViewController {
             .addSnapshotListener{ snapShot, error in
                 guard let value = snapShot else { return }
                 value.documentChanges.forEach { diff in
-                    if diff.type == .added {
+                    if diff.type == .added || diff.type == .modified {
                         let chatDatas = diff.document.data()
                         let chatData = chatDatas
                         guard let content = chatData["content"] as? String else { return }
