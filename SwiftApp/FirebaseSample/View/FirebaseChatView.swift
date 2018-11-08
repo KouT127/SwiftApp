@@ -9,6 +9,7 @@
 import UIKit
 import MessageKit
 import FirebaseFirestore
+import RealmSwift
 
 class FirebaseChatView: MessagesViewController {
     
@@ -16,7 +17,9 @@ class FirebaseChatView: MessagesViewController {
     var prevSentDate: Date?
     
     private let db = Firestore.firestore()
+    private let accessor: Accessor = .shared
     private var reference: CollectionReference?
+    private var uid: String?
     
     lazy var formatter: DateFormatter = {
         let formatter = DateFormatter()
@@ -27,14 +30,11 @@ class FirebaseChatView: MessagesViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        DispatchQueue.main.async {
-            // messageListにメッセージの配列をいれて
-            self.messageList = self.getMessages()
-            // messagesCollectionViewをリロードして
-            self.messagesCollectionView.reloadData()
-            // 一番下までスクロールする
-            self.messagesCollectionView.scrollToBottom()
-        }
+        uid = accessor.realm.objects(AuthUser.self).first?.uid
+        
+        self.setFirebaseListener()
+        
+        
         
         messagesCollectionView.messagesDataSource = self
         messagesCollectionView.messagesLayoutDelegate = self
@@ -47,47 +47,35 @@ class FirebaseChatView: MessagesViewController {
         // メッセージ入力時に一番下までスクロール
         scrollsToBottomOnKeybordBeginsEditing = true
         maintainPositionOnKeyboardFrameChanged = true
-        
-        let roomReference = db.collection("rooms")
-        //docの名前
-        let roomDocRef = roomReference.document("dXS1HoTFRwI3NaDxjZQS").collection("messages")
-        roomDocRef.getDocuments{ (documents, error) in
-            if let documents = documents {
-                print(documents.documentChanges.first?.document.data())
-                //                let i = document.dictionaryWithValues(forKeys: ["content", "senderName"])
-            } else {
-                print("Document does not exist")
-            }
-        }
-//        reference = roomDocRef.collection("messages")
-        
-        //reference = db.collection(["rooms", id, "messages"].joined(separator: "/"))
-
     }
     
     
     // ここでFirebaseのメッセージ等を取得する。
-    func getMessages() -> [Message] {
-        let firestore = Firestore.firestore()
-        var messages: [Message] = []
-        firestore.collection("rooms").document("dXS1HoTFRwI3NaDxjZQS").collection("messages").addSnapshotListener{ snapShot, error in
-            guard let value = snapShot else { return }
-            value.documentChanges.forEach { diff in
-                if diff.type == .added {
-                    let chatDatas = diff.document.data()
-                    let chatData = chatDatas
-                    guard let content = chatData["content"] as? String else { return }
-                    guard let messageId = chatData["messageId"] as? String else { return }
-                    guard let senderName = chatData["senderName"] as? String else { return }
-                    guard let sentDate = chatData["sentDate"] as? Date else { return }
+    private func setFirebaseListener(){
+        db.collection("rooms")
+            .document("dXS1HoTFRwI3NaDxjZQS")
+            .collection("messages")
+            .order(by: "sentDate", descending: false)
+            .addSnapshotListener{ snapShot, error in
+                guard let value = snapShot else { return }
+                value.documentChanges.forEach { diff in
+                    if diff.type == .added || diff.type == .modified {
+                        let data = diff.document.data()
+                        guard let content = data["content"] as? String else { return }
+                        guard let messageId = data["messageId"] as? String else { return }
+                        guard let senderId = data["senderId"] as? String else { return }
+                        guard let senderName = data["senderName"] as? String else { return }
+                        guard let sentDate = data["sentDate"] as? Date else { return }
                     
-                    let newMessage = Message(kind: MessageKind.text(content), sender: Sender(id: "1", displayName: senderName), messageId: messageId, content: senderName, date: sentDate)
-                    print("newMessage:\(newMessage)")
-                    messages.append(newMessage)
+                        let sender = senderId == self.uid ? self.currentSender() : Sender(id: senderId, displayName: senderName) 
+                        let newMessage = Message(kind: MessageKind.text(content), sender: sender, messageId: messageId, content: senderName, date: sentDate)
+                        self.messageList.append(newMessage)
+                        self.messagesCollectionView.insertSections([self.messageList.count - 1])
+                        self.messagesCollectionView.reloadData()
+                        self.messagesCollectionView.scrollToBottom()
+                    }
                 }
-            }
         }
-        return messages
     }
     
 //    func createMessage(text: String) -> MockMessage {
@@ -99,23 +87,12 @@ class FirebaseChatView: MessagesViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-    
-    private func save(_ message: Message) {
-        reference?.addDocument(data: ["content": "value"]) { error in
-            if let e = error {
-                print("Error sending message: \(e.localizedDescription)")
-                return
-            }
-            
-            self.messagesCollectionView.scrollToBottom()
-        }
-    }
 }
 
 extension FirebaseChatView: MessagesDataSource {
     
     func currentSender() -> Sender {
-        return Sender(id: "123", displayName: "Kou")
+        return Sender(id: uid ?? "", displayName: "Kou")
     }
     
     func numberOfSections(in messagesCollectionView: MessagesCollectionView) -> Int {
@@ -218,11 +195,22 @@ extension FirebaseChatView: MessageInputBarDelegate {
         for component in inputBar.inputTextView.components {
             if let text = component as? String {
                 
+                let message: [String: Any] = ["content":text,
+                                              "messageId": "123",
+                                              "senderId": uid ?? "",
+                                              "senderName":"Kou",
+                                              "sentDate": FieldValue.serverTimestamp()]
+                
+                db.collection("rooms")
+                    .document("dXS1HoTFRwI3NaDxjZQS")
+                    .collection("messages")
+                    .addDocument(data: message)
+                
                 let attributedText = NSAttributedString(string: text, attributes: [.font: UIFont.systemFont(ofSize: 15),
                                                                                    .foregroundColor: UIColor.white])
-                let message = Message(kind: .attributedText(attributedText), sender: currentSender(), messageId: UUID().uuidString, content: text, date: Date())//Message(attributedText: attributedText, sender: currentSender(), messageId: UUID().uuidString, date: Date())
-                messageList.append(message)
-                messagesCollectionView.insertSections([messageList.count - 1])
+                let displayMessage = Message(kind: .attributedText(attributedText), sender: currentSender(), messageId: UUID().uuidString, content: text, date: Date())//Message(attributedText: attributedText, sender: currentSender(), messageId: UUID().uuidString, date: Date())
+//                messageList.append(displayMessage)
+//                messagesCollectionView.insertSections([messageList.count - 1])
             }
         }
         inputBar.inputTextView.text = String()

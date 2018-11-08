@@ -18,7 +18,7 @@ import RxRealm
 
 class Accessor {
     static let shared = Accessor()
-    private let realm: Realm
+    let realm: Realm
     
     private init() {
         //migrationを行う場合SchemaVersionを繰り上げる
@@ -49,10 +49,6 @@ class Accessor {
             return false
         }
         return true
-    }
-    
-    func beginTransaction() {
-        self.realm.beginWrite()
     }
     func addRealmData(object: Object) {
         self.realm.add(object)
