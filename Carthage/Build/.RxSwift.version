@@ -1,71 +1,87 @@
 {
   "Mac" : [
     {
-      "name" : "RxBlocking",
-      "hash" : "f023b4b0d7d12099e31868eea7d402ad930c901be8d7080ba2a70682cb3a46d0"
-    },
-    {
-      "name" : "RxSwift",
-      "hash" : "1cb4764f5059154688b484e2d08ce7e87ddc7863cbfa24f5daa16b4dc6b780ad"
+      "name" : "RxAtomic",
+      "hash" : "5b77927561fd239d838382cf9e3e85c965059dc5c76decff8bf5a0021d200425"
     },
     {
       "name" : "RxTest",
-      "hash" : "f9315a00a78fbcc2086efade77c32979049c93d621d04dd435ae13f975e5480f"
+      "hash" : "25acc4cb555a659bd31ab6095485acfa7ddac2703a847bcfb88275121c35e1a6"
     },
     {
       "name" : "RxCocoa",
-      "hash" : "8375d02899bb2c7f38b8623b20a5546636d1d099089c2834e06cf1fcab5ad3aa"
+      "hash" : "208c50de15a6f7706e8a0e952a3ee1d783f6f0e398b02693a6868f07991b4438"
+    },
+    {
+      "name" : "RxBlocking",
+      "hash" : "fe905cc4bb90d29b98e0fc0385a7b0a4680d71b2dd7323322e6fb7a08f03c730"
+    },
+    {
+      "name" : "RxSwift",
+      "hash" : "4e181671621ab200570950f2862a8f4f28b281f3d77091bfa2a499c612064c66"
     }
   ],
   "watchOS" : [
     {
+      "name" : "RxAtomic",
+      "hash" : "22555f2a5ce3c5cf3f74af3b833b0de6ea7b08ba58d1d2baa448bdc8c688ffe5"
+    },
+    {
       "name" : "RxBlocking",
-      "hash" : "23613419b7e051fab2f795c1475e1268d73afa9ddb591043e1d78dfbbfc86a41"
+      "hash" : "820e65eede965e9cf815695056666edf50c25c1aa8a83daa06935d20a6f1931c"
     },
     {
       "name" : "RxCocoa",
-      "hash" : "c81d23d27c0facd575a5b2ef2e54374293af5a4ba255ddd1f333365207719688"
+      "hash" : "6d7b2e35bc1c938bd9d7531104c541b74e60d01f2b757c5db7800a9aeb8d61ee"
     },
     {
       "name" : "RxSwift",
-      "hash" : "b9d3b8342e8269dae9fcc923469c5a5e03039c86ad981b9c7ad6b3f6382b0d13"
+      "hash" : "645abb59b8813b9504624ee6be9d8dc334b07965ad66b56cfd50a7ce3936bfe8"
     }
   ],
   "tvOS" : [
     {
+      "name" : "RxAtomic",
+      "hash" : "51796723c9ca190cfe5c351258dc0df651a3d78dffa76f904873eea78c43fa3f"
+    },
+    {
       "name" : "RxBlocking",
-      "hash" : "217dcf4abe3586769b1060cc02ebe8721c3b5d32aa7379c5a926877e797a4d28"
+      "hash" : "c1ce22a1daeb0e190d7af8bf2cba9d4072e32fe28526fef831989c4c18970e15"
     },
     {
       "name" : "RxTest",
-      "hash" : "74bd2a3b562f21e11f5cb79873502a657fdd2db0dbe95b6a5cac75a8c9c7eb53"
-    },
-    {
-      "name" : "RxSwift",
-      "hash" : "0525642bce8ebca8ec2593439e10bbb7fd8689a2a6a34927e4d36f2fcf16fe7b"
+      "hash" : "7633047a22aeb6028714df275f133c331fa7fe7c05b683018aee565cc764f37f"
     },
     {
       "name" : "RxCocoa",
-      "hash" : "8d0451e99b7c1e51bb926d1a806db439a8a8e17bb85c407c210e95efb748dcbe"
+      "hash" : "a40b7531b29fefb74fa1f279e479b4fc5b8f565f3a65fae4ff8627777d67f350"
+    },
+    {
+      "name" : "RxSwift",
+      "hash" : "dbae346b4dbebfa70bc75c818fdc58f00937ba335d62301451e0e640e9a36d0d"
     }
   ],
-  "commitish" : "4.3.1",
+  "commitish" : "4.4.0",
   "iOS" : [
     {
+      "name" : "RxAtomic",
+      "hash" : "fb37241131938731431503509825100a2d14f8cdabc4eb9e5c1472de31bb6953"
+    },
+    {
       "name" : "RxTest",
-      "hash" : "54e2066906ee00f150e45b9f7bff8ad183270f379a9c60885d7467de1709771a"
+      "hash" : "664ca52024b36893fe00ec0f7171750b73a67afa0954f987170bc86249e4b6c6"
     },
     {
       "name" : "RxBlocking",
-      "hash" : "4eef2c0dd873b7e8abb9620e4867a1ccf2726150838116f924b0188792d210f0"
-    },
-    {
-      "name" : "RxCocoa",
-      "hash" : "ee18343162615a6dff124d411f2fe2ae99da6d3c4de6d604f1fcd8d820b46119"
+      "hash" : "a5b86fff134fae9c75896d64d1d481f6b46da515073e62198e7377bb8a0d2b0d"
     },
     {
       "name" : "RxSwift",
-      "hash" : "a3052c9fbca221ea4da49bad64dafb396d3a4751742e4a0c4d0b0099e1627c1e"
+      "hash" : "6b61262a80b82bd2d135426acf0eeeb116ebb1dffeadb208e175c7d81545d22c"
+    },
+    {
+      "name" : "RxCocoa",
+      "hash" : "d63989b419e0835322bfe3d8bc13d4f8d6609b50b8ac9c50ed86c93d63360025"
     }
   ]
 }
