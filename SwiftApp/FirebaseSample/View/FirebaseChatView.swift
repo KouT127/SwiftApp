@@ -18,7 +18,7 @@ class FirebaseChatView: MessagesViewController {
     
     private let db = Firestore.firestore()
     private let accessor: Accessor = .shared
-    private var reference: CollectionReference?
+    private var reference: CollectionReference
     private var uid: String?
     
     lazy var formatter: DateFormatter = {
