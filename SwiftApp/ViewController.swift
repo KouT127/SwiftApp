@@ -33,7 +33,7 @@ class ViewController: UIViewController {
     }
     
     private func getStoryBoard() -> UIStoryboard {
-        return UIStoryboard(name: "FirebaseChat", bundle: nil)
+        return UIStoryboard(name: "FirebaseChatList", bundle: nil)
     }
 
 
