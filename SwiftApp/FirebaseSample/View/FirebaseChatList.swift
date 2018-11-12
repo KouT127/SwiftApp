@@ -18,6 +18,7 @@ class FirebaseChatListView: UIViewController {
     @IBOutlet weak var addButton: UIButton!
     
     let disposeBag = DisposeBag()
+    let db = Firestore.firestore()
     var sections: [RoomSection] = []
     let stateEvent = BehaviorRelay<SectionedTableViewState?>(value: nil)
     
@@ -28,30 +29,47 @@ class FirebaseChatListView: UIViewController {
         
         let sections: [RoomSection] = [RoomSection(header: "Rooms", rooms: [], updated: Date())]
         
-        let state = stateEvent.asObservable()
+        let state = stateEvent
+            .asObservable()
+            .flatMap { $0.flatMap {Observable.just($0)} ?? Observable.empty() }
+        
         let initialState = SectionedTableViewState(sections: sections)
         stateEvent.accept(initialState)
         
         let addCommand = addButton.rx.tap.asObservable()
             .withLatestFrom(state)
             .map {[unowned self] state in
-                self.addItem(oldSections: state?.sections ?? [], item: FirebaseRoom(roomId: "1", roomName: "name", roomDescription: "desc", date: Date()), section: 0)}
+                self.addItem(oldSections: state.sections , item: FirebaseRoom(roomId: "1", roomName: "name", roomDescription: "desc", date: Date()), section: 0)}
+        
+//        let initialCommand = Observable.just(())
+//            .withLatestFrom(state)
+//            .map {[unowned self] state -> SectionedTableViewState in
+//                return self.initialSection(oldSections: state.sections, item: items, section: 0)}
+        
+        let initialCommand = getRooms()
+            .debug("Rooms")
+            .filter{ !$0.isEmpty }
+            .withLatestFrom(state){ ($0, $1) }
+            .map {[unowned self] items, state  -> SectionedTableViewState in
+                print(items)
+                return self.initialSection(oldSections: state.sections, item: items, section: 0)}
         
         
         let deleteCommand = tableView.rx.itemDeleted.asObservable()
             .withLatestFrom(state){ ( $0, $1)}
             .map {[unowned self] index, state in
-                self.deleteItem(oldSections: state?.sections ?? [], index: index)}
+                self.deleteItem(oldSections: state.sections, index: index)}
         
         
         let movedCommand = tableView.rx.itemMoved
             .withLatestFrom(state) { ($0, $1)}
             .map {[unowned self] event, state in
-                self.moveItem(oldSections: state?.sections ?? [], sourceIndex: event.sourceIndex, destinationIndex: event.destinationIndex)}
+                self.moveItem(oldSections: state.sections, sourceIndex: event.sourceIndex, destinationIndex: event.destinationIndex)}
         
         
-        Observable.of(addCommand, deleteCommand, movedCommand)
+        Observable.of(initialCommand, addCommand, deleteCommand, movedCommand)
             .merge()
+            .debug()
             .do(onNext: {[unowned self] state in self.stateEvent.accept(state)})
             .map { $0.sections }
             .share()
@@ -62,6 +80,34 @@ class FirebaseChatListView: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         //        tableView.setEditing(true, animated: true)
+    }
+    
+    private func getRooms() -> Observable<[FirebaseRoom]> {
+        var rooms: [FirebaseRoom] = []
+        db.collection("rooms")
+            .addSnapshotListener { snapShot, error  in
+                guard let value = snapShot else { return }
+                value.documentChanges.forEach { diff in
+                    if diff.type == .added {
+                        let data = diff.document.data()
+                        guard let roomName = data["roomName"] as? String else { return }
+                        guard let roomDescription = data["roomDescription"] as? String else { return }
+                        guard let date = data["date"] as? Date else { return }
+                        let roomId =  diff.document.documentID
+                        let room: FirebaseRoom = FirebaseRoom(roomId: roomId, roomName: roomName, roomDescription: roomDescription, date: date)
+                        rooms.append(room)                    }
+                }
+                print(rooms)
+        }
+        print(rooms)
+        return Observable.just(rooms)
+    }
+    
+    func initialSection(oldSections: [RoomSection] ,item: [FirebaseRoom], section: Int) -> SectionedTableViewState {
+        var sections = oldSections
+        let items = sections[section].items + item
+        sections[section] = RoomSection(original: sections[section], items: items)
+        return SectionedTableViewState(sections: sections)
     }
     
     func addItem(oldSections: [RoomSection] ,item: FirebaseRoom, section: Int) -> SectionedTableViewState {

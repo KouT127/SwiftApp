@@ -59,6 +59,13 @@ struct FirebaseRoom: IdentifiableType, Equatable  {
     var identity: String {
         return roomId
     }
+    
+    init(roomId: String, roomName: String, roomDescription: String, date: Date) {
+        self.roomId = roomId
+        self.roomName = roomName
+        self.roomDescription = roomDescription
+        self.date = date
+    }
 }
 
 // equatable, this is needed to detect changes
