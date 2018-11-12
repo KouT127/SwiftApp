@@ -9,9 +9,129 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import RxDataSources
 import FirebaseFirestore
 
 class FirebaseChatListView: UIViewController {
+    
+    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var addButton: UIButton!
+    
+    let disposeBag = DisposeBag()
+    var sections: [RoomSection] = []
+    let stateEvent = BehaviorRelay<SectionedTableViewState?>(value: nil)
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        let dataSource = FirebaseChatListView.dataSource()
+        
+        let sections: [RoomSection] = [RoomSection(header: "Rooms", rooms: [], updated: Date())]
+        
+        let state = stateEvent.asObservable()
+        let initialState = SectionedTableViewState(sections: sections)
+        stateEvent.accept(initialState)
+        
+        let addCommand = addButton.rx.tap.asObservable()
+            .withLatestFrom(state)
+            .map {[unowned self] state in
+                self.addItem(oldSections: state?.sections ?? [], item: FirebaseRoom(roomId: "1", roomName: "name", roomDescription: "desc", date: Date()), section: 0)}
+        
+        
+        let deleteCommand = tableView.rx.itemDeleted.asObservable()
+            .withLatestFrom(state){ ( $0, $1)}
+            .map {[unowned self] index, state in
+                self.deleteItem(oldSections: state?.sections ?? [], index: index)}
+        
+        
+        let movedCommand = tableView.rx.itemMoved
+            .withLatestFrom(state) { ($0, $1)}
+            .map {[unowned self] event, state in
+                self.moveItem(oldSections: state?.sections ?? [], sourceIndex: event.sourceIndex, destinationIndex: event.destinationIndex)}
+        
+        
+        Observable.of(addCommand, deleteCommand, movedCommand)
+            .merge()
+            .do(onNext: {[unowned self] state in self.stateEvent.accept(state)})
+            .map { $0.sections }
+            .share()
+            .bind(to: tableView.rx.items(dataSource: dataSource))
+            .disposed(by: disposeBag)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        //        tableView.setEditing(true, animated: true)
+    }
+    
+    func addItem(oldSections: [RoomSection] ,item: FirebaseRoom, section: Int) -> SectionedTableViewState {
+        var sections = oldSections
+        let items = sections[section].items + item
+        sections[section] = RoomSection(original: sections[section], items: items)
+        return SectionedTableViewState(sections: sections)
+    }
+    
+    func deleteItem(oldSections: [RoomSection], index: IndexPath) -> SectionedTableViewState {
+        var sections = oldSections
+        print(index.section)
+        var items = sections[index.section].items
+        print(items)
+        items.remove(at: index.row)
+        sections[index.section] = RoomSection(original: sections[index.section], items: items)
+        return SectionedTableViewState(sections: sections)
+    }
+    
+    func moveItem(oldSections: [RoomSection] ,sourceIndex: IndexPath, destinationIndex: IndexPath) -> SectionedTableViewState{
+        var sections = oldSections
+        var sourceItems = sections[sourceIndex.section].items
+        var destinationItems = sections[destinationIndex.section].items
+        
+        if sourceIndex.section == destinationIndex.section {
+            destinationItems.insert(destinationItems.remove(at: sourceIndex.row),
+                                    at: destinationIndex.row)
+            let destinationSection = RoomSection(original: sections[destinationIndex.section], items: destinationItems)
+            sections[sourceIndex.section] = destinationSection
+            
+            return SectionedTableViewState(sections: sections)
+        } else {
+            let item = sourceItems.remove(at: sourceIndex.row)
+            destinationItems.insert(item, at: destinationIndex.row)
+            let sourceSection = RoomSection(original: sections[sourceIndex.section], items: sourceItems)
+            let destinationSection = RoomSection(original: sections[destinationIndex.section], items: destinationItems)
+            sections[sourceIndex.section] = sourceSection
+            sections[destinationIndex.section] = destinationSection
+            
+            return SectionedTableViewState(sections: sections)
+        }
+    }
+}
+
+extension FirebaseChatListView {
+    static func dataSource() -> RxTableViewSectionedAnimatedDataSource<RoomSection> {
+        return RxTableViewSectionedAnimatedDataSource(
+            animationConfiguration: AnimationConfiguration(insertAnimation: .top,
+                                                           reloadAnimation: .fade,
+                                                           deleteAnimation: .left),
+            configureCell: { (dataSource, table, idxPath, item) in
+                let cell = table.dequeueReusableCell(withIdentifier: "ChatListCell", for: idxPath) as! FirebaseChatListCell
+                cell.docId.text = item.roomId
+                cell.roomName.text = item.roomName
+                cell.roomDescription.text = item.roomDescription
+                return cell
+        },
+            titleForHeaderInSection: { (ds, section) -> String? in
+                return ds[section].header
+        },
+            canEditRowAtIndexPath: { _, _ in
+                return true
+        },
+            canMoveRowAtIndexPath: { _, _ in
+                return true
+        }
+        )
+    }
+}
+
     
 //
 //    private let db = Firestore.firestore()
@@ -78,7 +198,6 @@ class FirebaseChatListView: UIViewController {
 //    deinit {
 //        print("denit")
 //    }
-}
 
 struct room {
     let roomName: String
@@ -90,4 +209,10 @@ struct room {
         self.roomDescription = roomDescription
         self.docId = docId
     }
+}
+
+func + <T>(lhs: [T], rhs: T) -> [T] {
+    var copy = lhs
+    copy.append(rhs)
+    return copy
 }

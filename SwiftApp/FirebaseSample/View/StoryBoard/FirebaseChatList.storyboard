@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Firebase Chat List Model-->
+        <!--Firebase Chat List View-->
         <scene sceneID="Cmd-wk-Px3">
             <objects>
-                <viewController id="CzE-K4-PgO" customClass="FirebaseChatListModel" customModule="SwiftApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="CzE-K4-PgO" customClass="FirebaseChatListView" customModule="SwiftApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="KRF-hY-pwh">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -108,8 +108,8 @@
                         <viewLayoutGuide key="safeArea" id="IhJ-fi-hVJ"/>
                     </view>
                     <connections>
-                        <outlet property="addButton" destination="9Y8-BB-C7i" id="IcF-yR-VkK"/>
-                        <outlet property="tableView" destination="euP-VH-zXy" id="8Eo-B4-cGR"/>
+                        <outlet property="addButton" destination="9Y8-BB-C7i" id="sig-Us-QvB"/>
+                        <outlet property="tableView" destination="euP-VH-zXy" id="34c-ER-A0F"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="J2R-od-W6H" userLabel="First Responder" sceneMemberID="firstResponder"/>
