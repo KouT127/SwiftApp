@@ -18,12 +18,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="70" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="euP-VH-zXy">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="90" sectionHeaderHeight="25" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="euP-VH-zXy">
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ChatListCell" rowHeight="70" id="ZJe-RQ-Ryb" customClass="FirebaseChatListCell" customModule="SwiftApp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="70"/>
+                                        <rect key="frame" x="0.0" y="25" width="375" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ZJe-RQ-Ryb" id="ijg-ly-Fgb">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="69.5"/>
@@ -38,12 +38,18 @@
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Bear" translatesAutoresizingMaskIntoConstraints="NO" id="bCS-X3-TLe">
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Bear" translatesAutoresizingMaskIntoConstraints="NO" id="bCS-X3-TLe" customClass="RoundImage" customModule="SwiftApp" customModuleProvider="target">
                                                             <rect key="frame" x="0.0" y="2.5" width="65" height="65"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="65" id="A9u-qB-OsX"/>
                                                                 <constraint firstAttribute="height" constant="65" id="ddd-XW-BDl"/>
                                                             </constraints>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="conerRadius">
+                                                                    <real key="value" value="32"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                                <userDefinedRuntimeAttribute type="boolean" keyPath="clipsToBound" value="YES"/>
+                                                            </userDefinedRuntimeAttributes>
                                                         </imageView>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Vad-QU-0Dc" userLabel="Name Stack View">
                                                             <rect key="frame" x="85" y="0.0" width="270" height="69.5"/>
@@ -84,17 +90,36 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Y8-BB-C7i" customClass="RoundButton" customModule="SwiftApp" customModuleProvider="target">
+                                <rect key="frame" x="295" y="587" width="70" height="70"/>
+                                <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="70" id="B9Y-KO-GJa"/>
+                                    <constraint firstAttribute="height" constant="70" id="aN0-uY-rdQ"/>
+                                </constraints>
+                                <state key="normal" title="ADD">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="conerRadius">
+                                        <real key="value" value="35"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="IhJ-fi-hVJ" firstAttribute="bottom" secondItem="9Y8-BB-C7i" secondAttribute="bottom" constant="10" id="KaR-XQ-f6e"/>
                             <constraint firstItem="euP-VH-zXy" firstAttribute="top" secondItem="IhJ-fi-hVJ" secondAttribute="top" id="VS1-6B-AHh"/>
                             <constraint firstAttribute="trailing" secondItem="euP-VH-zXy" secondAttribute="trailing" id="cZS-31-p5C"/>
+                            <constraint firstItem="IhJ-fi-hVJ" firstAttribute="trailing" secondItem="9Y8-BB-C7i" secondAttribute="trailing" constant="10" id="f5N-YS-qOF"/>
                             <constraint firstItem="euP-VH-zXy" firstAttribute="leading" secondItem="IhJ-fi-hVJ" secondAttribute="leading" id="gQR-UW-xPd"/>
                             <constraint firstItem="IhJ-fi-hVJ" firstAttribute="bottom" secondItem="euP-VH-zXy" secondAttribute="bottom" id="xXI-Tg-cjX"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="IhJ-fi-hVJ"/>
                     </view>
                     <connections>
+                        <outlet property="addButton" destination="9Y8-BB-C7i" id="sig-Us-QvB"/>
                         <outlet property="tableView" destination="euP-VH-zXy" id="34c-ER-A0F"/>
                     </connections>
                 </viewController>
