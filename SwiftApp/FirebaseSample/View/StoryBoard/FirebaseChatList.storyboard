@@ -84,31 +84,17 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Y8-BB-C7i">
-                                <rect key="frame" x="295" y="587" width="70" height="70"/>
-                                <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="70" id="B9Y-KO-GJa"/>
-                                    <constraint firstAttribute="height" constant="70" id="aN0-uY-rdQ"/>
-                                </constraints>
-                                <state key="normal" title="ADD">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="IhJ-fi-hVJ" firstAttribute="bottom" secondItem="9Y8-BB-C7i" secondAttribute="bottom" constant="10" id="KaR-XQ-f6e"/>
                             <constraint firstItem="euP-VH-zXy" firstAttribute="top" secondItem="IhJ-fi-hVJ" secondAttribute="top" id="VS1-6B-AHh"/>
                             <constraint firstAttribute="trailing" secondItem="euP-VH-zXy" secondAttribute="trailing" id="cZS-31-p5C"/>
-                            <constraint firstItem="IhJ-fi-hVJ" firstAttribute="trailing" secondItem="9Y8-BB-C7i" secondAttribute="trailing" constant="10" id="f5N-YS-qOF"/>
                             <constraint firstItem="euP-VH-zXy" firstAttribute="leading" secondItem="IhJ-fi-hVJ" secondAttribute="leading" id="gQR-UW-xPd"/>
                             <constraint firstItem="IhJ-fi-hVJ" firstAttribute="bottom" secondItem="euP-VH-zXy" secondAttribute="bottom" id="xXI-Tg-cjX"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="IhJ-fi-hVJ"/>
                     </view>
                     <connections>
-                        <outlet property="addButton" destination="9Y8-BB-C7i" id="sig-Us-QvB"/>
                         <outlet property="tableView" destination="euP-VH-zXy" id="34c-ER-A0F"/>
                     </connections>
                 </viewController>

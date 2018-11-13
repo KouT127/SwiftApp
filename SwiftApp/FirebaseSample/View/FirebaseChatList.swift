@@ -80,7 +80,7 @@ class FirebaseChatListView: UIViewController {
     }
     
     private func getInitialData() -> Observable<[FirebaseRoom]> {
-        return db.collection("rooms").rx.listen()
+        return db.collection("rooms").order(by: "date").rx.listen()
             .map { value -> [FirebaseRoom] in
                 var rooms: [FirebaseRoom] = []
                 value.documentChanges.forEach { diff in

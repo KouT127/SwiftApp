@@ -56,6 +56,8 @@ extension Reactive where Base: CollectionReference {
             return Disposables.create()
         }
     }
+}
+extension Reactive where Base: Query {
     public func listen() -> Observable<QuerySnapshot> {
         return Observable<QuerySnapshot>.create { observer in
             let listener = self.base.addSnapshotListener() { snapshot, error in
