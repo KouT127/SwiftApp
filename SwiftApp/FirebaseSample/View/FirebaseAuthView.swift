@@ -30,6 +30,6 @@ class FirebaseAuthView: UIViewController {
     private func toSignIn() {
         let storyboard = UIStoryboard(name: "FirebaseSignIn", bundle: nil)
         let viewController = storyboard.instantiateInitialViewController()!
-        self.present(viewController, animated: true, completion: nil)
+        self.navigationController?.pushViewController(viewController, animated: true)
     }
 }

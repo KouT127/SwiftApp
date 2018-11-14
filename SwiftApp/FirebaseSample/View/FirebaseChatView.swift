@@ -15,7 +15,8 @@ class FirebaseChatView: MessagesViewController {
     
     var messageList: [Message] = []
     var prevSentDate: Date?
-    
+    var documentId: String?
+
     private let db = Firestore.firestore()
     private let accessor: Accessor = .shared
     private var uid: String?
@@ -51,8 +52,9 @@ class FirebaseChatView: MessagesViewController {
     
     // ここでFirebaseのメッセージ等を取得する。
     private func setFirebaseListener(){
+        let documentId = self.documentId ?? ""
         db.collection("rooms")
-            .document("dXS1HoTFRwI3NaDxjZQS")
+            .document(documentId)
             .collection("messages")
             .order(by: "sentDate", descending: false)
             .addSnapshotListener{ snapShot, error in

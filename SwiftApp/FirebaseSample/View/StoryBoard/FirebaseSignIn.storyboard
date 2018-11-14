@@ -34,21 +34,10 @@
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hQq-9h-0Mt">
-                                                <rect key="frame" x="20" y="0.0" width="30" height="50"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="30" id="RVu-8Q-PFy"/>
-                                                    <constraint firstAttribute="height" constant="50" id="a2c-BF-mPs"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" name="Arial-BoldMT" family="Arial" pointSize="35"/>
-                                                <state key="normal" title="&lt;"/>
-                                            </button>
                                         </subviews>
                                         <constraints>
-                                            <constraint firstItem="hQq-9h-0Mt" firstAttribute="top" secondItem="cdb-AT-sUX" secondAttribute="top" id="48Q-MO-oRa"/>
                                             <constraint firstItem="lpE-1c-xdh" firstAttribute="leading" secondItem="cdb-AT-sUX" secondAttribute="leading" constant="20" id="GwT-Su-zb8"/>
                                             <constraint firstItem="lpE-1c-xdh" firstAttribute="centerY" secondItem="cdb-AT-sUX" secondAttribute="centerY" id="Wsv-dt-xxH"/>
-                                            <constraint firstItem="hQq-9h-0Mt" firstAttribute="leading" secondItem="cdb-AT-sUX" secondAttribute="leading" constant="20" id="tIa-tC-lGD"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2iQ-eD-Rnx" userLabel="Login View">
@@ -140,7 +129,7 @@
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c2Q-c5-2JQ" userLabel="SignUp View">
                                         <rect key="frame" x="0.0" y="766.66666666666663" width="414" height="85.333333333333371"/>
-                                        <color key="backgroundColor" red="0.27825477682270083" green="0.47843137254901957" blue="0.74249009683098588" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <color key="backgroundColor" red="0.45098039220000002" green="0.6705882353" blue="0.74509803919999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     </view>
                                 </subviews>
                                 <constraints>
@@ -160,7 +149,6 @@
                         <viewLayoutGuide key="safeArea" id="0eP-sQ-Lcv"/>
                     </view>
                     <connections>
-                        <outlet property="backButton" destination="hQq-9h-0Mt" id="nhk-bw-1f9"/>
                         <outlet property="email" destination="yTL-cH-wyh" id="XWg-FY-Yn5"/>
                         <outlet property="loginButton" destination="5uT-25-XLV" id="q0Z-k0-fxN"/>
                         <outlet property="password" destination="TSm-0o-MZP" id="Ogi-dI-5G8"/>

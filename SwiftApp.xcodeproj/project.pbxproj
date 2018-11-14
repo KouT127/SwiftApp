@@ -58,6 +58,8 @@
 		9BB63EFE2196A8B300BEB6BE /* FirebaseChatListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BB63EFD2196A8B300BEB6BE /* FirebaseChatListModel.swift */; };
 		9BB63F022198372A00BEB6BE /* Differentiator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BB63F012198372A00BEB6BE /* Differentiator.framework */; };
 		9BB63F05219B15A300BEB6BE /* RoundPart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BB63F04219B15A300BEB6BE /* RoundPart.swift */; };
+		9BB63F09219C668600BEB6BE /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BB63F08219C668600BEB6BE /* Router.swift */; };
+		9BB63F0B219C66A900BEB6BE /* Router.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9BB63F0A219C66A900BEB6BE /* Router.storyboard */; };
 		9BC803142185ED8B00E16993 /* GitHubCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BC803132185ED8B00E16993 /* GitHubCell.swift */; };
 		9BC803192186CAA000E16993 /* SampleWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BC803182186CAA000E16993 /* SampleWebView.swift */; };
 		9BC8031B2186CB0200E16993 /* SampleWebView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9BC8031A2186CB0200E16993 /* SampleWebView.storyboard */; };
@@ -142,6 +144,8 @@
 		9BB63F00219836BB00BEB6BE /* RxDataSources.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxDataSources.framework; path = Carthage/Build/iOS/RxDataSources.framework; sourceTree = "<group>"; };
 		9BB63F012198372A00BEB6BE /* Differentiator.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Differentiator.framework; path = Carthage/Build/iOS/Differentiator.framework; sourceTree = "<group>"; };
 		9BB63F04219B15A300BEB6BE /* RoundPart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundPart.swift; sourceTree = "<group>"; };
+		9BB63F08219C668600BEB6BE /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		9BB63F0A219C66A900BEB6BE /* Router.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Router.storyboard; sourceTree = "<group>"; };
 		9BC803132185ED8B00E16993 /* GitHubCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubCell.swift; sourceTree = "<group>"; };
 		9BC803182186CAA000E16993 /* SampleWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleWebView.swift; sourceTree = "<group>"; };
 		9BC8031A2186CB0200E16993 /* SampleWebView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SampleWebView.storyboard; sourceTree = "<group>"; };
@@ -346,6 +350,7 @@
 				9BB63EEF21906F3100BEB6BE /* FirebaseChatView.swift */,
 				9BB63EF92195AB5900BEB6BE /* FirebaseChatList.swift */,
 				9BB63EFB2195AC7000BEB6BE /* FirebaseChatListCell.swift */,
+				9BB63F08219C668600BEB6BE /* Router.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -365,6 +370,7 @@
 				9BB63EC9218C828A00BEB6BE /* FirebaseSignIn.storyboard */,
 				9BB63EED218F3C1E00BEB6BE /* FirebaseChat.storyboard */,
 				9BB63EF72195A70D00BEB6BE /* FirebaseChatList.storyboard */,
+				9BB63F0A219C66A900BEB6BE /* Router.storyboard */,
 			);
 			path = StoryBoard;
 			sourceTree = "<group>";
@@ -531,6 +537,7 @@
 				9BB63EEE218F3C1E00BEB6BE /* FirebaseChat.storyboard in Resources */,
 				9B083FD7212AFF7000C537D5 /* LaunchScreen.storyboard in Resources */,
 				9BB63EF82195A70D00BEB6BE /* FirebaseChatList.storyboard in Resources */,
+				9BB63F0B219C66A900BEB6BE /* Router.storyboard in Resources */,
 				9B083FD4212AFF7000C537D5 /* Assets.xcassets in Resources */,
 				9BB63ECA218C828A00BEB6BE /* FirebaseSignIn.storyboard in Resources */,
 				9B084002212C516F00C537D5 /* SampleList.storyboard in Resources */,
@@ -720,6 +727,7 @@
 				9BB63EF22190740E00BEB6BE /* Message.swift in Sources */,
 				9B31C9BD216B372000470A57 /* TabBarController.swift in Sources */,
 				9BB63EE7218ED75A00BEB6BE /* Realm.swift in Sources */,
+				9BB63F09219C668600BEB6BE /* Router.swift in Sources */,
 				9BB63ED4218E09C600BEB6BE /* AuthResult.swift in Sources */,
 				9B083FFE212B0B7E00C537D5 /* SampleViewModel.swift in Sources */,
 				9B083FCD212AFF6F00C537D5 /* AppDelegate.swift in Sources */,

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="saj-r9-NCc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Ccx-pS-pB1">
     <device id="retina6_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -10,6 +10,23 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="LHS-hZ-ZjU">
+            <objects>
+                <navigationController id="Ccx-pS-pB1" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="FP3-Jf-RFo">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" red="0.27825477679999999" green="0.47843137250000001" blue="0.7424900968" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="saj-r9-NCc" kind="relationship" relationship="rootViewController" id="Cnm-Lq-Gha"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yfA-aT-f66" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-710" y="3"/>
+        </scene>
         <!--Firebase Auth View-->
         <scene sceneID="So6-Kz-L7f">
             <objects>
@@ -19,13 +36,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="64E-cu-nVI">
-                                <rect key="frame" x="0.0" y="44" width="414" height="852"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="808"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nsD-ec-K4u" userLabel="Title View">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="426"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="404"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sample" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xWh-hF-pmb">
-                                                <rect key="frame" x="0.0" y="0.0" width="414" height="426"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="404"/>
                                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="80"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -39,16 +56,16 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nPh-eW-lk7" userLabel="Spacer View">
-                                        <rect key="frame" x="0.0" y="426" width="414" height="85.333333333333314"/>
+                                        <rect key="frame" x="0.0" y="404" width="414" height="80.666666666666686"/>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nkw-Ov-Ctl" userLabel="Login View">
-                                        <rect key="frame" x="0.0" y="511.33333333333331" width="414" height="255.33333333333331"/>
+                                        <rect key="frame" x="0.0" y="484.66666666666669" width="414" height="242.66666666666669"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="P9E-zc-xlw">
-                                                <rect key="frame" x="30" y="30" width="354" height="195.33333333333334"/>
+                                                <rect key="frame" x="30" y="30" width="354" height="182.66666666666666"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8k9-BH-u9e">
-                                                        <rect key="frame" x="0.0" y="0.0" width="354" height="87.666666666666671"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="354" height="81.333333333333329"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="20"/>
                                                         <state key="normal" title="新規登録">
@@ -56,7 +73,7 @@
                                                         </state>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="572-pj-5VA">
-                                                        <rect key="frame" x="0.0" y="107.66666666666663" width="354" height="87.666666666666686"/>
+                                                        <rect key="frame" x="0.0" y="101.33333333333337" width="354" height="81.333333333333314"/>
                                                         <color key="backgroundColor" red="0.45098039220000002" green="0.6705882353" blue="0.74509803919999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="20"/>
                                                         <state key="normal" title="サインイン">
@@ -77,8 +94,8 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vEg-NF-gzs" userLabel="SignUp View">
-                                        <rect key="frame" x="0.0" y="766.66666666666663" width="414" height="85.333333333333371"/>
-                                        <color key="backgroundColor" red="0.27825477679999999" green="0.47843137250000001" blue="0.7424900968" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <rect key="frame" x="0.0" y="727.33333333333337" width="414" height="80.666666666666629"/>
+                                        <color key="backgroundColor" red="0.45098039220000002" green="0.6705882353" blue="0.74509803919999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     </view>
                                 </subviews>
                                 <constraints>
@@ -97,6 +114,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="LFu-iZ-NxM"/>
                     </view>
+                    <navigationItem key="navigationItem" id="O2K-if-Cra"/>
                     <connections>
                         <outlet property="signInButton" destination="572-pj-5VA" id="eo5-0m-1as"/>
                     </connections>

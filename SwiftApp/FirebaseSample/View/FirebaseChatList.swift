@@ -25,6 +25,12 @@ class FirebaseChatListView: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        tableView.rx.modelSelected(FirebaseRoom.self)
+            .subscribe(onNext: {[unowned self] cell in
+                self.toChat(documentId: cell.roomId)
+            })
+            .disposed(by: disposeBag)
+        
         let dataSource = FirebaseChatListView.dataSource()
         
         let sections: [RoomSection] = [RoomSection(header: "Rooms", rooms: [], updated: Date())]
@@ -77,6 +83,13 @@ class FirebaseChatListView: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         //        tableView.setEditing(true, animated: true)
+    }
+    
+    private func toChat(documentId: String?){
+        let storyboard = UIStoryboard(name: "FirebaseChat", bundle: nil)
+        let viewController = storyboard.instantiateInitialViewController()! as! FirebaseChatView
+        viewController.documentId = documentId
+        self.navigationController?.pushViewController(viewController, animated: true)
     }
     
     private func getInitialData() -> Observable<[FirebaseRoom]> {
@@ -257,18 +270,6 @@ extension FirebaseChatListView {
 //    deinit {
 //        print("denit")
 //    }
-
-struct room {
-    let roomName: String
-    let roomDescription: String?
-    let docId: String
-    
-    init(roomName: String, roomDescription: String?, docId: String) {
-        self.roomName = roomName
-        self.roomDescription = roomDescription
-        self.docId = docId
-    }
-}
 
 func + <T>(lhs: [T], rhs: T) -> [T] {
     var copy = lhs
