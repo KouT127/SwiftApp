@@ -35,3 +35,16 @@ import UIKit
         self.clipsToBounds = clipsToBound
     }
 }
+
+@IBDesignable class RoundView: UIView {
+    @IBInspectable var borderWidth: CGFloat = 0
+    @IBInspectable var borderColor: CGColor = UIColor.black.cgColor
+    @IBInspectable var conerRadius: CGFloat = 0
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        self.layer.borderWidth = borderWidth
+        self.layer.borderColor = borderColor
+        self.layer.cornerRadius = conerRadius
+    }
+}

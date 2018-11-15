@@ -1,5 +1,5 @@
 //
-//  FirebaseChatView[.swift
+//  FirebaseChatView.swift
 //  SwiftApp
 //
 //  Created by kou on 2018/11/05.
