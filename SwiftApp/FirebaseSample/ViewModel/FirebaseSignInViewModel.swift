@@ -10,18 +10,18 @@ import Foundation
 import RxSwift
 import RxCocoa
 
-typealias Input = (
-    email: Observable<String>,
-    password: Observable<String>,
-    loginTaps: Observable<Void>
-)
-typealias Dependency = (
-    repository: FirebaseSignInRepository,
-    accessor: Accessor,
-    wireframe: DefaultWireframe
-)
-
 class FirebaseSignInViewModel {
+    
+    typealias Input = (
+        email: Observable<String>,
+        password: Observable<String>,
+        loginTaps: Observable<Void>
+    )
+    typealias Dependency = (
+        repository: FirebaseSignInRepository,
+        accessor: Accessor,
+        wireframe: DefaultWireframe
+    )
     
     let isValid: Driver<Bool>
     let authSucceed: Observable<Bool>

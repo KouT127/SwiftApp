@@ -60,6 +60,8 @@
 		9BB63F05219B15A300BEB6BE /* RoundPart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BB63F04219B15A300BEB6BE /* RoundPart.swift */; };
 		9BB63F09219C668600BEB6BE /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BB63F08219C668600BEB6BE /* Router.swift */; };
 		9BB63F0B219C66A900BEB6BE /* Router.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9BB63F0A219C66A900BEB6BE /* Router.storyboard */; };
+		9BB63F0D219DB1A700BEB6BE /* FirebaseChatListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BB63F0C219DB1A700BEB6BE /* FirebaseChatListViewModel.swift */; };
+		9BB63F0F219DB2F700BEB6BE /* FirebaseChatListRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BB63F0E219DB2F700BEB6BE /* FirebaseChatListRepository.swift */; };
 		9BC803142185ED8B00E16993 /* GitHubCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BC803132185ED8B00E16993 /* GitHubCell.swift */; };
 		9BC803192186CAA000E16993 /* SampleWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BC803182186CAA000E16993 /* SampleWebView.swift */; };
 		9BC8031B2186CB0200E16993 /* SampleWebView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9BC8031A2186CB0200E16993 /* SampleWebView.storyboard */; };
@@ -146,6 +148,8 @@
 		9BB63F04219B15A300BEB6BE /* RoundPart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundPart.swift; sourceTree = "<group>"; };
 		9BB63F08219C668600BEB6BE /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		9BB63F0A219C66A900BEB6BE /* Router.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Router.storyboard; sourceTree = "<group>"; };
+		9BB63F0C219DB1A700BEB6BE /* FirebaseChatListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseChatListViewModel.swift; sourceTree = "<group>"; };
+		9BB63F0E219DB2F700BEB6BE /* FirebaseChatListRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseChatListRepository.swift; sourceTree = "<group>"; };
 		9BC803132185ED8B00E16993 /* GitHubCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubCell.swift; sourceTree = "<group>"; };
 		9BC803182186CAA000E16993 /* SampleWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleWebView.swift; sourceTree = "<group>"; };
 		9BC8031A2186CB0200E16993 /* SampleWebView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SampleWebView.storyboard; sourceTree = "<group>"; };
@@ -359,6 +363,7 @@
 			isa = PBXGroup;
 			children = (
 				9BB63EDE218EC02500BEB6BE /* FirebaseSignInViewModel.swift */,
+				9BB63F0C219DB1A700BEB6BE /* FirebaseChatListViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -379,6 +384,7 @@
 			isa = PBXGroup;
 			children = (
 				9BB63EE1218EC4C900BEB6BE /* FirebaseSignInRepository.swift */,
+				9BB63F0E219DB2F700BEB6BE /* FirebaseChatListRepository.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -705,6 +711,7 @@
 			files = (
 				9BB63F05219B15A300BEB6BE /* RoundPart.swift in Sources */,
 				9BB63EEB218F227600BEB6BE /* DefaultWireframe.swift in Sources */,
+				9BB63F0F219DB2F700BEB6BE /* FirebaseChatListRepository.swift in Sources */,
 				9BB63EE2218EC4C900BEB6BE /* FirebaseSignInRepository.swift in Sources */,
 				9B084000212B0B8D00C537D5 /* SampleModel.swift in Sources */,
 				9BB63EE9218F158C00BEB6BE /* AuthUser.swift in Sources */,
@@ -721,6 +728,7 @@
 				9B2FB703217E02F400610D43 /* Service.swift in Sources */,
 				9B2FB71621840BC300610D43 /* SampleRepository.swift in Sources */,
 				9B2FB71821840C1800610D43 /* Provider.swift in Sources */,
+				9BB63F0D219DB1A700BEB6BE /* FirebaseChatListViewModel.swift in Sources */,
 				9BB63EFA2195AB5900BEB6BE /* FirebaseChatList.swift in Sources */,
 				9BB63EDF218EC02500BEB6BE /* FirebaseSignInViewModel.swift in Sources */,
 				9B083FFC212B0A3900C537D5 /* SampleView.swift in Sources */,
