@@ -17,6 +17,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="kda-mB-Rpe">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" red="0.45098039220000002" green="0.6705882353" blue="0.74509803919999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </navigationBar>
                     <connections>
                         <segue destination="CzE-K4-PgO" kind="relationship" relationship="rootViewController" id="8k1-at-lPP"/>
@@ -36,7 +37,7 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="150" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="euP-VH-zXy">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="ChatListCell" rowHeight="150" id="ZJe-RQ-Ryb" customClass="FirebaseChatListCell" customModule="SwiftApp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="55.5" width="375" height="150"/>
@@ -120,6 +121,7 @@
                                                 <constraint firstAttribute="trailing" secondItem="YsL-5V-qUl" secondAttribute="trailing" constant="5" id="obC-wE-g0p"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.89803921568627454" green="0.89803921568627454" blue="0.89803921568627454" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
                                             <outlet property="docId" destination="S3B-ul-WRh" id="gdh-3P-mtS"/>
                                             <outlet property="roomDescription" destination="6Rj-KI-dhg" id="qTB-u0-198"/>
@@ -131,7 +133,7 @@
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Y8-BB-C7i" customClass="RoundButton" customModule="SwiftApp" customModuleProvider="target">
                                 <rect key="frame" x="295" y="587" width="70" height="70"/>
-                                <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" red="1" green="0.65490196078431373" blue="0.14901960784313725" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="70" id="B9Y-KO-GJa"/>
                                     <constraint firstAttribute="height" constant="70" id="aN0-uY-rdQ"/>
@@ -143,10 +145,19 @@
                                     <userDefinedRuntimeAttribute type="number" keyPath="conerRadius">
                                         <real key="value" value="35"/>
                                     </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                        <real key="value" value="0.29999999999999999"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                        <real key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                                        <size key="value" width="1" height="1"/>
+                                    </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.45098039220000002" green="0.6705882353" blue="0.74509803919999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="IhJ-fi-hVJ" firstAttribute="bottom" secondItem="9Y8-BB-C7i" secondAttribute="bottom" constant="10" id="KaR-XQ-f6e"/>
                             <constraint firstItem="euP-VH-zXy" firstAttribute="top" secondItem="IhJ-fi-hVJ" secondAttribute="top" id="VS1-6B-AHh"/>
