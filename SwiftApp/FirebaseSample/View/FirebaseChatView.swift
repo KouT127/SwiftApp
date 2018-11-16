@@ -34,8 +34,6 @@ class FirebaseChatView: MessagesViewController {
         
         self.setFirebaseListener()
         
-        
-        
         messagesCollectionView.messagesDataSource = self
         messagesCollectionView.messagesLayoutDelegate = self
         messagesCollectionView.messagesDisplayDelegate = self
@@ -203,7 +201,7 @@ extension FirebaseChatView: MessageInputBarDelegate {
                                               "sentDate": FieldValue.serverTimestamp()]
                 
                 db.collection("rooms")
-                    .document("dXS1HoTFRwI3NaDxjZQS")
+                    .document(documentId)
                     .collection("messages")
                     .addDocument(data: message)
                 
