@@ -15,6 +15,7 @@ class FirebaseChatView: MessagesViewController {
     
     var messageList: [Message] = []
     var prevSentDate: Date?
+    var navigationTitle: String?
     var documentId: String?
 
     private let db = Firestore.firestore()
@@ -29,6 +30,8 @@ class FirebaseChatView: MessagesViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        setUpView()
         
         uid = accessor.realm.objects(AuthUser.self).first?.uid
         
@@ -45,6 +48,7 @@ class FirebaseChatView: MessagesViewController {
         // メッセージ入力時に一番下までスクロール
         scrollsToBottomOnKeybordBeginsEditing = true
         maintainPositionOnKeyboardFrameChanged = true
+        
     }
     
     
@@ -85,6 +89,12 @@ class FirebaseChatView: MessagesViewController {
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+    
+    private func setUpView() {
+        messagesCollectionView.backgroundColor = UIColor(red: 115 / 255, green: 171 / 255, blue: 190 / 255, alpha: 1)
+        messageInputBar.backgroundView.backgroundColor = UIColor(red: 214 / 255, green: 234 / 255, blue: 241 / 255, alpha: 1)
+        navigationItem.title = navigationTitle
     }
 }
 
@@ -197,7 +207,7 @@ extension FirebaseChatView: MessageInputBarDelegate {
                 let message: [String: Any] = ["content":text,
                                               "messageId": "123",
                                               "senderId": uid ?? "",
-                                              "senderName":"Kou",
+                                              "senderName":"aou",
                                               "sentDate": FieldValue.serverTimestamp()]
                 
                 db.collection("rooms")

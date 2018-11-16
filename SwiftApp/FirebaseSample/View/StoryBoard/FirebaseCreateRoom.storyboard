@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="LOO-7H-dZC">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="ZQj-e3-Xe2">
+            <objects>
+                <viewController id="LOO-7H-dZC" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="1F7-nx-dv1">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Xp-Z5-5xJ">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="MsV-MM-6H1">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="21N-tU-aFN" customClass="RoundView" customModule="SwiftApp" customModuleProvider="target">
+                                            <rect key="frame" x="30" y="200" width="315" height="207"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="YEe-pi-Pud">
+                                                    <rect key="frame" x="0.0" y="30" width="315" height="172"/>
+                                                    <subviews>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Jcn-5C-9dR" userLabel="Title Stack View">
+                                                            <rect key="frame" x="5" y="0.0" width="305" height="51"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="タイトル:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gFd-7d-EUq">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="74.5" height="51"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4lz-mm-jg1">
+                                                                    <rect key="frame" x="79.5" y="0.0" width="225.5" height="51"/>
+                                                                    <nil key="textColor"/>
+                                                                    <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="23"/>
+                                                                    <textInputTraits key="textInputTraits"/>
+                                                                </textField>
+                                                            </subviews>
+                                                            <constraints>
+                                                                <constraint firstItem="4lz-mm-jg1" firstAttribute="width" secondItem="Jcn-5C-9dR" secondAttribute="width" multiplier="0.74" id="1MT-X3-1pK"/>
+                                                            </constraints>
+                                                        </stackView>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Snu-RJ-VBZ" userLabel="Description Stack View">
+                                                            <rect key="frame" x="5" y="56" width="305" height="51"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="説明:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MBT-vR-TgS">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="74.5" height="51"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="skr-Be-2KQ">
+                                                                    <rect key="frame" x="79.5" y="0.0" width="225.5" height="51"/>
+                                                                    <nil key="textColor"/>
+                                                                    <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="23"/>
+                                                                    <textInputTraits key="textInputTraits"/>
+                                                                </textField>
+                                                            </subviews>
+                                                            <constraints>
+                                                                <constraint firstItem="skr-Be-2KQ" firstAttribute="width" secondItem="Snu-RJ-VBZ" secondAttribute="width" multiplier="0.74" id="GPI-17-NqC"/>
+                                                            </constraints>
+                                                        </stackView>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kNF-kF-jtW" customClass="RoundButton" customModule="SwiftApp" customModuleProvider="target">
+                                                            <rect key="frame" x="67.5" y="112" width="180" height="60"/>
+                                                            <color key="backgroundColor" red="1" green="0.65490196079999996" blue="0.14901960780000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="60" id="25g-lr-w7M"/>
+                                                                <constraint firstAttribute="width" constant="180" id="Slo-2j-6FJ"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="21"/>
+                                                            <state key="normal" title="追加">
+                                                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            </state>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="conerRadius">
+                                                                    <real key="value" value="30"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                            </userDefinedRuntimeAttributes>
+                                                        </button>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstAttribute="trailing" secondItem="Snu-RJ-VBZ" secondAttribute="trailing" constant="5" id="V0h-KW-KuK"/>
+                                                        <constraint firstItem="Snu-RJ-VBZ" firstAttribute="leading" secondItem="YEe-pi-Pud" secondAttribute="leading" constant="5" id="bjo-ix-kfW"/>
+                                                        <constraint firstItem="Snu-RJ-VBZ" firstAttribute="height" secondItem="Jcn-5C-9dR" secondAttribute="height" id="ca8-aw-IQc"/>
+                                                        <constraint firstAttribute="trailing" secondItem="Jcn-5C-9dR" secondAttribute="trailing" constant="5" id="q0N-7y-XN0"/>
+                                                        <constraint firstItem="Jcn-5C-9dR" firstAttribute="leading" secondItem="YEe-pi-Pud" secondAttribute="leading" constant="5" id="vTi-c3-nhf"/>
+                                                    </constraints>
+                                                </stackView>
+                                            </subviews>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstItem="YEe-pi-Pud" firstAttribute="top" secondItem="21N-tU-aFN" secondAttribute="top" constant="30" id="FDv-DJ-9iR"/>
+                                                <constraint firstAttribute="bottom" secondItem="YEe-pi-Pud" secondAttribute="bottom" constant="5" id="UBN-ME-vjf"/>
+                                                <constraint firstAttribute="trailing" secondItem="YEe-pi-Pud" secondAttribute="trailing" id="fGm-h7-SLa"/>
+                                                <constraint firstItem="YEe-pi-Pud" firstAttribute="leading" secondItem="21N-tU-aFN" secondAttribute="leading" id="uE8-5h-lKC"/>
+                                            </constraints>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="conerRadius">
+                                                    <real key="value" value="10"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                        </view>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="21N-tU-aFN" firstAttribute="top" secondItem="MsV-MM-6H1" secondAttribute="top" constant="200" id="UG8-Fj-02c"/>
+                                        <constraint firstItem="21N-tU-aFN" firstAttribute="leading" secondItem="MsV-MM-6H1" secondAttribute="leading" constant="30" id="bLw-gC-Pgm"/>
+                                        <constraint firstAttribute="bottom" secondItem="21N-tU-aFN" secondAttribute="bottom" constant="240" id="wAW-d3-I9Q"/>
+                                        <constraint firstAttribute="trailing" secondItem="21N-tU-aFN" secondAttribute="trailing" constant="30" id="ymI-ul-mHM"/>
+                                    </constraints>
+                                </view>
+                                <blurEffect style="light"/>
+                            </visualEffectView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="0Xp-Z5-5xJ" firstAttribute="trailing" secondItem="BWN-Uj-jBp" secondAttribute="trailing" id="3GD-fz-ZmY"/>
+                            <constraint firstItem="0Xp-Z5-5xJ" firstAttribute="leading" secondItem="BWN-Uj-jBp" secondAttribute="leading" id="Jh1-Jy-ffW"/>
+                            <constraint firstItem="BWN-Uj-jBp" firstAttribute="bottom" secondItem="0Xp-Z5-5xJ" secondAttribute="bottom" id="MbF-sy-Joq"/>
+                            <constraint firstItem="0Xp-Z5-5xJ" firstAttribute="top" secondItem="BWN-Uj-jBp" secondAttribute="top" id="X0J-lB-4Eq"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="BWN-Uj-jBp"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Mr5-eT-sjB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="60" y="45"/>
+        </scene>
+    </scenes>
+</document>

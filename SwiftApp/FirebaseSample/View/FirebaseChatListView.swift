@@ -35,7 +35,14 @@ class FirebaseChatListView: UIViewController {
         
         tableView.rx.modelSelected(FirebaseRoom.self)
             .subscribe(onNext: {[unowned self] cell in
-                self.toChat(documentId: cell.roomId)
+                self.toChat(documentId: cell.roomId, naviTitle: cell.roomName)
+            })
+            .disposed(by: disposeBag)
+        
+        addButton.rx.tap
+            .asObservable()
+            .subscribe(onNext: {[unowned self] cell in
+                self.toCreateView()
             })
             .disposed(by: disposeBag)
         
@@ -57,10 +64,19 @@ class FirebaseChatListView: UIViewController {
         //        tableView.setEditing(true, animated: true)
     }
     
-    private func toChat(documentId: String?){
+    private func toCreateView(){
+        let storyboard = UIStoryboard(name: "FirebaseCreateRoom", bundle: nil)
+        let viewController = storyboard.instantiateInitialViewController()!
+        viewController.modalPresentationStyle = .overCurrentContext
+        viewController.modalTransitionStyle = .crossDissolve
+        self.present(viewController, animated: true, completion: nil)
+    }
+    
+    private func toChat(documentId: String?, naviTitle: String?){
         let storyboard = UIStoryboard(name: "FirebaseChat", bundle: nil)
         let viewController = storyboard.instantiateInitialViewController()! as! FirebaseChatView
         viewController.documentId = documentId
+        viewController.navigationTitle = naviTitle
         self.navigationController?.pushViewController(viewController, animated: true)
     }
 }
