@@ -14,6 +14,7 @@ class FirebaseSignInView: UIViewController {
     
     @IBOutlet weak var email: UITextField!
     @IBOutlet weak var password: UITextField!
+    @IBOutlet weak var titleLabel: UILabel!
     
     @IBOutlet weak var loginButton: UIButton!
     
@@ -23,6 +24,8 @@ class FirebaseSignInView: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        changeWords()
         
         let viewModel = FirebaseSignInViewModel(
             input: (
@@ -55,5 +58,12 @@ class FirebaseSignInView: UIViewController {
                 print(result)
             })
             .disposed(by: disposeBag)
+    }
+    
+    private func changeWords() {
+        if case .signUp? = auth {
+            self.loginButton.setTitle("登録する", for: .normal)
+            self.titleLabel.text = "新規登録"
+        }
     }
 }
