@@ -17,6 +17,7 @@ class FirebaseSignInView: UIViewController {
     
     @IBOutlet weak var loginButton: UIButton!
     
+    var auth: AuthEnum? = nil
     var viewModel: FirebaseSignInViewModel?
     let disposeBag = DisposeBag()
     
@@ -27,7 +28,8 @@ class FirebaseSignInView: UIViewController {
             input: (
                 email: self.email.rx.text.orEmpty.asObservable(),
                 password: self.password.rx.text.orEmpty.asObservable(),
-                loginTaps: self.loginButton.rx.tap.asObservable()
+                loginTaps: self.loginButton.rx.tap.asObservable(),
+                auth: Observable.just(auth).flatMap { $0.flatMap { Observable.just($0) } ?? Observable.empty() }
             ),
             dependency: (
                 repository: FirebaseSignInRepository(),

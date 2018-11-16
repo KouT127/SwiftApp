@@ -15,7 +15,8 @@ class FirebaseSignInViewModel {
     typealias Input = (
         email: Observable<String>,
         password: Observable<String>,
-        loginTaps: Observable<Void>
+        loginTaps: Observable<Void>,
+        auth: Observable<AuthEnum>
     )
     typealias Dependency = (
         repository: FirebaseSignInRepository,
@@ -38,12 +39,25 @@ class FirebaseSignInViewModel {
             .map { $0.count >= 3 && $1.count >= 6 }
             .asDriver(onErrorJustReturn: false)
         
-        let authResult = input.loginTaps
+        let signUpResult = input.loginTaps
+            .withLatestFrom(input.auth)
+            .filter { $0 == .signUp}
+            .withLatestFrom(inputInfo)
+            .flatMap { dependency.repository.signUp(withEmail: $0, password: $1)}
+        
+        let signInResult = input.loginTaps
+            .withLatestFrom(input.auth)
+            .filter { $0 == .signIn}
             .withLatestFrom(inputInfo)
             .flatMap { dependency.repository.signIn(withEmail: $0, password: $1)}
+        
+        
+       let authResult = Observable.of(signUpResult, signInResult)
+            .merge()
             .share()
         
-        authSucceed = authResult
+        authSucceed = Observable.of(signUpResult, signInResult)
+            .merge()
             .map { result in
                 switch result {
                 case .succeed( let data ):

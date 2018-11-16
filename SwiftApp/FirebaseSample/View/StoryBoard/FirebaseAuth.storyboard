@@ -117,6 +117,7 @@
                     <navigationItem key="navigationItem" id="O2K-if-Cra"/>
                     <connections>
                         <outlet property="signInButton" destination="572-pj-5VA" id="eo5-0m-1as"/>
+                        <outlet property="signUpButton" destination="8k9-BH-u9e" id="9dM-xO-PXb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="arR-69-oN4" userLabel="First Responder" sceneMemberID="firstResponder"/>

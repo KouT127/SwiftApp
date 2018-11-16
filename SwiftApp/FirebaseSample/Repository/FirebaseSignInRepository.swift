@@ -20,6 +20,12 @@ class FirebaseSignInRepository {
             .catchError { Observable.just(.failed(error: $0))}
     }
     
+    func signUp(withEmail email: String, password: String) -> Observable<AuthResult> {
+        return auth.rx.createUser(withEmail: email, password: password)
+            .map { .succeed(result: $0) }
+            .catchError { Observable.just(.failed(error: $0))}
+    }
+    
     func errorMessage(result: AuthResult) -> String? {
         switch result {
         case .failed( let error ):

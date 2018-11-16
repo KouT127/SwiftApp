@@ -201,7 +201,7 @@ extension FirebaseChatView: MessageInputBarDelegate {
                                               "sentDate": FieldValue.serverTimestamp()]
                 
                 db.collection("rooms")
-                    .document(documentId)
+                    .document(documentId ?? "")
                     .collection("messages")
                     .addDocument(data: message)
                 

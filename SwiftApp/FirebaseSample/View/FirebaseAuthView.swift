@@ -13,11 +13,19 @@ import RxCocoa
 class FirebaseAuthView: UIViewController {
 
     @IBOutlet weak var signInButton: UIButton!
+    @IBOutlet weak var signUpButton: UIButton!
     
     let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        signUpButton.rx.tap
+            .asDriver()
+            .drive(onNext: {[unowned self] _ in
+                self.toSignUp()
+            })
+            .disposed(by: disposeBag)
         
         signInButton.rx.tap
             .asDriver()
@@ -29,7 +37,14 @@ class FirebaseAuthView: UIViewController {
     
     private func toSignIn() {
         let storyboard = UIStoryboard(name: "FirebaseSignIn", bundle: nil)
-        let viewController = storyboard.instantiateInitialViewController()!
+        let viewController = storyboard.instantiateInitialViewController()! as! FirebaseSignInView
+        viewController.auth = .signIn
+        self.navigationController?.pushViewController(viewController, animated: true)
+    }
+    private func toSignUp() {
+        let storyboard = UIStoryboard(name: "FirebaseSignIn", bundle: nil)
+        let viewController = storyboard.instantiateInitialViewController()! as! FirebaseSignInView
+        viewController.auth = .signUp
         self.navigationController?.pushViewController(viewController, animated: true)
     }
 }
