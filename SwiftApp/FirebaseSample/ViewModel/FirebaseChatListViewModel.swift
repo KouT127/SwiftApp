@@ -18,7 +18,6 @@ class FirebaseChatListViewModel {
         wireframe: DefaultWireframe
     )
     
-    
     let stateEvent = BehaviorRelay<SectionedTableViewState?>(value: nil)
     var sections: [RoomSection] = [RoomSection(header: "Rooms", rooms: [], updated: Date())]
     
@@ -29,22 +28,19 @@ class FirebaseChatListViewModel {
     init(addTaps: Observable<Void>, dependency: Dependency) {
         
         let state = stateEvent
+            .debug("state")
             .asObservable()
             .flatMap { $0.flatMap {Observable.just($0)} ?? Observable.empty() }
         
         let initialState = SectionedTableViewState(sections: sections)
         stateEvent.accept(initialState)
         
-        let startUp = Observable.just(())
-        
-        let initialData = startUp
-            .flatMap { dependency.repository.getInitialData() }
+        let initialData = dependency.repository.getInitialData()
             .withLatestFrom(state){ ($0, $1) }
             .map { data, state  -> SectionedTableViewState in
                 return dependency.repository.initialItem(oldSections: state.sections, item: data, section: 0)}
         
-        let updateData = startUp
-            .flatMap { _ in dependency.repository.getUpdateData() }
+        let updateData = dependency.repository.getUpdateData()
             .flatMap { $0.flatMap { Observable.just($0) } ?? Observable.empty() }
             .withLatestFrom(state) {($0, $1)}
             .map { data, state in
@@ -55,12 +51,14 @@ class FirebaseChatListViewModel {
             .merge()
             .share()
             
-        roomData
-            .bind(to: stateEvent)
-            .disposed(by: disposeBag)
-        
+
         updatedDataSource = roomData
             .map { $0.sections }
             .share()
+        
+        roomData
+            .subscribe(onNext: {self.stateEvent.accept($0)})
+            .disposed(by: disposeBag)
+        
     }
 }

@@ -17,7 +17,7 @@ class FirebaseChatListRepository {
     private let firestore = Firestore.firestore()
     
     func getInitialData() -> Observable<[FirebaseRoom]> {
-        return firestore.collection("rooms").order(by: "date").rx.listen()
+        return firestore.collection("rooms").order(by: "date").rx.getDocuments()
             .map { value -> [FirebaseRoom] in
                 var rooms: [FirebaseRoom] = []
                 value.documentChanges.forEach { diff in
@@ -77,5 +77,10 @@ class FirebaseChatListRepository {
         sections[index.section] = RoomSection(original: sections[index.section], items: items)
         return SectionedTableViewState(sections: sections)
     }
+}
 
+func + <T>(lhs: [T], rhs: T) -> [T] {
+    var copy = lhs
+    copy.append(rhs)
+    return copy
 }

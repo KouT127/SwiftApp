@@ -72,6 +72,21 @@ extension Reactive where Base: Query {
             }
         }
     }
+    public func getDocuments() -> Observable<QuerySnapshot> {
+        return Observable.create { observer in
+            self.base.getDocuments { snapshot, error in
+                if let error = error {
+                    observer.onError(error)
+                } else if let snapshot = snapshot {
+                    observer.onNext(snapshot)
+                    observer.onCompleted()
+                } else {
+                    observer.onError(NSError(domain: FirestoreErrorDomain, code: FirestoreErrorCode.notFound.rawValue, userInfo: nil))
+                }
+            }
+            return Disposables.create()
+        }
+    }
 }
 
 extension Reactive where Base: DocumentReference {
