@@ -59,7 +59,7 @@
                                                                 <rect key="frame" x="0.0" y="16.999999999999996" width="374" height="62.666666666666657"/>
                                                                 <nil key="textColor"/>
                                                                 <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="25"/>
-                                                                <textInputTraits key="textInputTraits"/>
+                                                                <textInputTraits key="textInputTraits" keyboardType="emailAddress" enablesReturnKeyAutomatically="YES"/>
                                                             </textField>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lDY-sX-6Tg">
                                                                 <rect key="frame" x="0.0" y="79.666666666666686" width="374" height="1"/>
@@ -89,7 +89,7 @@
                                                                 <rect key="frame" x="0.0" y="17.000000000000004" width="374" height="62.333333333333343"/>
                                                                 <nil key="textColor"/>
                                                                 <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="25"/>
-                                                                <textInputTraits key="textInputTraits"/>
+                                                                <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
                                                             </textField>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Yq-Mp-GjC">
                                                                 <rect key="frame" x="0.0" y="79.333333333333314" width="374" height="1"/>

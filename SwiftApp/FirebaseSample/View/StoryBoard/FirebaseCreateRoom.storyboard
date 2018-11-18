@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="LOO-7H-dZC">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina6_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -15,32 +15,42 @@
             <objects>
                 <viewController id="LOO-7H-dZC" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="1F7-nx-dv1">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Xp-Z5-5xJ">
-                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <rect key="frame" x="0.0" y="44" width="375" height="734"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="MsV-MM-6H1">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="734"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="21N-tU-aFN" customClass="RoundView" customModule="SwiftApp" customModuleProvider="target">
-                                            <rect key="frame" x="30" y="200" width="315" height="207"/>
+                                            <rect key="frame" x="10" y="197" width="355" height="340"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="YEe-pi-Pud">
-                                                    <rect key="frame" x="0.0" y="30" width="315" height="172"/>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="YEe-pi-Pud">
+                                                    <rect key="frame" x="0.0" y="30" width="355" height="305"/>
                                                     <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Roomを作成" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xcJ-0p-6yt" userLabel="Roomを作成">
+                                                            <rect key="frame" x="101.00000000000001" y="0.0" width="153.33333333333337" height="20"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="20" id="gol-2t-KGI"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="25"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
                                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Jcn-5C-9dR" userLabel="Title Stack View">
-                                                            <rect key="frame" x="5" y="0.0" width="305" height="51"/>
+                                                            <rect key="frame" x="5" y="28" width="345" height="61"/>
                                                             <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="タイトル:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gFd-7d-EUq">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="74.5" height="51"/>
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="タイトル:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="gFd-7d-EUq">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="84.666666666666671" height="61"/>
+                                                                    <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="17"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
-                                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4lz-mm-jg1">
-                                                                    <rect key="frame" x="79.5" y="0.0" width="225.5" height="51"/>
+                                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4lz-mm-jg1">
+                                                                    <rect key="frame" x="89.666666666666671" y="0.0" width="255.33333333333331" height="61"/>
+                                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <nil key="textColor"/>
                                                                     <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="23"/>
                                                                     <textInputTraits key="textInputTraits"/>
@@ -51,16 +61,16 @@
                                                             </constraints>
                                                         </stackView>
                                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Snu-RJ-VBZ" userLabel="Description Stack View">
-                                                            <rect key="frame" x="5" y="56" width="305" height="51"/>
+                                                            <rect key="frame" x="5" y="97" width="345" height="140"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="説明:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MBT-vR-TgS">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="74.5" height="51"/>
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="84.666666666666671" height="140"/>
+                                                                    <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="17"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
-                                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="skr-Be-2KQ">
-                                                                    <rect key="frame" x="79.5" y="0.0" width="225.5" height="51"/>
+                                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="skr-Be-2KQ">
+                                                                    <rect key="frame" x="89.666666666666671" y="0.0" width="255.33333333333331" height="140"/>
                                                                     <nil key="textColor"/>
                                                                     <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="23"/>
                                                                     <textInputTraits key="textInputTraits"/>
@@ -71,7 +81,7 @@
                                                             </constraints>
                                                         </stackView>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kNF-kF-jtW" customClass="RoundButton" customModule="SwiftApp" customModuleProvider="target">
-                                                            <rect key="frame" x="67.5" y="112" width="180" height="60"/>
+                                                            <rect key="frame" x="87.666666666666686" y="245" width="180" height="60"/>
                                                             <color key="backgroundColor" red="1" green="0.65490196079999996" blue="0.14901960780000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="60" id="25g-lr-w7M"/>
@@ -90,8 +100,8 @@
                                                     </subviews>
                                                     <constraints>
                                                         <constraint firstAttribute="trailing" secondItem="Snu-RJ-VBZ" secondAttribute="trailing" constant="5" id="V0h-KW-KuK"/>
+                                                        <constraint firstItem="Jcn-5C-9dR" firstAttribute="height" secondItem="YEe-pi-Pud" secondAttribute="height" multiplier="0.2" id="a4i-Yp-u54"/>
                                                         <constraint firstItem="Snu-RJ-VBZ" firstAttribute="leading" secondItem="YEe-pi-Pud" secondAttribute="leading" constant="5" id="bjo-ix-kfW"/>
-                                                        <constraint firstItem="Snu-RJ-VBZ" firstAttribute="height" secondItem="Jcn-5C-9dR" secondAttribute="height" id="ca8-aw-IQc"/>
                                                         <constraint firstAttribute="trailing" secondItem="Jcn-5C-9dR" secondAttribute="trailing" constant="5" id="q0N-7y-XN0"/>
                                                         <constraint firstItem="Jcn-5C-9dR" firstAttribute="leading" secondItem="YEe-pi-Pud" secondAttribute="leading" constant="5" id="vTi-c3-nhf"/>
                                                     </constraints>
@@ -103,6 +113,7 @@
                                                 <constraint firstAttribute="bottom" secondItem="YEe-pi-Pud" secondAttribute="bottom" constant="5" id="UBN-ME-vjf"/>
                                                 <constraint firstAttribute="trailing" secondItem="YEe-pi-Pud" secondAttribute="trailing" id="fGm-h7-SLa"/>
                                                 <constraint firstItem="YEe-pi-Pud" firstAttribute="leading" secondItem="21N-tU-aFN" secondAttribute="leading" id="uE8-5h-lKC"/>
+                                                <constraint firstAttribute="height" constant="340" id="w1h-9K-Qgs"/>
                                             </constraints>
                                             <userDefinedRuntimeAttributes>
                                                 <userDefinedRuntimeAttribute type="number" keyPath="conerRadius">
@@ -112,10 +123,9 @@
                                         </view>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="21N-tU-aFN" firstAttribute="top" secondItem="MsV-MM-6H1" secondAttribute="top" constant="200" id="UG8-Fj-02c"/>
-                                        <constraint firstItem="21N-tU-aFN" firstAttribute="leading" secondItem="MsV-MM-6H1" secondAttribute="leading" constant="30" id="bLw-gC-Pgm"/>
-                                        <constraint firstAttribute="bottom" secondItem="21N-tU-aFN" secondAttribute="bottom" constant="240" id="wAW-d3-I9Q"/>
-                                        <constraint firstAttribute="trailing" secondItem="21N-tU-aFN" secondAttribute="trailing" constant="30" id="ymI-ul-mHM"/>
+                                        <constraint firstAttribute="trailing" secondItem="21N-tU-aFN" secondAttribute="trailing" constant="10" id="BVS-GM-mpV"/>
+                                        <constraint firstItem="21N-tU-aFN" firstAttribute="leading" secondItem="MsV-MM-6H1" secondAttribute="leading" constant="10" id="TG8-eK-D2B"/>
+                                        <constraint firstItem="21N-tU-aFN" firstAttribute="centerY" secondItem="MsV-MM-6H1" secondAttribute="centerY" id="UG8-Fj-02c"/>
                                     </constraints>
                                 </view>
                                 <blurEffect style="light"/>
