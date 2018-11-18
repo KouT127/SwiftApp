@@ -106,9 +106,3 @@ extension FirebaseChatListView {
         )
     }
 }
-
-func + <T>(lhs: [T], rhs: T) -> [T] {
-    var copy = lhs
-    copy.append(rhs)
-    return copy
-}

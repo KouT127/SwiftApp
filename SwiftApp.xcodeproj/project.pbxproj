@@ -64,6 +64,7 @@
 		9BB63F0F219DB2F700BEB6BE /* FirebaseChatListRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BB63F0E219DB2F700BEB6BE /* FirebaseChatListRepository.swift */; };
 		9BB63F19219F0BA700BEB6BE /* AuthEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BB63F18219F0BA700BEB6BE /* AuthEnum.swift */; };
 		9BB63F1B219F18A200BEB6BE /* FirebaseCreateRoom.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9BB63F1A219F18A200BEB6BE /* FirebaseCreateRoom.storyboard */; };
+		9BB63F1D21A181A500BEB6BE /* FirebaseCreateRoomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BB63F1C21A181A500BEB6BE /* FirebaseCreateRoomView.swift */; };
 		9BC803142185ED8B00E16993 /* GitHubCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BC803132185ED8B00E16993 /* GitHubCell.swift */; };
 		9BC803192186CAA000E16993 /* SampleWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BC803182186CAA000E16993 /* SampleWebView.swift */; };
 		9BC8031B2186CB0200E16993 /* SampleWebView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9BC8031A2186CB0200E16993 /* SampleWebView.storyboard */; };
@@ -154,6 +155,7 @@
 		9BB63F0E219DB2F700BEB6BE /* FirebaseChatListRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseChatListRepository.swift; sourceTree = "<group>"; };
 		9BB63F18219F0BA700BEB6BE /* AuthEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthEnum.swift; sourceTree = "<group>"; };
 		9BB63F1A219F18A200BEB6BE /* FirebaseCreateRoom.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FirebaseCreateRoom.storyboard; sourceTree = "<group>"; };
+		9BB63F1C21A181A500BEB6BE /* FirebaseCreateRoomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseCreateRoomView.swift; sourceTree = "<group>"; };
 		9BC803132185ED8B00E16993 /* GitHubCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubCell.swift; sourceTree = "<group>"; };
 		9BC803182186CAA000E16993 /* SampleWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleWebView.swift; sourceTree = "<group>"; };
 		9BC8031A2186CB0200E16993 /* SampleWebView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SampleWebView.storyboard; sourceTree = "<group>"; };
@@ -359,6 +361,7 @@
 				9BB63EEF21906F3100BEB6BE /* FirebaseChatView.swift */,
 				9BB63EF92195AB5900BEB6BE /* FirebaseChatListView.swift */,
 				9BB63EFB2195AC7000BEB6BE /* FirebaseChatListCell.swift */,
+				9BB63F1C21A181A500BEB6BE /* FirebaseCreateRoomView.swift */,
 				9BB63F08219C668600BEB6BE /* Router.swift */,
 			);
 			path = View;
@@ -720,6 +723,7 @@
 				9BB63EEB218F227600BEB6BE /* DefaultWireframe.swift in Sources */,
 				9BB63F0F219DB2F700BEB6BE /* FirebaseChatListRepository.swift in Sources */,
 				9BB63EE2218EC4C900BEB6BE /* FirebaseSignInRepository.swift in Sources */,
+				9BB63F1D21A181A500BEB6BE /* FirebaseCreateRoomView.swift in Sources */,
 				9B084000212B0B8D00C537D5 /* SampleModel.swift in Sources */,
 				9BB63EE9218F158C00BEB6BE /* AuthUser.swift in Sources */,
 				9B083FCF212AFF6F00C537D5 /* ViewController.swift in Sources */,
