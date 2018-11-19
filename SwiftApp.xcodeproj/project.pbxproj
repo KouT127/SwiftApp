@@ -65,6 +65,7 @@
 		9BB63F19219F0BA700BEB6BE /* AuthEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BB63F18219F0BA700BEB6BE /* AuthEnum.swift */; };
 		9BB63F1B219F18A200BEB6BE /* FirebaseCreateRoom.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9BB63F1A219F18A200BEB6BE /* FirebaseCreateRoom.storyboard */; };
 		9BB63F1D21A181A500BEB6BE /* FirebaseCreateRoomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BB63F1C21A181A500BEB6BE /* FirebaseCreateRoomView.swift */; };
+		9BB63F1F21A1A6D800BEB6BE /* FIrebaseUser.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9BB63F1E21A1A6D700BEB6BE /* FIrebaseUser.storyboard */; };
 		9BC803142185ED8B00E16993 /* GitHubCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BC803132185ED8B00E16993 /* GitHubCell.swift */; };
 		9BC803192186CAA000E16993 /* SampleWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BC803182186CAA000E16993 /* SampleWebView.swift */; };
 		9BC8031B2186CB0200E16993 /* SampleWebView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9BC8031A2186CB0200E16993 /* SampleWebView.storyboard */; };
@@ -156,6 +157,7 @@
 		9BB63F18219F0BA700BEB6BE /* AuthEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthEnum.swift; sourceTree = "<group>"; };
 		9BB63F1A219F18A200BEB6BE /* FirebaseCreateRoom.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FirebaseCreateRoom.storyboard; sourceTree = "<group>"; };
 		9BB63F1C21A181A500BEB6BE /* FirebaseCreateRoomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseCreateRoomView.swift; sourceTree = "<group>"; };
+		9BB63F1E21A1A6D700BEB6BE /* FIrebaseUser.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FIrebaseUser.storyboard; sourceTree = "<group>"; };
 		9BC803132185ED8B00E16993 /* GitHubCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubCell.swift; sourceTree = "<group>"; };
 		9BC803182186CAA000E16993 /* SampleWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleWebView.swift; sourceTree = "<group>"; };
 		9BC8031A2186CB0200E16993 /* SampleWebView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SampleWebView.storyboard; sourceTree = "<group>"; };
@@ -385,6 +387,7 @@
 				9BB63EF72195A70D00BEB6BE /* FirebaseChatList.storyboard */,
 				9BB63F1A219F18A200BEB6BE /* FirebaseCreateRoom.storyboard */,
 				9BB63F0A219C66A900BEB6BE /* Router.storyboard */,
+				9BB63F1E21A1A6D700BEB6BE /* FIrebaseUser.storyboard */,
 			);
 			path = StoryBoard;
 			sourceTree = "<group>";
@@ -554,6 +557,7 @@
 				9BB63EF82195A70D00BEB6BE /* FirebaseChatList.storyboard in Resources */,
 				9BB63F0B219C66A900BEB6BE /* Router.storyboard in Resources */,
 				9B083FD4212AFF7000C537D5 /* Assets.xcassets in Resources */,
+				9BB63F1F21A1A6D800BEB6BE /* FIrebaseUser.storyboard in Resources */,
 				9BB63ECA218C828A00BEB6BE /* FirebaseSignIn.storyboard in Resources */,
 				9B084002212C516F00C537D5 /* SampleList.storyboard in Resources */,
 				9B083FD2212AFF6F00C537D5 /* Main.storyboard in Resources */,
