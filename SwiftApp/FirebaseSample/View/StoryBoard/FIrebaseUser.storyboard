@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Firebase Create User View-->
         <scene sceneID="TPE-CR-348">
             <objects>
-                <viewController id="U0D-jm-ahp" sceneMemberID="viewController">
+                <viewController id="U0D-jm-ahp" customClass="FirebaseCreateUserView" customModule="SwiftApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ogm-db-7PJ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -157,6 +157,11 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="VyF-e0-KQI"/>
                     </view>
+                    <connections>
+                        <outlet property="name" destination="hKu-DA-aag" id="SyD-4k-d8k"/>
+                        <outlet property="profile" destination="Bp5-bk-BhW" id="kLz-n2-RWM"/>
+                        <outlet property="updateButton" destination="ldo-74-Jcd" id="5QQ-17-f09"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gzN-eT-xm5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

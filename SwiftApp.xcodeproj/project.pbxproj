@@ -69,6 +69,7 @@
 		9BC803142185ED8B00E16993 /* GitHubCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BC803132185ED8B00E16993 /* GitHubCell.swift */; };
 		9BC803192186CAA000E16993 /* SampleWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BC803182186CAA000E16993 /* SampleWebView.swift */; };
 		9BC8031B2186CB0200E16993 /* SampleWebView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9BC8031A2186CB0200E16993 /* SampleWebView.storyboard */; };
+		9BE8161221A3037F00C5C371 /* FirebaseCreateUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE8161121A3037F00C5C371 /* FirebaseCreateUserView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -161,6 +162,7 @@
 		9BC803132185ED8B00E16993 /* GitHubCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubCell.swift; sourceTree = "<group>"; };
 		9BC803182186CAA000E16993 /* SampleWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleWebView.swift; sourceTree = "<group>"; };
 		9BC8031A2186CB0200E16993 /* SampleWebView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SampleWebView.storyboard; sourceTree = "<group>"; };
+		9BE8161121A3037F00C5C371 /* FirebaseCreateUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseCreateUserView.swift; sourceTree = "<group>"; };
 		C6AA177836C48D6FD5BA004E /* Pods-SwiftAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftAppTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftAppTests/Pods-SwiftAppTests.release.xcconfig"; sourceTree = "<group>"; };
 		E0C69683FEB70C72C0370B04 /* Pods_SwiftAppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftAppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E57E2F5B7473ACB4AA8EEC27 /* Pods-SwiftAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftAppUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftAppUITests/Pods-SwiftAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -364,6 +366,7 @@
 				9BB63EF92195AB5900BEB6BE /* FirebaseChatListView.swift */,
 				9BB63EFB2195AC7000BEB6BE /* FirebaseChatListCell.swift */,
 				9BB63F1C21A181A500BEB6BE /* FirebaseCreateRoomView.swift */,
+				9BE8161121A3037F00C5C371 /* FirebaseCreateUserView.swift */,
 				9BB63F08219C668600BEB6BE /* Router.swift */,
 			);
 			path = View;
@@ -386,8 +389,8 @@
 				9BB63EED218F3C1E00BEB6BE /* FirebaseChat.storyboard */,
 				9BB63EF72195A70D00BEB6BE /* FirebaseChatList.storyboard */,
 				9BB63F1A219F18A200BEB6BE /* FirebaseCreateRoom.storyboard */,
-				9BB63F0A219C66A900BEB6BE /* Router.storyboard */,
 				9BB63F1E21A1A6D700BEB6BE /* FIrebaseUser.storyboard */,
+				9BB63F0A219C66A900BEB6BE /* Router.storyboard */,
 			);
 			path = StoryBoard;
 			sourceTree = "<group>";
@@ -739,6 +742,7 @@
 				9BB63ECC218DE0EE00BEB6BE /* Firebase+Rx.swift in Sources */,
 				9BB63ED0218DE65500BEB6BE /* FirebaseAuthView.swift in Sources */,
 				9BB63EFC2195AC7000BEB6BE /* FirebaseChatListCell.swift in Sources */,
+				9BE8161221A3037F00C5C371 /* FirebaseCreateUserView.swift in Sources */,
 				9BB63EFE2196A8B300BEB6BE /* FirebaseChatListModel.swift in Sources */,
 				9BB63F19219F0BA700BEB6BE /* AuthEnum.swift in Sources */,
 				9B2FB703217E02F400610D43 /* Service.swift in Sources */,
