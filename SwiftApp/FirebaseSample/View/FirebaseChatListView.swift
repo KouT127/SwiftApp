@@ -23,7 +23,6 @@ class FirebaseChatListView: UIViewController {
         super.viewDidLoad()
         
         let dataSource = FirebaseChatListView.dataSource()
-        
         let viewModel = FirebaseChatListViewModel(
             addTaps: addButton.rx.tap.asObservable(),
             dependency: (
@@ -32,6 +31,9 @@ class FirebaseChatListView: UIViewController {
                 wireframe: .shared
             )
         )
+        
+        let userButton = UIBarButtonItem(title: "User", style: .plain, target: self, action: nil)
+        self.navigationItem.rightBarButtonItems = [userButton]
         
         tableView.rx.modelSelected(FirebaseRoom.self)
             .subscribe(onNext: {[unowned self] cell in
@@ -46,16 +48,16 @@ class FirebaseChatListView: UIViewController {
             })
             .disposed(by: disposeBag)
         
+        userButton.rx.tap
+            .asObservable()
+            .subscribe(onNext: {[unowned self] _ in
+                self.toUser()
+            })
+            .disposed(by: disposeBag)
+        
         viewModel.updatedDataSource
             .bind(to: tableView.rx.items(dataSource: dataSource))
             .disposed(by: disposeBag)
-        
-//        let deleteData = dependency.repository.tableView.rx.itemDeleted.asObservable()
-//            .withLatestFrom(state){ ( $0, $1)}
-//            .map {[unowned self] index, state in
-//                self.deleteItem(oldSections: state.sections, index: index)}
-        
-        
   
     }
     
@@ -77,6 +79,11 @@ class FirebaseChatListView: UIViewController {
         let viewController = storyboard.instantiateInitialViewController()! as! FirebaseChatView
         viewController.documentId = documentId
         viewController.navigationTitle = naviTitle
+        self.navigationController?.pushViewController(viewController, animated: true)
+    }
+    private func toUser(){
+        let storyboard = UIStoryboard(name: "FirebaseUser", bundle: nil)
+        let viewController = storyboard.instantiateInitialViewController()! as! FirebaseCreateUserView
         self.navigationController?.pushViewController(viewController, animated: true)
     }
 }
