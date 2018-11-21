@@ -1,0 +1,9 @@
+{
+  "commitish" : "1.2.0",
+  "iOS" : [
+    {
+      "name" : "RxMediaPicker",
+      "hash" : "2412b386e837023f7554a01d1914220789f56c0ef163cb83354f1da7da1d849a"
+    }
+  ]
+}

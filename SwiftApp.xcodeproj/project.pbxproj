@@ -70,6 +70,7 @@
 		9BC803192186CAA000E16993 /* SampleWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BC803182186CAA000E16993 /* SampleWebView.swift */; };
 		9BC8031B2186CB0200E16993 /* SampleWebView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9BC8031A2186CB0200E16993 /* SampleWebView.storyboard */; };
 		9BE8161221A3037F00C5C371 /* FirebaseCreateUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE8161121A3037F00C5C371 /* FirebaseCreateUserView.swift */; };
+		9BE8161B21A5903E00C5C371 /* RxMediaPicker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BE8161A21A5903E00C5C371 /* RxMediaPicker.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -163,6 +164,7 @@
 		9BC803182186CAA000E16993 /* SampleWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleWebView.swift; sourceTree = "<group>"; };
 		9BC8031A2186CB0200E16993 /* SampleWebView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SampleWebView.storyboard; sourceTree = "<group>"; };
 		9BE8161121A3037F00C5C371 /* FirebaseCreateUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseCreateUserView.swift; sourceTree = "<group>"; };
+		9BE8161A21A5903E00C5C371 /* RxMediaPicker.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxMediaPicker.framework; path = Carthage/Build/iOS/RxMediaPicker.framework; sourceTree = "<group>"; };
 		C6AA177836C48D6FD5BA004E /* Pods-SwiftAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftAppTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftAppTests/Pods-SwiftAppTests.release.xcconfig"; sourceTree = "<group>"; };
 		E0C69683FEB70C72C0370B04 /* Pods_SwiftAppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftAppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E57E2F5B7473ACB4AA8EEC27 /* Pods-SwiftAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftAppUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftAppUITests/Pods-SwiftAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -173,6 +175,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9BE8161B21A5903E00C5C371 /* RxMediaPicker.framework in Frameworks */,
 				9BB63F022198372A00BEB6BE /* Differentiator.framework in Frameworks */,
 				9BB63EF42190757800BEB6BE /* MessageKit.framework in Frameworks */,
 				9BB63EC7218B456800BEB6BE /* SVProgressHUD.framework in Frameworks */,
@@ -211,6 +214,7 @@
 		04BA78E2CD58F06B07585F43 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9BE8161A21A5903E00C5C371 /* RxMediaPicker.framework */,
 				9BB63F012198372A00BEB6BE /* Differentiator.framework */,
 				9BB63F00219836BB00BEB6BE /* RxDataSources.framework */,
 				9BB63EF32190757800BEB6BE /* MessageKit.framework */,
@@ -259,6 +263,7 @@
 				9BB63F03219B157E00BEB6BE /* CustomView */,
 				9BB63EE5218ED74D00BEB6BE /* Realm */,
 				9B2FB701217E029600610D43 /* Shared */,
+				9BE8161721A454D500C5C371 /* Extension */,
 				9B083FFA212B09F700C537D5 /* GitHubViewer */,
 				9BB63EC8218C81F200BEB6BE /* FirebaseSample */,
 				9B083FCC212AFF6F00C537D5 /* AppDelegate.swift */,
@@ -307,7 +312,6 @@
 				9BB63EC4218B338E00BEB6BE /* extension.swift */,
 				9B2FB702217E02F400610D43 /* Service.swift */,
 				9B2FB71721840C1800610D43 /* Provider.swift */,
-				9BB63ECB218DE0EE00BEB6BE /* Firebase+Rx.swift */,
 				9BB63EEA218F227600BEB6BE /* DefaultWireframe.swift */,
 			);
 			path = Shared;
@@ -427,6 +431,14 @@
 				9BC8031A2186CB0200E16993 /* SampleWebView.storyboard */,
 			);
 			path = GitHubBrowser;
+			sourceTree = "<group>";
+		};
+		9BE8161721A454D500C5C371 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				9BB63ECB218DE0EE00BEB6BE /* Firebase+Rx.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 		EB156EBD71D333205E721981 /* Pods */ = {
@@ -672,6 +684,7 @@
 				"$(SRCROOT)/Carthage/Build/iOS/MessageKit.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/RxDataSources.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Differentiator.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RxMediaPicker.framework",
 			);
 			name = "Run Script For Carthage";
 			outputFileListPaths = (

@@ -1,0 +1,11 @@
+framework module RxMediaPicker {
+  umbrella header "RxMediaPicker.h"
+
+  export *
+  module * { export * }
+}
+
+module RxMediaPicker.Swift {
+    header "RxMediaPicker-Swift.h"
+    requires objc
+}
