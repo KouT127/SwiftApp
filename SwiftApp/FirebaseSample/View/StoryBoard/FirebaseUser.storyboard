@@ -161,6 +161,7 @@
                         <outlet property="name" destination="hKu-DA-aag" id="SyD-4k-d8k"/>
                         <outlet property="profile" destination="Bp5-bk-BhW" id="kLz-n2-RWM"/>
                         <outlet property="updateButton" destination="ldo-74-Jcd" id="5QQ-17-f09"/>
+                        <outlet property="userImageButton" destination="jWN-tj-CQP" id="j3g-ej-guW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gzN-eT-xm5" userLabel="First Responder" sceneMemberID="firstResponder"/>
