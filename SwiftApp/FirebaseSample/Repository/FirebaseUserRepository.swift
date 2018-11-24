@@ -34,7 +34,9 @@ class FirebaseUserRepository {
                                         "createdAt": FieldValue.serverTimestamp()]
         return Firestore.firestore()
             .collection("Users")
-            .document(documentId).rx.updateData(userInfo)
+            .document("LkTHMvYUt3GA5hcQzRQ2")
+//            .document(documentId)
+            .rx.updateData(userInfo)
     }
     
     func uploadImage(_ image: Data) -> Observable<URL>{
@@ -44,7 +46,6 @@ class FirebaseUserRepository {
             .child("user_images/asdfasdf.jpg")
             .rx.putData(image)
             .map { $0}
-            .debug("meta")
             .flatMap { self.downloadUrl(path: $0.path)}
     }
     

@@ -158,6 +158,7 @@
                         <viewLayoutGuide key="safeArea" id="VyF-e0-KQI"/>
                     </view>
                     <connections>
+                        <outlet property="imageView" destination="1e9-50-e64" id="dcL-aw-Zyh"/>
                         <outlet property="name" destination="hKu-DA-aag" id="SyD-4k-d8k"/>
                         <outlet property="profile" destination="Bp5-bk-BhW" id="kLz-n2-RWM"/>
                         <outlet property="updateButton" destination="ldo-74-Jcd" id="5QQ-17-f09"/>

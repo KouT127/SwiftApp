@@ -21,6 +21,7 @@ class FirebaseUserView: UIViewController, RxMediaPickerDelegate {
     @IBOutlet weak var profile: UITextView!
     @IBOutlet weak var updateButton: UIButton!
     @IBOutlet weak var userImageButton: RoundButton!
+    @IBOutlet weak var imageView: RoundImage!
     
     
     var viewModel: FirebaseUserViewModel?
@@ -37,10 +38,21 @@ class FirebaseUserView: UIViewController, RxMediaPickerDelegate {
         
         let image = userImageButton.rx.tap
             .asObservable()
-            .debug()
             .flatMap {self.pickPhoto()}
             .map{ $1?.jpegData(compressionQuality: 0.8)}
             .filterNil()
+            .share()
+        
+        image
+            .debug("image")
+            .observeOn(MainScheduler.instance)
+            .subscribe(onNext: {[unowned self] image in
+                self.imageView.image =  UIImage(data: image)
+                self.imageView.awakeFromNib()
+                self.view.setNeedsDisplay()
+            })
+            .disposed(by: disposeBag)
+        
         
         let viewModel = FirebaseUserViewModel(
             input: (
