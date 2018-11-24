@@ -9,6 +9,7 @@
 import RxSwift
 import FirebaseAuth
 import FirebaseFirestore
+import FirebaseStorage
 
 extension Reactive where Base: Auth {
 
@@ -130,6 +131,59 @@ extension Reactive where Base: DocumentReference {
             return Disposables.create {
                 listener.remove()
             }
+        }
+    }
+    public func updateData(_ fields: [AnyHashable: Any]) -> Observable<Void> {
+        return Observable<Void>.create { observer in
+            self.base.updateData(fields) { error in
+                guard let error = error else {
+                    observer.onNext(())
+                    observer.onCompleted()
+                    return
+                }
+                observer.onError(error)
+            }
+            return Disposables.create()
+        }
+    }
+}
+
+extension Reactive where Base: StorageReference {
+    public func putData(_ uploadData: Data, metadata: StorageMetadata? = nil) -> Observable<StorageMetadata> {
+        return Observable.create { observer in
+            let task = self.base.putData(uploadData, metadata: metadata) { metadata, error in
+                guard let error = error else {
+                    if let metadata = metadata {
+                        observer.onNext(metadata)
+                    }
+                    observer.onCompleted()
+                    return
+                }
+                observer.onError(error)
+            }
+            return Disposables.create {
+                task.cancel()
+            }
+        }
+    }
+}
+
+extension Reactive where Base: StorageReference {
+    public func getDownloadUrl() -> Observable<URL> {
+        return Observable.create { observer in
+            self.base.downloadURL(completion: { data, error in
+                if let error = error {
+                    observer.onError(error)
+                }
+                if let url = data {
+                    observer.onNext(url)
+                    observer.onCompleted()
+                    return
+                }
+                observer.onError(NSError(domain: StorageErrorDomain, code: StorageErrorCode.unknown.rawValue, userInfo: nil))
+
+            })
+            return Disposables.create()
         }
     }
 }

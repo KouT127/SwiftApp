@@ -14,9 +14,11 @@ class AuthUser: Object {
     @objc dynamic var providerId: String = ""
     @objc dynamic var uid: String = ""
     @objc dynamic var displayName: String? = ""
+    @objc dynamic var profile: String? = ""
     @objc dynamic var email: String? = ""
+    @objc dynamic var imageUrl: String? = ""
     
-    enum CodingKeys: String, CodingKey {
-        case providerID, uid, displayName, email
+    override static func primaryKey() -> String? {
+        return "uid"
     }
 }

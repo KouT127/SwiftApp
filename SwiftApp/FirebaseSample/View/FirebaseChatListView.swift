@@ -83,7 +83,7 @@ class FirebaseChatListView: UIViewController {
     }
     private func toUser(){
         let storyboard = UIStoryboard(name: "FirebaseUser", bundle: nil)
-        let viewController = storyboard.instantiateInitialViewController()! as! FirebaseCreateUserView
+        let viewController = storyboard.instantiateInitialViewController()! as! FirebaseUserView
         self.navigationController?.pushViewController(viewController, animated: true)
     }
 }

@@ -7,3 +7,16 @@
 //
 
 import Foundation
+
+extension Date {
+    func toString(_ format: String = "yyyy/MM/dd", timeZone: Bool = false) -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = format
+        if timeZone {
+            formatter.timeZone = TimeZone.current
+            formatter.locale = Locale.current
+        }
+        
+        return formatter.string(from: self)
+    }
+}
