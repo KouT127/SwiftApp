@@ -38,7 +38,7 @@ class FirebaseUserViewModel {
         
         let image = input.imageTaps
             .flatMap { dependency.imagePickerService.pickPhoto()}
-            .map { $1?.jpegData(compressionQuality: 0.9)}
+            .map { $0?.jpegData(compressionQuality: 0.9)}
             .filterNil()
             .share()
         

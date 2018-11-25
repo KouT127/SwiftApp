@@ -24,8 +24,10 @@ class ImagePickerService {
         picker = RxMediaPicker(delegate: self)
     }
     
-    public func pickPhoto() -> Observable<(UIImage,UIImage?)>{
+    public func pickPhoto() -> Observable<(UIImage?)>{
         return picker.selectImage(editable: true)
+            .map { $1 }
+            .catchErrorJustReturn(nil)
     }
 }
 
