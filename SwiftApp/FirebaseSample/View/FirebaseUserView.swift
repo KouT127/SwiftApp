@@ -48,8 +48,7 @@ class FirebaseUserView: UIViewController, RxMediaPickerDelegate {
             .observeOn(MainScheduler.instance)
             .subscribe(onNext: {[unowned self] image in
                 self.imageView.image =  UIImage(data: image)
-                self.imageView.awakeFromNib()
-                self.view.setNeedsDisplay()
+                self.imageView.setRounded()
             })
             .disposed(by: disposeBag)
         

@@ -35,6 +35,7 @@
 		9B31C9BD216B372000470A57 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B31C9BC216B372000470A57 /* TabBarController.swift */; };
 		9B340ED6218721EC001149D4 /* AMScrollingNavbar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B340ED5218721EC001149D4 /* AMScrollingNavbar.framework */; };
 		9B35981921A8551B00019415 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B35981821A8551B00019415 /* User.swift */; };
+		9B35981B21AA5F7100019415 /* ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B35981A21AA5F7100019415 /* ImageView.swift */; };
 		9BB63EC7218B456800BEB6BE /* SVProgressHUD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BB63EC6218B456800BEB6BE /* SVProgressHUD.framework */; };
 		9BB63ECA218C828A00BEB6BE /* FirebaseSignIn.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9BB63EC9218C828A00BEB6BE /* FirebaseSignIn.storyboard */; };
 		9BB63ECC218DE0EE00BEB6BE /* Firebase+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BB63ECB218DE0EE00BEB6BE /* Firebase+Rx.swift */; };
@@ -133,6 +134,7 @@
 		9B31C9BC216B372000470A57 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		9B340ED5218721EC001149D4 /* AMScrollingNavbar.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AMScrollingNavbar.framework; path = Carthage/Build/iOS/AMScrollingNavbar.framework; sourceTree = "<group>"; };
 		9B35981821A8551B00019415 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		9B35981A21AA5F7100019415 /* ImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageView.swift; sourceTree = "<group>"; };
 		9B4EB1D9A129BE59B66DD696 /* Pods-SwiftAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftAppUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftAppUITests/Pods-SwiftAppUITests.release.xcconfig"; sourceTree = "<group>"; };
 		9BB63EC6218B456800BEB6BE /* SVProgressHUD.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SVProgressHUD.framework; path = Carthage/Build/iOS/SVProgressHUD.framework; sourceTree = "<group>"; };
 		9BB63EC9218C828A00BEB6BE /* FirebaseSignIn.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FirebaseSignIn.storyboard; sourceTree = "<group>"; };
@@ -455,6 +457,7 @@
 				9BE8161C21A79E8F00C5C371 /* ObservableType.swift */,
 				9BE8161E21A79EB700C5C371 /* WKWebView+Rx.swift */,
 				9BE8162021A79EF300C5C371 /* Date.swift */,
+				9B35981A21AA5F7100019415 /* ImageView.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -788,6 +791,7 @@
 				9BB63F0D219DB1A700BEB6BE /* FirebaseChatListViewModel.swift in Sources */,
 				9BB63EFA2195AB5900BEB6BE /* FirebaseChatListView.swift in Sources */,
 				9BB63EDF218EC02500BEB6BE /* FirebaseSignInViewModel.swift in Sources */,
+				9B35981B21AA5F7100019415 /* ImageView.swift in Sources */,
 				9B083FFC212B0A3900C537D5 /* SampleView.swift in Sources */,
 				9BB63EF22190740E00BEB6BE /* Message.swift in Sources */,
 				9B31C9BD216B372000470A57 /* TabBarController.swift in Sources */,
