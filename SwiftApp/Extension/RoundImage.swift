@@ -8,7 +8,7 @@
 
 import Foundation
 
-extension UIImageView {
+extension RoundImage {
     func setRounded() {
         let radius = self.frame.width / 2
         self.layer.cornerRadius = radius
