@@ -10,6 +10,7 @@ import Foundation
 
 extension RoundImage {
     func setRounded() {
+        self.layer.borderWidth = 5
         let radius = self.frame.width / 2
         self.layer.cornerRadius = radius
         self.layer.masksToBounds = true

@@ -31,16 +31,14 @@ import UIKit
 
 @IBDesignable class RoundImage: UIImageView {
     @IBInspectable var borderWidth: CGFloat = 0
-    @IBInspectable var borderColor: CGColor = UIColor.black.cgColor
+    @IBInspectable var borderColor: CGColor = UIColor.white.cgColor
     @IBInspectable var conerRadius: CGFloat = 0
-    @IBInspectable var clipsToBound: Bool = false
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         self.layer.borderWidth = borderWidth
         self.layer.borderColor = borderColor
         self.layer.cornerRadius = conerRadius
-        self.clipsToBounds = clipsToBound
+        self.layer.masksToBounds = true
     }
 }
 

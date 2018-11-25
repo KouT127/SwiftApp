@@ -24,7 +24,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HQa-2z-chC">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="162"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Bear" translatesAutoresizingMaskIntoConstraints="NO" id="1e9-50-e64" customClass="RoundImage" customModule="SwiftApp" customModuleProvider="target">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Bear" translatesAutoresizingMaskIntoConstraints="NO" id="1e9-50-e64" customClass="RoundImage" customModule="SwiftApp" customModuleProvider="target">
                                                 <rect key="frame" x="127.5" y="21" width="120" height="120"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="120" id="sWe-NY-Snr"/>
@@ -33,6 +33,9 @@
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="conerRadius">
                                                         <real key="value" value="60"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                        <real key="value" value="5"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </imageView>
