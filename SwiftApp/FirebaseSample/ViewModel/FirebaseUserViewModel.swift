@@ -7,6 +7,8 @@
 //
 
 import Foundation
+
+import UIKit
 import RxSwift
 import RxCocoa
 
@@ -16,10 +18,11 @@ class FirebaseUserViewModel {
         name: Observable<String>,
         profile: Observable<String>,
         updateTaps: Observable<Void>,
-        image: Observable<Data>
+        imageTaps: Observable<Void>
     )
     
     typealias Dependency = (
+        imagePickerService: ImagePickerService,
         repository: FirebaseUserRepository,
         accessor: Accessor,
         wireframe: DefaultWireframe
@@ -29,8 +32,18 @@ class FirebaseUserViewModel {
     let disposeBag = DisposeBag()
     
     let updateInfo: Driver<Void>
+    let imageInfo: Driver<Data>
     
     init(input: Input, dependency: Dependency) {
+        
+        let image = input.imageTaps
+            .flatMap { dependency.imagePickerService.pickPhoto()}
+            .map { $1?.jpegData(compressionQuality: 0.9)}
+            .filterNil()
+            .share()
+        
+        imageInfo = image
+            .asDriver(onErrorDriveWith: Driver.empty())
         
         let currentUserInfo = userInfoRelay
             .asObservable()
@@ -59,20 +72,18 @@ class FirebaseUserViewModel {
         //TODO:ErrorHandle
         //TODO:現在表示している画像を保持する。
         let userInfo = input.updateTaps
-            .withLatestFrom(input.image)
-            .flatMap { image -> Observable<URL> in
-                return dependency.repository.uploadImage(image)}
+            .withLatestFrom(image)
             .withLatestFrom(currentUserInfo) {($0, $1)}
             .share()
         
         //TODO:ErrorHandle
         let updateRemoteResult = userInfo
-            .flatMap { url, user in
-                return dependency.repository.updateRemoteUser(name: user.name, profile: user.profile, imageUrl: url, documentId: user.uid)}
+            .flatMap { image, user in
+                return dependency.repository.updateRemoteUser(name: user.name, profile: user.profile, image: image, uid: user.uid)}
         
         let updateLocalResult = userInfo
-            .map { url, user -> Void in
-                return dependency.repository.updateLocalUser(uid: user.uid, name: user.name, profile: user.profile, url: url.description)}
+            .map { image, user -> Void in
+                return dependency.repository.updateLocalUser(uid: user.uid, name: user.name, profile: user.profile, image: image)}
         
         updateInfo = Observable
             .combineLatest(updateLocalResult,updateRemoteResult)

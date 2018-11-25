@@ -15,7 +15,7 @@ import RxMediaPicker
 import Photos
 import FirebaseStorage
 
-class FirebaseUserView: UIViewController, RxMediaPickerDelegate {
+class FirebaseUserView: UIViewController {
     
     @IBOutlet weak var name: UITextField!
     @IBOutlet weak var profile: UITextView!
@@ -34,33 +34,15 @@ class FirebaseUserView: UIViewController, RxMediaPickerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        imagePicker()
-        
-        let image = userImageButton.rx.tap
-            .asObservable()
-            .flatMap {self.pickPhoto()}
-            .map{ $1?.jpegData(compressionQuality: 0.8)}
-            .filterNil()
-            .share()
-        
-        image
-            .debug("image")
-            .observeOn(MainScheduler.instance)
-            .subscribe(onNext: {[unowned self] image in
-                self.imageView.image =  UIImage(data: image)
-                self.imageView.setRounded()
-            })
-            .disposed(by: disposeBag)
-        
-        
         let viewModel = FirebaseUserViewModel(
             input: (
                 name: self.name.rx.text.orEmpty.asObservable(),
                 profile: self.profile.rx.text.orEmpty.asObservable(),
                 updateTaps: self.updateButton.rx.tap.asObservable(),
-                image: image
+                imageTaps: self.userImageButton.rx.tap.asObservable()
             ),
             dependency: (
+                imagePickerService: ImagePickerService(vc: self),
                 repository: FirebaseUserRepository(),
                 accessor: .shared,
                 wireframe: .shared
@@ -73,26 +55,16 @@ class FirebaseUserView: UIViewController, RxMediaPickerDelegate {
                 self.back()
             })
             .disposed(by: disposeBag)
-    }
-    
-    private func imagePicker(){
-        picker = RxMediaPicker(delegate: self)
-    }
-    
-    private func pickPhoto() -> Observable<(UIImage, UIImage?)>{
-        return picker.selectImage(editable: true)
-    }
-    
-    //DelegateMethod
-    func present(picker: UIImagePickerController) {
-        present(picker, animated: true, completion: nil)
-    }
-    func dismiss(picker: UIImagePickerController) {
-        dismiss(animated: true, completion: nil)
+        
+        viewModel.imageInfo
+            .drive(onNext: {[unowned self] image in
+                self.imageView.image = UIImage(data: image)
+                self.imageView.setRounded()
+            })
+            .disposed(by: disposeBag)
     }
     
     private func back() {
         self.dismiss(animated: true, completion: nil)
     }
-
 }

@@ -26,24 +26,31 @@ class FirebaseUserRepository {
         self.realm = try! Realm()
     }
     
-    func updateRemoteUser(name: String?, profile: String?, imageUrl: URL, documentId: String) -> Observable<Void>{
-        //imageは最後に実装する。
-        let userInfo: [String: Any?] = ["name": name,
-                                        "profile": profile,
-                                        "imageUrl": imageUrl.description,
-                                        "createdAt": FieldValue.serverTimestamp()]
+    func updateRemoteUser(name: String?, profile: String?, image: Data, uid: String) -> Observable<Void>{
+        return uploadImage(uid: uid, image: image)
+            .flatMap {[unowned self] url -> Observable<Void> in
+                let userInfo: [String: Any?] = ["name": name,
+                                                "profile": profile,
+                                                "imageUrl": url.description,
+                                                "createdAt": FieldValue.serverTimestamp()]
+                return self.updateFirestoreUser(userInfo, uid)
+        }
+    }
+    //TODO: errorhandle
+    private func updateFirestoreUser(_ dictionary: [String: Any?],_ uid: String) -> Observable<Void>{
         return Firestore.firestore()
             .collection("Users")
             .document("LkTHMvYUt3GA5hcQzRQ2")
-//            .document(documentId)
-            .rx.updateData(userInfo)
+//            .document(uid)
+            .rx.updateData(dictionary)
     }
     
-    func uploadImage(_ image: Data) -> Observable<URL>{
+    //TODO: errorhandle
+    private func uploadImage(uid: String, image: Data) -> Observable<URL>{
         
         return Storage.storage()
             .reference(forURL: getStorageUrl())
-            .child("user_images/asdfasdf.jpg")
+            .child("user_images/\(uid)")
             .rx.putData(image)
             .map { $0}
             .flatMap { self.downloadUrl(path: $0.path)}
@@ -86,17 +93,18 @@ class FirebaseUserRepository {
 //        }
     }
     
-    func updateLocalUser(uid: String, name: String? = nil, profile: String? = nil, url: String? = nil) {
-        var changeValue = ["uid": uid]
+    func updateLocalUser(uid: String, name: String? = nil, profile: String? = nil, image: Data? = nil) {
+        var changeValue: [String: Any] = ["uid": uid]
         if let name = name {
-            changeValue = changeValue.merging(["name": name], uniquingKeysWith: +)
+            changeValue = changeValue + ["name": name]
         }
         if let profile = profile {
-            changeValue = changeValue.merging(["profile": profile], uniquingKeysWith: +)
+            changeValue = changeValue + ["profile": profile]
         }
-        if let url  = url {
-            changeValue = changeValue.merging(["imageUrl": url.description], uniquingKeysWith: +)
+        if let image  = image {
+            changeValue = changeValue + ["image": image]
         }
+        print(changeValue)
         try! realm.write {
             realm.create(AuthUser.self, value: changeValue, update: true)
         }
@@ -105,4 +113,15 @@ class FirebaseUserRepository {
     func updateUser(oldUser: User, newName: String? = nil, newProfile: String? = nil, newUrl: URL? = nil) -> User{
         return User(uid: oldUser.uid, name: newName ?? oldUser.name, profile: newProfile ?? oldUser.profile, url: newUrl)
     }
+}
+
+//追加のみ
+func + <K,V>(left: Dictionary<K,V>, right: Dictionary<K,V>)
+    -> Dictionary<K,V>
+{
+    var dictionary = left
+    for (k, v) in right {
+        dictionary[k] = v
+    }
+    return dictionary
 }

@@ -21,7 +21,7 @@
 		9B083FFE212B0B7E00C537D5 /* SampleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B083FFD212B0B7E00C537D5 /* SampleViewModel.swift */; };
 		9B084000212B0B8D00C537D5 /* SampleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B083FFF212B0B8D00C537D5 /* SampleModel.swift */; };
 		9B084002212C516F00C537D5 /* SampleList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B084001212C516F00C537D5 /* SampleList.storyboard */; };
-		9B2FB703217E02F400610D43 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2FB702217E02F400610D43 /* Service.swift */; };
+		9B2FB703217E02F400610D43 /* GithubService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2FB702217E02F400610D43 /* GithubService.swift */; };
 		9B2FB706217F535400610D43 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B2FB705217F535400610D43 /* RxSwift.framework */; };
 		9B2FB708217F537000610D43 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B2FB707217F537000610D43 /* RealmSwift.framework */; };
 		9B2FB70A217F538300610D43 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B2FB709217F538300610D43 /* RxCocoa.framework */; };
@@ -36,6 +36,7 @@
 		9B340ED6218721EC001149D4 /* AMScrollingNavbar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B340ED5218721EC001149D4 /* AMScrollingNavbar.framework */; };
 		9B35981921A8551B00019415 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B35981821A8551B00019415 /* User.swift */; };
 		9B35981B21AA5F7100019415 /* RoundImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B35981A21AA5F7100019415 /* RoundImage.swift */; };
+		9B35981D21AA7ECE00019415 /* ImagePickerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B35981C21AA7ECE00019415 /* ImagePickerService.swift */; };
 		9BB63EC7218B456800BEB6BE /* SVProgressHUD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BB63EC6218B456800BEB6BE /* SVProgressHUD.framework */; };
 		9BB63ECA218C828A00BEB6BE /* FirebaseSignIn.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9BB63EC9218C828A00BEB6BE /* FirebaseSignIn.storyboard */; };
 		9BB63ECC218DE0EE00BEB6BE /* Firebase+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BB63ECB218DE0EE00BEB6BE /* Firebase+Rx.swift */; };
@@ -120,7 +121,7 @@
 		9B083FFD212B0B7E00C537D5 /* SampleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleViewModel.swift; sourceTree = "<group>"; };
 		9B083FFF212B0B8D00C537D5 /* SampleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleModel.swift; sourceTree = "<group>"; };
 		9B084001212C516F00C537D5 /* SampleList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SampleList.storyboard; sourceTree = "<group>"; };
-		9B2FB702217E02F400610D43 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
+		9B2FB702217E02F400610D43 /* GithubService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubService.swift; sourceTree = "<group>"; };
 		9B2FB705217F535400610D43 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
 		9B2FB707217F537000610D43 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
 		9B2FB709217F538300610D43 /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
@@ -135,6 +136,7 @@
 		9B340ED5218721EC001149D4 /* AMScrollingNavbar.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AMScrollingNavbar.framework; path = Carthage/Build/iOS/AMScrollingNavbar.framework; sourceTree = "<group>"; };
 		9B35981821A8551B00019415 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		9B35981A21AA5F7100019415 /* RoundImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundImage.swift; sourceTree = "<group>"; };
+		9B35981C21AA7ECE00019415 /* ImagePickerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerService.swift; sourceTree = "<group>"; };
 		9B4EB1D9A129BE59B66DD696 /* Pods-SwiftAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftAppUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftAppUITests/Pods-SwiftAppUITests.release.xcconfig"; sourceTree = "<group>"; };
 		9BB63EC6218B456800BEB6BE /* SVProgressHUD.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SVProgressHUD.framework; path = Carthage/Build/iOS/SVProgressHUD.framework; sourceTree = "<group>"; };
 		9BB63EC9218C828A00BEB6BE /* FirebaseSignIn.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FirebaseSignIn.storyboard; sourceTree = "<group>"; };
@@ -324,9 +326,10 @@
 		9B2FB701217E029600610D43 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
-				9B2FB702217E02F400610D43 /* Service.swift */,
+				9B2FB702217E02F400610D43 /* GithubService.swift */,
 				9B2FB71721840C1800610D43 /* Provider.swift */,
 				9BB63EEA218F227600BEB6BE /* DefaultWireframe.swift */,
+				9B35981C21AA7ECE00019415 /* ImagePickerService.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -766,6 +769,7 @@
 				9BB63F05219B15A300BEB6BE /* RoundPart.swift in Sources */,
 				9BB63EEB218F227600BEB6BE /* DefaultWireframe.swift in Sources */,
 				9BB63F0F219DB2F700BEB6BE /* FirebaseChatListRepository.swift in Sources */,
+				9B35981D21AA7ECE00019415 /* ImagePickerService.swift in Sources */,
 				9BB63EE2218EC4C900BEB6BE /* FirebaseSignInRepository.swift in Sources */,
 				9BB63F1D21A181A500BEB6BE /* FirebaseCreateRoomView.swift in Sources */,
 				9BE8162521A7B40F00C5C371 /* FirebaseUserRepository.swift in Sources */,
@@ -785,7 +789,7 @@
 				9BE8161221A3037F00C5C371 /* FirebaseUserView.swift in Sources */,
 				9BB63EFE2196A8B300BEB6BE /* FirebaseChatListModel.swift in Sources */,
 				9BB63F19219F0BA700BEB6BE /* AuthEnum.swift in Sources */,
-				9B2FB703217E02F400610D43 /* Service.swift in Sources */,
+				9B2FB703217E02F400610D43 /* GithubService.swift in Sources */,
 				9B2FB71621840BC300610D43 /* SampleRepository.swift in Sources */,
 				9B2FB71821840C1800610D43 /* Provider.swift in Sources */,
 				9BB63F0D219DB1A700BEB6BE /* FirebaseChatListViewModel.swift in Sources */,
