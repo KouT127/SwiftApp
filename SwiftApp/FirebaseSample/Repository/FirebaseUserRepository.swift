@@ -27,7 +27,7 @@ class FirebaseUserRepository {
     }
     
     func updateRemoteUser(name: String?, profile: String?, image: Data?, uid: String) -> Observable<Void>{
-        //TODO:ForceUnwrapを修正する。
+        
         return uploadImage(uid: uid, image: image!)
             .flatMap {[unowned self] url -> Observable<Void> in
                 let userInfo: [String: Any?] = ["name": name,
@@ -59,7 +59,7 @@ class FirebaseUserRepository {
     private func updateFirestoreUser(_ dictionary: [String: Any?],_ uid: String) -> Observable<Void>{
         return Firestore.firestore()
             .collection("Users")
-            .document("LkTHMvYUt3GA5hcQzRQ2")
+            .document(uid)
 //            .document(uid)
             .rx.updateData(dictionary)
     }

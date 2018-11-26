@@ -10,6 +10,11 @@ import UIKit
 import MessageKit
 import FirebaseFirestore
 import RealmSwift
+import Nuke
+import RxNuke
+
+import RxSwift
+import RxCocoa
 
 class FirebaseChatView: MessagesViewController {
     
@@ -22,6 +27,7 @@ class FirebaseChatView: MessagesViewController {
     private let accessor: Accessor = .shared
     private var uid: String?
     private var user: AuthUser?
+    private let disposeBag = DisposeBag()
     
     lazy var formatter: DateFormatter = {
         let formatter = DateFormatter()
@@ -73,7 +79,7 @@ class FirebaseChatView: MessagesViewController {
                         guard let senderName = data["senderName"] as? String else { return }
                         guard let sentDate = data["sentDate"] as? Date else { return }
                     
-                        let sender = senderId == self.uid ? self.currentSender() : Sender(id: senderId, displayName: senderName) 
+                        let sender = senderId == self.uid ? self.currentSender() : Sender(id: senderId, displayName: senderName)
                         let newMessage = Message(kind: MessageKind.text(content), sender: sender, messageId: messageId, content: senderName, date: sentDate)
                         self.messageList.append(newMessage)
                         self.messagesCollectionView.insertSections([self.messageList.count - 1])
@@ -174,10 +180,24 @@ extension FirebaseChatView: MessagesDisplayDelegate {
         //TODO: 画像
         //let avatar = Avatar(initials: String(message.sender.displayName.prefix(1)))
         //avatarView.set(avatar: avatar)
-        if let image = user?.image {
-            let avatar = Avatar(image: UIImage(data: image), initials: String(message.sender.displayName.prefix(1)))
-            avatarView.set(avatar: avatar)
-        }
+//        if let image = user?.image {
+//            let avatar = Avatar(image: UIImage(data: image), initials: String(message.sender.displayName.prefix(1)))
+//            avatarView.set(avatar: avatar)
+//            return
+//        }
+        print(message.sender.id)
+        Firestore.firestore()
+            .collection("Users")
+            .document(message.sender.id)
+            .rx.getDocument().debug()
+            .map { $0.data()?["imageUrl"] as! String?}
+            .filterNil()
+            .flatMap { ImagePipeline.shared.rx.loadImage(with: URL(string:$0)!) }
+            .subscribe(onNext: { image in
+                let avatar = Avatar(image: image.image, initials: String(message.sender.displayName.prefix(1)))
+                avatarView.set(avatar: avatar)
+            })
+            .disposed(by: disposeBag)
         
         
     }

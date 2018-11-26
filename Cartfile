@@ -7,3 +7,4 @@ github "SVProgressHUD/SVProgressHUD" ~> 2.2.5
 github "MessageKit/MessageKit"
 github "RxSwiftCommunity/RxDataSources" ~> 3.0
 github "RxSwiftCommunity/RxMediaPicker"
+github "kean/RxNuke"

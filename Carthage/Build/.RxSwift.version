@@ -1,12 +1,12 @@
 {
   "Mac" : [
     {
-      "name" : "RxTest",
-      "hash" : "25acc4cb555a659bd31ab6095485acfa7ddac2703a847bcfb88275121c35e1a6"
-    },
-    {
       "name" : "RxAtomic",
       "hash" : "5b77927561fd239d838382cf9e3e85c965059dc5c76decff8bf5a0021d200425"
+    },
+    {
+      "name" : "RxTest",
+      "hash" : "25acc4cb555a659bd31ab6095485acfa7ddac2703a847bcfb88275121c35e1a6"
     },
     {
       "name" : "RxCocoa",
@@ -23,12 +23,12 @@
   ],
   "watchOS" : [
     {
-      "name" : "RxBlocking",
-      "hash" : "820e65eede965e9cf815695056666edf50c25c1aa8a83daa06935d20a6f1931c"
-    },
-    {
       "name" : "RxAtomic",
       "hash" : "22555f2a5ce3c5cf3f74af3b833b0de6ea7b08ba58d1d2baa448bdc8c688ffe5"
+    },
+    {
+      "name" : "RxBlocking",
+      "hash" : "820e65eede965e9cf815695056666edf50c25c1aa8a83daa06935d20a6f1931c"
     },
     {
       "name" : "RxCocoa",

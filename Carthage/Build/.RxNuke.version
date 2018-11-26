@@ -1,0 +1,9 @@
+{
+  "commitish" : "0.7",
+  "iOS" : [
+    {
+      "name" : "RxNuke",
+      "hash" : "867fd2a6449718c20a1cbef0d5bd390d65209af4b346931758dfb1d4d28e9429"
+    }
+  ]
+}
