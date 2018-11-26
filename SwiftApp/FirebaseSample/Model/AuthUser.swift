@@ -16,7 +16,7 @@ class AuthUser: Object {
     @objc dynamic var displayName: String? = ""
     @objc dynamic var profile: String? = ""
     @objc dynamic var email: String? = ""
-    @objc dynamic var image: Data? = UIImage(named: "Bear")?.jpegData(compressionQuality: 0.8)
+    @objc dynamic var image: Data? = (UIImage(named: "Bear")?.jpegData(compressionQuality: 0.8))
     
     override static func primaryKey() -> String? {
         return "uid"

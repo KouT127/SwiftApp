@@ -150,12 +150,19 @@
                                     <constraint firstItem="HQa-2z-chC" firstAttribute="height" secondItem="h4X-8b-6o2" secondAttribute="height" multiplier="0.25" id="o3R-eM-sda"/>
                                 </constraints>
                             </stackView>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IKJ-gI-a0C">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.45098039220000002" green="0.6705882353" blue="0.74509803919999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
+                            <constraint firstItem="VyF-e0-KQI" firstAttribute="trailing" secondItem="IKJ-gI-a0C" secondAttribute="trailing" id="CNC-uF-Efs"/>
+                            <constraint firstItem="VyF-e0-KQI" firstAttribute="bottom" secondItem="IKJ-gI-a0C" secondAttribute="bottom" id="GWP-EO-9XN"/>
                             <constraint firstItem="h4X-8b-6o2" firstAttribute="leading" secondItem="Ogm-db-7PJ" secondAttribute="leading" id="OqI-cV-I3g"/>
+                            <constraint firstItem="IKJ-gI-a0C" firstAttribute="top" secondItem="VyF-e0-KQI" secondAttribute="top" id="dPl-hO-Bls"/>
                             <constraint firstItem="h4X-8b-6o2" firstAttribute="top" secondItem="VyF-e0-KQI" secondAttribute="top" id="iXo-xX-mBs"/>
                             <constraint firstItem="VyF-e0-KQI" firstAttribute="trailing" secondItem="h4X-8b-6o2" secondAttribute="trailing" id="kPi-TS-XCn"/>
+                            <constraint firstItem="IKJ-gI-a0C" firstAttribute="leading" secondItem="VyF-e0-KQI" secondAttribute="leading" id="sqc-4g-WT1"/>
                             <constraint firstItem="VyF-e0-KQI" firstAttribute="bottom" secondItem="h4X-8b-6o2" secondAttribute="bottom" id="yxy-pw-1Kc"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="VyF-e0-KQI"/>

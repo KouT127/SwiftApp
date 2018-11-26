@@ -26,8 +26,9 @@ class FirebaseUserRepository {
         self.realm = try! Realm()
     }
     
-    func updateRemoteUser(name: String?, profile: String?, image: Data, uid: String) -> Observable<Void>{
-        return uploadImage(uid: uid, image: image)
+    func updateRemoteUser(name: String?, profile: String?, image: Data?, uid: String) -> Observable<Void>{
+        //TODO:ForceUnwrapを修正する。
+        return uploadImage(uid: uid, image: image!)
             .flatMap {[unowned self] url -> Observable<Void> in
                 let userInfo: [String: Any?] = ["name": name,
                                                 "profile": profile,
@@ -36,6 +37,24 @@ class FirebaseUserRepository {
                 return self.updateFirestoreUser(userInfo, uid)
         }
     }
+    
+    func updateLocalUser(uid: String, name: String? = nil, profile: String? = nil, image: Data? = nil) {
+        var changeValue: [String: Any] = ["uid": uid]
+        if let name = name {
+            changeValue = changeValue + ["displayName": name]
+        }
+        if let profile = profile {
+            changeValue = changeValue + ["profile": profile]
+        }
+        if let image = image {
+            changeValue = changeValue + ["image": image]
+        }
+        try! realm.write {
+            realm.create(AuthUser.self, value: changeValue, update: true)
+        }
+        print(realm.objects(AuthUser.self))
+    }
+    
     //TODO: errorhandle
     private func updateFirestoreUser(_ dictionary: [String: Any?],_ uid: String) -> Observable<Void>{
         return Firestore.firestore()
@@ -93,25 +112,8 @@ class FirebaseUserRepository {
 //        }
     }
     
-    func updateLocalUser(uid: String, name: String? = nil, profile: String? = nil, image: Data? = nil) {
-        var changeValue: [String: Any] = ["uid": uid]
-        if let name = name {
-            changeValue = changeValue + ["name": name]
-        }
-        if let profile = profile {
-            changeValue = changeValue + ["profile": profile]
-        }
-        if let image  = image {
-            changeValue = changeValue + ["image": image]
-        }
-        print(changeValue)
-        try! realm.write {
-            realm.create(AuthUser.self, value: changeValue, update: true)
-        }
-    }
-    
-    func updateUser(oldUser: User, newName: String? = nil, newProfile: String? = nil, newUrl: URL? = nil) -> User{
-        return User(uid: oldUser.uid, name: newName ?? oldUser.name, profile: newProfile ?? oldUser.profile, url: newUrl)
+    func updateUser(oldUser: User, newName: String? = nil, newProfile: String? = nil, newImage: Data? = nil) -> User{
+        return User(uid: oldUser.uid, name: newName ?? oldUser.name, profile: newProfile ?? oldUser.profile, image: newImage ?? oldUser.image)
     }
 }
 

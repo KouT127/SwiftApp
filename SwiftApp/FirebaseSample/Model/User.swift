@@ -12,12 +12,12 @@ struct User {
     let uid: String
     var name: String
     var profile: String?
-    var url: URL?
+    var image: Data?
     
-    init(uid: String, name: String, profile: String?, url: URL? = nil) {
+    init(uid: String, name: String, profile: String?, image: Data? = nil) {
         self.uid = uid
         self.name = name
         self.profile = profile
-        self.url = url
+        self.image = image
     }
 }

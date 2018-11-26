@@ -14,6 +14,7 @@ import FirebaseStorage
 import RxMediaPicker
 import Photos
 import FirebaseStorage
+import SVProgressHUD
 
 class FirebaseUserView: UIViewController {
     
@@ -23,13 +24,11 @@ class FirebaseUserView: UIViewController {
     @IBOutlet weak var userImageButton: RoundButton!
     @IBOutlet weak var imageView: RoundImage!
     
-    
     var viewModel: FirebaseUserViewModel?
     var picker: RxMediaPicker!
     let db = Firestore.firestore()
+    var loadingView: UIView!
     let disposeBag = DisposeBag()
-    //ログイン時データベースから取得
-    let uid = "fkajsghajdgoi"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,9 +61,46 @@ class FirebaseUserView: UIViewController {
                 self.imageView.setRounded()
             })
             .disposed(by: disposeBag)
+        
+        viewModel.currentUserInfo
+            .drive(onNext: {[unowned self] user in
+                if let image = user.image {
+                    self.imageView.image = UIImage(data: image)
+                } else {
+                    self.imageView.image = UIImage(named: "Bear")
+                }
+                self.name.text = user.name
+                self.profile.text = user.profile
+            })
+            .disposed(by: disposeBag)
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        UIInit()
+        
+        viewModel?.network
+            .emit(onNext: {[unowned self] network in
+
+                network ? SVProgressHUD.show() : SVProgressHUD.dismiss()
+                self.loadingView.isHidden = !network
+            })
+            .disposed(by: disposeBag)
+    }
+    
+    private func UIInit() {
+        loadingView = UIView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: view.bounds.height))
+        self.view.addSubview(loadingView)
+        self.loadingView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        self.loadingView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+        self.loadingView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        self.loadingView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        loadingView.backgroundColor = UIColor.black
+        loadingView.alpha = 0.3
+        loadingView.isHidden = true
     }
     
     private func back() {
-        self.dismiss(animated: true, completion: nil)
+        self.navigationController?.popViewController(animated: true)
     }
 }
