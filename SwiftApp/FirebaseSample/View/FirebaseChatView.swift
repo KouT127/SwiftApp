@@ -21,6 +21,7 @@ class FirebaseChatView: MessagesViewController {
     private let db = Firestore.firestore()
     private let accessor: Accessor = .shared
     private var uid: String?
+    private var user: AuthUser?
     
     lazy var formatter: DateFormatter = {
         let formatter = DateFormatter()
@@ -49,6 +50,8 @@ class FirebaseChatView: MessagesViewController {
         scrollsToBottomOnKeybordBeginsEditing = true
         maintainPositionOnKeyboardFrameChanged = true
         
+        
+        user = try! Realm().objects(AuthUser.self).first
     }
     
     
@@ -101,7 +104,7 @@ class FirebaseChatView: MessagesViewController {
 extension FirebaseChatView: MessagesDataSource {
     
     func currentSender() -> Sender {
-        return Sender(id: uid ?? "", displayName: "Kou")
+        return Sender(id: user?.uid ?? "", displayName: user?.displayName ?? "")
     }
     
     func numberOfSections(in messagesCollectionView: MessagesCollectionView) -> Int {
@@ -169,8 +172,14 @@ extension FirebaseChatView: MessagesDisplayDelegate {
     // アイコンの設定
     func configureAvatarView(_ avatarView: AvatarView, for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) {
         //TODO: 画像
-        let avatar = Avatar(initials: String(message.sender.displayName.prefix(1)))
-        avatarView.set(avatar: avatar)
+        //let avatar = Avatar(initials: String(message.sender.displayName.prefix(1)))
+        //avatarView.set(avatar: avatar)
+        if let image = user?.image {
+            let avatar = Avatar(image: UIImage(data: image), initials: String(message.sender.displayName.prefix(1)))
+            avatarView.set(avatar: avatar)
+        }
+        
+        
     }
 }
 
@@ -215,9 +224,9 @@ extension FirebaseChatView: MessageInputBarDelegate {
                     .collection("messages")
                     .addDocument(data: message)
                 
-                let attributedText = NSAttributedString(string: text, attributes: [.font: UIFont.systemFont(ofSize: 15),
-                                                                                   .foregroundColor: UIColor.white])
-                let displayMessage = Message(kind: .attributedText(attributedText), sender: currentSender(), messageId: UUID().uuidString, content: text, date: Date())//Message(attributedText: attributedText, sender: currentSender(), messageId: UUID().uuidString, date: Date())
+//                let attributedText = NSAttributedString(string: text, attributes: [.font: UIFont.systemFont(ofSize: 15),
+//                                                                                   .foregroundColor: UIColor.white])
+//                let displayMessage = Message(kind: .attributedText(attributedText), sender: currentSender(), messageId: UUID().uuidString, content: text, date: Date())//Message(attributedText: attributedText, sender: currentSender(), messageId: UUID().uuidString, date: Date())
 //                messageList.append(displayMessage)
 //                messagesCollectionView.insertSections([messageList.count - 1])
             }
