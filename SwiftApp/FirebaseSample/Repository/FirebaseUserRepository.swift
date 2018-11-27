@@ -60,7 +60,6 @@ class FirebaseUserRepository {
         return Firestore.firestore()
             .collection("Users")
             .document(uid)
-//            .document(uid)
             .rx.updateData(dictionary)
     }
     

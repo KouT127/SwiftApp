@@ -7,12 +7,20 @@
 //
 
 import FirebaseAuth
+import FirebaseFirestore
 import RxSwift
 import RxCocoa
+import Realm
+import RealmSwift
 
 class FirebaseSignInRepository {
     
     private let auth = Auth.auth()
+    let realm: Realm
+    
+    init() {
+        self.realm = try! Realm()
+    }
     
     func signIn(withEmail email: String, password: String) -> Observable<AuthResult> {
         return auth.rx.signIn(withEmail: email, password: password)
@@ -49,5 +57,23 @@ class FirebaseSignInRepository {
         user.displayName = new.user.displayName
         user.email = new.user.email
         return user
+    }
+    
+    func createLocalUser(uid: String, name: String? = nil) {
+        var changeValue: [String: Any] = ["uid": uid]
+        if let name = name {
+            changeValue = changeValue + ["displayName": name]
+        }
+        try! realm.write {
+            realm.create(AuthUser.self, value: changeValue, update: true)
+        }
+        print(realm.objects(AuthUser.self))
+    }
+    
+    func updateFirestoreUser(_ dictionary: [String: Any?]) -> Observable<Void>{
+        return Firestore.firestore()
+            .collection("Users")
+            .rx.addDocument(data: dictionary)
+            .map { _ in}
     }
 }
