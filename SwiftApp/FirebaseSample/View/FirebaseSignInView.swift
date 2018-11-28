@@ -12,6 +12,9 @@ import RxCocoa
 
 class FirebaseSignInView: UIViewController {
     
+    @IBOutlet weak var userNameStackView: UIStackView!
+    
+    @IBOutlet weak var userName: UITextField!
     @IBOutlet weak var email: UITextField!
     @IBOutlet weak var password: UITextField!
     @IBOutlet weak var titleLabel: UILabel!
@@ -29,6 +32,7 @@ class FirebaseSignInView: UIViewController {
         
         let viewModel = FirebaseSignInViewModel(
             input: (
+                userName: self.userName.rx.text.orEmpty.asObservable(),
                 email: self.email.rx.text.orEmpty.asObservable(),
                 password: self.password.rx.text.orEmpty.asObservable(),
                 loginTaps: self.loginButton.rx.tap.asObservable(),
@@ -64,6 +68,7 @@ class FirebaseSignInView: UIViewController {
         if case .signUp? = auth {
             self.loginButton.setTitle("登録する", for: .normal)
             self.titleLabel.text = "新規登録"
+            self.userNameStackView.isHidden = false
         }
     }
 }

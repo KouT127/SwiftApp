@@ -13,6 +13,7 @@ import RxCocoa
 class FirebaseSignInViewModel {
     
     typealias Input = (
+        userName: Observable<String>,
         email: Observable<String>,
         password: Observable<String>,
         loginTaps: Observable<Void>,
@@ -31,46 +32,70 @@ class FirebaseSignInViewModel {
     
     init(input: Input, dependency: Dependency) {
         
-        let inputInfo = Observable
-            .combineLatest(input.email, input.password)
+        let SignInInputInfo = Observable
+            .combineLatest(input.auth, input.email, input.password)
+            .filter { auth, _, _ in auth == .signIn}
             .share()
         
-        isValid = inputInfo
-            .map { $0.count >= 3 && $1.count >= 6 }
+        let SignUpInputInfo = Observable
+            .combineLatest(input.auth, input.userName ,input.email, input.password)
+            .filter { auth, _, _, _ in auth == .signUp}
+            .share()
+        
+        let signInValid = SignInInputInfo
+            .map { _, email, password in email.count >= 3
+                && password.count >= 6
+            }
+        
+        let signUpValid = SignUpInputInfo
+            .map { _, name, email, password -> Bool in name.count >= 3
+                && email.count >= 3
+                && password.count >= 6
+            }
+        
+        isValid = Observable
+            .of(signInValid, signUpValid)
+            .merge()
             .asDriver(onErrorJustReturn: false)
         
         let signUpResult = input.loginTaps
-            .withLatestFrom(input.auth)
-            .filter { $0 == .signUp}
-            .withLatestFrom(inputInfo)
-            .flatMap { dependency.repository.signUp(withEmail: $0, password: $1)}
+            .withLatestFrom(SignUpInputInfo)
+            .flatMap { _, name, email, password -> Observable<(AuthResult, String?)> in
+                dependency.repository
+                    .signUp(withEmail: email, password: password)
+                    .map { ($0, name)}
+            }
         
         let signInResult = input.loginTaps
-            .withLatestFrom(input.auth)
-            .filter { $0 == .signIn}
-            .withLatestFrom(inputInfo)
-            .flatMap { dependency.repository.signIn(withEmail: $0, password: $1)}
+            .withLatestFrom(SignInInputInfo)
+            .flatMap { _, email, password -> Observable<(AuthResult, String?)> in
+                dependency.repository
+                    .signIn(withEmail: email, password: password)
+                    .map { ($0, nil)}
+            }
         
         
        let authResult = Observable.of(signUpResult, signInResult)
             .merge()
             .share()
         
-        authSucceed = Observable.of(signUpResult, signInResult)
-            .merge()
-            .map { result in
+        authSucceed = authResult
+            .flatMap { result, name -> Observable<Bool> in
                 switch result {
                 case .succeed( let data ):
-                    let user = dependency.repository.createAuthUser(new: data)
-                    return dependency.accessor.write(object: user)
+                    if let name = name {
+                        return dependency.repository.createUser(new: data, name: name).map { _ in true }
+                    } else {
+                        //TODO:ログイン時にどこかでNameとかProfileとか取得
+                        return Observable.just(dependency.repository.createLocalUser(new: data, name: "")).map { _ in true}
+                    }
                 default:
-                    break
+                    return Observable.just(false)
                 }
-                return false
             }
         
         let authFailedMessage = authResult
-            .map { dependency.repository.errorMessage(result: $0) }
+            .map { result, _ in dependency.repository.errorMessage(result: result) }
             .flatMap { $0.flatMap { Observable.just($0) } ?? Observable.empty() }
         
         let alertResult = authFailedMessage

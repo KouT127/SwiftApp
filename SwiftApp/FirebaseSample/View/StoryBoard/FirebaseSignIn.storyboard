@@ -22,10 +22,10 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="852"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cdb-AT-sUX" userLabel="Title View">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="281"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="230"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ログイン" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lpE-1c-xdh">
-                                                <rect key="frame" x="20" y="100.66666666666666" width="300" height="80"/>
+                                                <rect key="frame" x="20" y="75" width="300" height="80"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="80" id="0Oa-SU-NAd"/>
                                                     <constraint firstAttribute="width" constant="300" id="d92-ga-2lw"/>
@@ -41,13 +41,43 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2iQ-eD-Rnx" userLabel="Login View">
-                                        <rect key="frame" x="0.0" y="281" width="414" height="281.33333333333326"/>
+                                        <rect key="frame" x="0.0" y="230" width="414" height="426"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="2EW-Ve-H7j" userLabel="Input Stack View">
-                                                <rect key="frame" x="20" y="0.0" width="374" height="281.33333333333331"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="2EW-Ve-H7j" userLabel="Input Stack View">
+                                                <rect key="frame" x="20" y="0.0" width="374" height="426"/>
                                                 <subviews>
+                                                    <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="yxc-Ga-qcD" userLabel="User Name Stack View">
+                                                        <rect key="frame" x="0.0" y="-85" width="374" height="85"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ユーザーネーム" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V7m-qn-ska">
+                                                                <rect key="frame" x="0.0" y="0.0" width="117.33333333333333" height="17"/>
+                                                                <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="17"/>
+                                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="D9V-dx-Cdo">
+                                                                <rect key="frame" x="0.0" y="17" width="374" height="67"/>
+                                                                <nil key="textColor"/>
+                                                                <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="25"/>
+                                                                <textInputTraits key="textInputTraits" keyboardType="emailAddress" enablesReturnKeyAutomatically="YES"/>
+                                                            </textField>
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kdm-me-yTN">
+                                                                <rect key="frame" x="0.0" y="84" width="374" height="1"/>
+                                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="1" id="DdO-li-RvL"/>
+                                                                </constraints>
+                                                            </view>
+                                                        </subviews>
+                                                        <constraints>
+                                                            <constraint firstAttribute="trailing" secondItem="Kdm-me-yTN" secondAttribute="trailing" id="3dU-4x-kTK"/>
+                                                            <constraint firstAttribute="trailing" secondItem="D9V-dx-Cdo" secondAttribute="trailing" id="3sg-rP-nKv"/>
+                                                            <constraint firstItem="D9V-dx-Cdo" firstAttribute="leading" secondItem="yxc-Ga-qcD" secondAttribute="leading" id="ZjD-R1-saH"/>
+                                                            <constraint firstItem="Kdm-me-yTN" firstAttribute="leading" secondItem="yxc-Ga-qcD" secondAttribute="leading" id="tsl-QN-5h8"/>
+                                                        </constraints>
+                                                    </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="h42-iq-H5D" userLabel="Email Stack View">
-                                                        <rect key="frame" x="0.0" y="0.0" width="374" height="80.666666666666671"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="374" height="85.333333333333329"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="メールアドレス" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NK2-Fe-MhV">
                                                                 <rect key="frame" x="0.0" y="0.0" width="116.66666666666667" height="17"/>
@@ -56,13 +86,13 @@
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yTL-cH-wyh">
-                                                                <rect key="frame" x="0.0" y="16.999999999999996" width="374" height="62.666666666666657"/>
+                                                                <rect key="frame" x="0.0" y="17" width="374" height="67.333333333333329"/>
                                                                 <nil key="textColor"/>
                                                                 <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="25"/>
                                                                 <textInputTraits key="textInputTraits" keyboardType="emailAddress" enablesReturnKeyAutomatically="YES"/>
                                                             </textField>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lDY-sX-6Tg">
-                                                                <rect key="frame" x="0.0" y="79.666666666666686" width="374" height="1"/>
+                                                                <rect key="frame" x="0.0" y="84.333333333333314" width="374" height="1"/>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="1" id="18g-TA-wwJ"/>
@@ -77,7 +107,7 @@
                                                         </constraints>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="ZF1-ZS-mad" userLabel="Password Stack View">
-                                                        <rect key="frame" x="0.0" y="100.66666666666669" width="374" height="80.333333333333314"/>
+                                                        <rect key="frame" x="0.0" y="95.333333333333314" width="374" height="85"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="パスワード" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PPu-hd-mBn">
                                                                 <rect key="frame" x="0.0" y="0.0" width="84.333333333333329" height="17"/>
@@ -86,13 +116,13 @@
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TSm-0o-MZP">
-                                                                <rect key="frame" x="0.0" y="17.000000000000004" width="374" height="62.333333333333343"/>
+                                                                <rect key="frame" x="0.0" y="17" width="374" height="67"/>
                                                                 <nil key="textColor"/>
                                                                 <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="25"/>
                                                                 <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
                                                             </textField>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Yq-Mp-GjC">
-                                                                <rect key="frame" x="0.0" y="79.333333333333314" width="374" height="1"/>
+                                                                <rect key="frame" x="0.0" y="84" width="374" height="1"/>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="1" id="paI-h5-r5n"/>
@@ -106,15 +136,29 @@
                                                             <constraint firstItem="TSm-0o-MZP" firstAttribute="leading" secondItem="ZF1-ZS-mad" secondAttribute="leading" id="l2d-iI-1ic"/>
                                                         </constraints>
                                                     </stackView>
-                                                    <button opaque="NO" alpha="0.59999999999999998" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5uT-25-XLV">
-                                                        <rect key="frame" x="0.0" y="201" width="374" height="80.333333333333314"/>
+                                                    <button opaque="NO" alpha="0.59999999999999998" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5uT-25-XLV" customClass="RoundButton" customModule="SwiftApp" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="190.33333333333331" width="374" height="81"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="20"/>
                                                         <state key="normal" title="ログイン">
                                                             <color key="titleColor" red="0.45098039220000002" green="0.6705882353" blue="0.74509803919999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         </state>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="conerRadius">
+                                                                <real key="value" value="40"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
                                                     </button>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0ve-ov-0s9" userLabel="Spacer">
+                                                        <rect key="frame" x="0.0" y="281.33333333333337" width="374" height="144.66666666666663"/>
+                                                    </view>
                                                 </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="5uT-25-XLV" firstAttribute="height" secondItem="2EW-Ve-H7j" secondAttribute="height" multiplier="0.19" id="5ak-A9-qaP"/>
+                                                    <constraint firstItem="yxc-Ga-qcD" firstAttribute="height" secondItem="2EW-Ve-H7j" secondAttribute="height" multiplier="0.2" id="65D-2W-HxH"/>
+                                                    <constraint firstItem="ZF1-ZS-mad" firstAttribute="height" secondItem="2EW-Ve-H7j" secondAttribute="height" multiplier="0.2" id="6fW-iw-iff"/>
+                                                    <constraint firstItem="h42-iq-H5D" firstAttribute="height" secondItem="2EW-Ve-H7j" secondAttribute="height" multiplier="0.2" id="IQb-gv-4In"/>
+                                                </constraints>
                                             </stackView>
                                         </subviews>
                                         <constraints>
@@ -125,7 +169,7 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="auk-AC-ZAM" userLabel="Google Login View">
-                                        <rect key="frame" x="0.0" y="562.33333333333337" width="414" height="204.33333333333337"/>
+                                        <rect key="frame" x="0.0" y="656" width="414" height="110.66666666666663"/>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c2Q-c5-2JQ" userLabel="SignUp View">
                                         <rect key="frame" x="0.0" y="766.66666666666663" width="414" height="85.333333333333371"/>
@@ -133,8 +177,8 @@
                                     </view>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="cdb-AT-sUX" firstAttribute="height" secondItem="gbm-Fz-Ny7" secondAttribute="height" multiplier="0.33" id="2de-Ll-9eX"/>
-                                    <constraint firstItem="2iQ-eD-Rnx" firstAttribute="height" secondItem="gbm-Fz-Ny7" secondAttribute="height" multiplier="0.33" id="Bjf-MG-PwQ"/>
+                                    <constraint firstItem="cdb-AT-sUX" firstAttribute="height" secondItem="gbm-Fz-Ny7" secondAttribute="height" multiplier="0.27" id="2de-Ll-9eX"/>
+                                    <constraint firstItem="2iQ-eD-Rnx" firstAttribute="height" secondItem="gbm-Fz-Ny7" secondAttribute="height" multiplier="0.5" id="Bjf-MG-PwQ"/>
                                     <constraint firstItem="c2Q-c5-2JQ" firstAttribute="height" secondItem="gbm-Fz-Ny7" secondAttribute="height" multiplier="0.1" id="XlU-6Z-udJ"/>
                                 </constraints>
                             </stackView>
@@ -153,6 +197,8 @@
                         <outlet property="loginButton" destination="5uT-25-XLV" id="q0Z-k0-fxN"/>
                         <outlet property="password" destination="TSm-0o-MZP" id="Ogi-dI-5G8"/>
                         <outlet property="titleLabel" destination="lpE-1c-xdh" id="M5L-E8-o00"/>
+                        <outlet property="userName" destination="D9V-dx-Cdo" id="QHp-F0-9M0"/>
+                        <outlet property="userNameStackView" destination="yxc-Ga-qcD" id="7ja-a0-CxX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PTa-pZ-txX" userLabel="First Responder" sceneMemberID="firstResponder"/>

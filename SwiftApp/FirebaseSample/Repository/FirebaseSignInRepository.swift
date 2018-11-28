@@ -50,30 +50,27 @@ class FirebaseSignInRepository {
         return nil
     }
     
-    func createAuthUser(new: AuthDataResult) -> AuthUser{
-        let user = AuthUser()
-        user.providerId = new.user.providerID
-        user.uid = new.user.uid
-        user.displayName = new.user.displayName
-        user.email = new.user.email
-        return user
+    func createUser(new: AuthDataResult, name: String) -> Observable<Void> {
+        return createFirestoreUser(new: new, name: name)
+            .map {[unowned self] _ in self.createLocalUser(new: new, name: name)}
     }
     
-    func createLocalUser(uid: String, name: String? = nil) {
-        var changeValue: [String: Any] = ["uid": uid]
-        if let name = name {
-            changeValue = changeValue + ["displayName": name]
-        }
+    func createLocalUser(new: AuthDataResult, name: String) -> Void {
+        let changeValue: [String: Any?] = ["email": new.user.email,
+                                            "displayName": name,
+                                            "uid": new.user.uid]
         try! realm.write {
             realm.create(AuthUser.self, value: changeValue, update: true)
         }
-        print(realm.objects(AuthUser.self))
     }
     
-    func updateFirestoreUser(_ dictionary: [String: Any?]) -> Observable<Void>{
+    private func createFirestoreUser(new: AuthDataResult, name: String) -> Observable<Void>{
+        let dictionary: [String: Any?] = ["name": name]
+        
         return Firestore.firestore()
             .collection("Users")
-            .rx.addDocument(data: dictionary)
+            .document(new.user.uid)
+            .rx.setData(dictionary)
             .map { _ in}
     }
 }
