@@ -81,7 +81,6 @@ class FirebaseUserView: UIViewController {
         
         viewModel?.network
             .emit(onNext: {[unowned self] network in
-
                 network ? SVProgressHUD.show() : SVProgressHUD.dismiss()
                 self.loadingView.isHidden = !network
             })

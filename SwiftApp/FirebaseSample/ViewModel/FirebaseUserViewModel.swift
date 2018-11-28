@@ -57,6 +57,9 @@ class FirebaseUserViewModel {
         
         currentUserInfo = currentUser
             .asDriver(onErrorDriveWith: Driver.empty())
+
+        let localUser = Observable.just(())
+            .map { _ in dependency.repository.fetchLocalUser()}
         
         let changeNameUser = input.name
             .withLatestFrom(currentUser){($0,$1)}
@@ -71,7 +74,7 @@ class FirebaseUserViewModel {
             .map {dependency.repository.updateUser(oldUser: $1, newImage: $0)}
         
         Observable
-            .merge(changeNameUser, changeProfileUser, changeImageUser)
+            .merge(localUser, changeNameUser, changeProfileUser, changeImageUser)
             .bind(to: userInfoRelay)
             .disposed(by: disposeBag)
         

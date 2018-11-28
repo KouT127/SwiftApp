@@ -114,6 +114,11 @@ class FirebaseUserRepository {
     func updateUser(oldUser: User, newName: String? = nil, newProfile: String? = nil, newImage: Data? = nil) -> User{
         return User(uid: oldUser.uid, name: newName ?? oldUser.name, profile: newProfile ?? oldUser.profile, image: newImage ?? oldUser.image)
     }
+
+    func fetchLocalUser() -> User {
+        guard let user = self.realm.objects(AuthUser.self).first else { fatalError("fetchLocal") }
+        return User(uid: user.uid, name: user.displayName ?? "", profile: user.profile ?? "")
+    }
 }
 
 //追加のみ
