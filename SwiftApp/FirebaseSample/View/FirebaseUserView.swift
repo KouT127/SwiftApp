@@ -19,7 +19,7 @@ import SVProgressHUD
 class FirebaseUserView: UIViewController {
     
     @IBOutlet weak var name: UITextField!
-    @IBOutlet weak var profile: UITextView!
+    @IBOutlet weak var profile: UITextField!
     @IBOutlet weak var updateButton: UIButton!
     @IBOutlet weak var userImageButton: RoundButton!
     @IBOutlet weak var imageView: RoundImage!

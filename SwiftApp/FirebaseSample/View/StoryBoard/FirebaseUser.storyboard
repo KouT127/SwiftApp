@@ -21,11 +21,11 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="h4X-8b-6o2" userLabel="User Edit Stack View">
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HQa-2z-chC">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="162"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HQa-2z-chC" customClass="RoundView" customModule="SwiftApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="194"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Bear" translatesAutoresizingMaskIntoConstraints="NO" id="1e9-50-e64" customClass="RoundImage" customModule="SwiftApp" customModuleProvider="target">
-                                                <rect key="frame" x="127.5" y="21" width="120" height="120"/>
+                                                <rect key="frame" x="127.5" y="37" width="120" height="120"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="120" id="sWe-NY-Snr"/>
                                                     <constraint firstAttribute="width" constant="120" id="vgY-ug-igT"/>
@@ -40,7 +40,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </imageView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jWN-tj-CQP" customClass="RoundButton" customModule="SwiftApp" customModuleProvider="target">
-                                                <rect key="frame" x="127.5" y="21" width="120" height="120"/>
+                                                <rect key="frame" x="127.5" y="37" width="120" height="120"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="120" id="Gcq-07-p6c"/>
                                                     <constraint firstAttribute="width" constant="120" id="wnt-Ef-EvD"/>
@@ -59,27 +59,32 @@
                                             <constraint firstItem="jWN-tj-CQP" firstAttribute="centerY" secondItem="HQa-2z-chC" secondAttribute="centerY" id="mzq-fA-aJF"/>
                                             <constraint firstItem="1e9-50-e64" firstAttribute="centerX" secondItem="HQa-2z-chC" secondAttribute="centerX" id="n1n-AF-OQ9"/>
                                         </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="conerRadius">
+                                                <real key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aPp-ga-bUE" userLabel="User Info View">
-                                        <rect key="frame" x="0.0" y="187" width="375" height="273"/>
+                                        <rect key="frame" x="0.0" y="219" width="375" height="285"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="NvN-mN-LqI">
-                                                <rect key="frame" x="0.0" y="10" width="375" height="258"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="NvN-mN-LqI">
+                                                <rect key="frame" x="10" y="10" width="355" height="270"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L1U-4c-dnf">
-                                                        <rect key="frame" x="10" y="0.0" width="355" height="41.5"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="355" height="36"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ニックネーム" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u9c-vM-l9G">
-                                                                <rect key="frame" x="0.0" y="0.0" width="106.5" height="41.5"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="106.5" height="36"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hKu-DA-aag">
-                                                                <rect key="frame" x="106.5" y="0.0" width="248.5" height="41.5"/>
+                                                                <rect key="frame" x="106.5" y="0.0" width="248.5" height="36"/>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <nil key="textColor"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="17"/>
                                                                 <textInputTraits key="textInputTraits"/>
                                                             </textField>
                                                         </subviews>
@@ -88,31 +93,31 @@
                                                         </constraints>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lcV-Jz-Oes">
-                                                        <rect key="frame" x="10" y="47.5" width="355" height="144.5"/>
+                                                        <rect key="frame" x="0.0" y="42" width="355" height="162"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="プロフィール" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ILq-3a-w1M">
-                                                                <rect key="frame" x="0.0" y="0.0" width="106.5" height="144.5"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="106.5" height="162"/>
                                                                 <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="17"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Bp5-bk-BhW">
-                                                                <rect key="frame" x="106.5" y="0.0" width="248.5" height="144.5"/>
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AxR-FG-DG6">
+                                                                <rect key="frame" x="106.5" y="0.0" width="248.5" height="162"/>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                                            </textView>
+                                                                <nil key="textColor"/>
+                                                                <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="17"/>
+                                                                <textInputTraits key="textInputTraits"/>
+                                                            </textField>
                                                         </subviews>
                                                         <constraints>
-                                                            <constraint firstItem="Bp5-bk-BhW" firstAttribute="width" secondItem="lcV-Jz-Oes" secondAttribute="width" multiplier="0.7" id="K7N-r9-1ki"/>
+                                                            <constraint firstItem="AxR-FG-DG6" firstAttribute="width" secondItem="lcV-Jz-Oes" secondAttribute="width" multiplier="0.7" id="dSp-pW-1lj"/>
                                                         </constraints>
                                                     </stackView>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ldo-74-Jcd" customClass="RoundButton" customModule="SwiftApp" customModuleProvider="target">
-                                                        <rect key="frame" x="112.5" y="198" width="150" height="60"/>
+                                                        <rect key="frame" x="0.0" y="210" width="355" height="60"/>
                                                         <color key="backgroundColor" red="1" green="0.65490196079999996" blue="0.14901960780000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="60" id="1xF-uz-hKT"/>
-                                                            <constraint firstAttribute="width" constant="150" id="CcS-Cb-Jcv"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="20"/>
                                                         <state key="normal" title="登録">
@@ -126,28 +131,25 @@
                                                     </button>
                                                 </subviews>
                                                 <constraints>
-                                                    <constraint firstAttribute="trailing" secondItem="lcV-Jz-Oes" secondAttribute="trailing" constant="10" id="WoP-dx-9HO"/>
-                                                    <constraint firstItem="lcV-Jz-Oes" firstAttribute="height" secondItem="NvN-mN-LqI" secondAttribute="height" multiplier="0.56" id="bVq-Q4-JRQ"/>
-                                                    <constraint firstItem="L1U-4c-dnf" firstAttribute="leading" secondItem="NvN-mN-LqI" secondAttribute="leading" constant="10" id="d1X-MZ-Y76"/>
-                                                    <constraint firstAttribute="trailing" secondItem="L1U-4c-dnf" secondAttribute="trailing" constant="10" id="mkK-jt-1pW"/>
-                                                    <constraint firstItem="lcV-Jz-Oes" firstAttribute="leading" secondItem="NvN-mN-LqI" secondAttribute="leading" constant="10" id="nTh-dx-KQn"/>
+                                                    <constraint firstItem="lcV-Jz-Oes" firstAttribute="height" secondItem="NvN-mN-LqI" secondAttribute="height" multiplier="0.6" id="Ral-hl-pv4"/>
                                                 </constraints>
                                             </stackView>
                                         </subviews>
                                         <color key="backgroundColor" red="0.45098039220000002" green="0.6705882353" blue="0.74509803919999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <constraints>
-                                            <constraint firstItem="NvN-mN-LqI" firstAttribute="leading" secondItem="aPp-ga-bUE" secondAttribute="leading" id="6Ne-ho-7v3"/>
-                                            <constraint firstAttribute="trailing" secondItem="NvN-mN-LqI" secondAttribute="trailing" id="9cW-rJ-VpB"/>
+                                            <constraint firstItem="NvN-mN-LqI" firstAttribute="leading" secondItem="aPp-ga-bUE" secondAttribute="leading" constant="10" id="6Ne-ho-7v3"/>
+                                            <constraint firstAttribute="trailing" secondItem="NvN-mN-LqI" secondAttribute="trailing" constant="10" id="Lit-8k-OBd"/>
                                             <constraint firstAttribute="bottom" secondItem="NvN-mN-LqI" secondAttribute="bottom" constant="5" id="N6u-ML-K63"/>
                                             <constraint firstItem="NvN-mN-LqI" firstAttribute="top" secondItem="aPp-ga-bUE" secondAttribute="top" constant="10" id="eyd-dA-yez"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="y2f-NR-iEr" userLabel="Spacer">
-                                        <rect key="frame" x="0.0" y="485" width="375" height="162"/>
+                                        <rect key="frame" x="0.0" y="529" width="375" height="118"/>
                                     </view>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="HQa-2z-chC" firstAttribute="height" secondItem="h4X-8b-6o2" secondAttribute="height" multiplier="0.25" id="o3R-eM-sda"/>
+                                    <constraint firstItem="aPp-ga-bUE" firstAttribute="height" secondItem="h4X-8b-6o2" secondAttribute="height" multiplier="0.44" id="TnP-ff-daB"/>
+                                    <constraint firstItem="HQa-2z-chC" firstAttribute="height" secondItem="h4X-8b-6o2" secondAttribute="height" multiplier="0.3" id="o3R-eM-sda"/>
                                 </constraints>
                             </stackView>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IKJ-gI-a0C">
@@ -170,7 +172,7 @@
                     <connections>
                         <outlet property="imageView" destination="1e9-50-e64" id="dcL-aw-Zyh"/>
                         <outlet property="name" destination="hKu-DA-aag" id="SyD-4k-d8k"/>
-                        <outlet property="profile" destination="Bp5-bk-BhW" id="kLz-n2-RWM"/>
+                        <outlet property="profile" destination="AxR-FG-DG6" id="9TS-Fb-Zlx"/>
                         <outlet property="updateButton" destination="ldo-74-Jcd" id="5QQ-17-f09"/>
                         <outlet property="userImageButton" destination="jWN-tj-CQP" id="j3g-ej-guW"/>
                     </connections>
