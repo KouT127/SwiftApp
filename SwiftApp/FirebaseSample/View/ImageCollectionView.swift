@@ -12,7 +12,7 @@ import RxSwift
 import RxCocoa
 import RxDataSources
 
-class ImageCollectionView: UIViewController, UICollectionViewDelegate {
+class ImageCollectionView: UIViewController, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
 
     @IBOutlet weak var mainCollectionView: UICollectionView!
     
@@ -49,16 +49,30 @@ extension ImageCollectionView {
                 configureCell: { (dataSource, collection, idxPath, item)  in
                     collection.register(UINib(nibName: "ImageCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "CollectionCell")
                     let cell = collection.dequeueReusableCell(withReuseIdentifier: "CollectionCell", for: idxPath) as! ImageCollectionViewCell
-//                    cell.imageView.image = UIImage(named: "Bear")
-//                    cell.userImageView.image = UIImage(named: "Bear")
-//                    cell.userName.text = "Name"
-//                    cell.imageDescription.text = "description"
+                    cell.imageView.image = UIImage(named: "Bear")
+                    cell.userImageView.image = UIImage(named: "Bear")
+                    cell.userName.text = "Name"
+                    cell.imageDescription.text = "description"
                     return cell
                 },
                 configureSupplementaryView: {(dataSource, collection, kind, idxPath) in
-                    collection.register(UINib(nibName: "ImageCollectionKindViewCell", bundle: nil), forCellWithReuseIdentifier: "CollectionSection")
+                    collection.register(UINib(nibName: "ImageCollectionKindViewCell", bundle: nil), forSupplementaryViewOfKind: kind, withReuseIdentifier: "CollectionSection")
                     let section = collection.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "CollectionSection", for: idxPath)
                     return section
                 })
+    }
+}
+
+extension ImageCollectionView {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let width = UIScreen.main.bounds.width * 0.5 - 10
+        let height = UIScreen.main.bounds.height * 0.35
+        return CGSize(width: width, height: height)
+    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        
+        let width = UIScreen.main.bounds.width
+        let height = UIScreen.main.bounds.height * 0.05
+        return CGSize(width: width, height: height)
     }
 }
