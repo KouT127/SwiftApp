@@ -2,7 +2,7 @@
 //  ImageSection.swift
 //  SwiftApp
 //
-//  Created by kou on 2018/11/29.
+//  Created by kou on 2018/12/02.
 //  Copyright © 2018 kou. All rights reserved.
 //
 
@@ -11,7 +11,7 @@ import RxSwift
 import RxCocoa
 import RxDataSources
 
-struct SectionedCollectionViewState {
+struct SectionedImageViewState {
     var sections: [ImageSection]
     init(sections: [ImageSection]) {
         self.sections = sections
@@ -50,7 +50,7 @@ struct ImageSection: AnimatableSectionModelType {
 
 //Section内の内容
 struct ImageContent: IdentifiableType, Equatable  {
-    let contentId: String
+    let imageId: String
     let mainImageUrl: String
     let userName: String
     let userImageUrl: String
@@ -60,11 +60,11 @@ struct ImageContent: IdentifiableType, Equatable  {
     typealias Identity = String
     
     var identity: String {
-        return contentId
+        return imageId
     }
     
-    init(contentId: String, mainImageUrl: String, userName: String, userImageUrl: String, imageDescription: String, date: Date) {
-        self.contentId = contentId
+    init(imageId: String, mainImageUrl: String, userName: String, userImageUrl: String, imageDescription: String, date: Date) {
+        self.imageId = imageId
         self.mainImageUrl = mainImageUrl
         self.userName = userName
         self.userImageUrl = userImageUrl
@@ -75,19 +75,19 @@ struct ImageContent: IdentifiableType, Equatable  {
 
 // equatable, this is needed to detect changes
 func == (lhs: ImageContent, rhs: ImageContent) -> Bool {
-    return lhs.contentId == rhs.contentId && lhs.date == rhs.date
+    return lhs.imageId == rhs.imageId && lhs.date == rhs.date
 }
 
 // MARK: Some nice extensions
 extension ImageContent: CustomDebugStringConvertible {
     var debugDescription: String {
-        return "ImageCOntent(number: \(contentId), date: \(date.timeIntervalSince1970))"
+        return "ImageContent(number: \(imageId), date: \(date.timeIntervalSince1970))"
     }
 }
 
 extension ImageContent: CustomStringConvertible {
     var description: String {
-        return "\(contentId)"
+        return "\(imageId)"
     }
 }
 

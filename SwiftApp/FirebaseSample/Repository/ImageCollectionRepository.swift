@@ -27,7 +27,7 @@ class ImageCollectionRepository {
 //                        guard let roomDescription = data["roomDescription"] as? String else { return }
                         guard let date = data["date"] as? Date else { return }
                         let roomId =  diff.document.documentID
-                        let room: ImageContent = ImageContent(contentId: "a", mainImageUrl: "b", userName: "c", userImageUrl: "d", imageDescription: "e", date: date)
+                        let room: ImageContent = ImageContent(imageId: "a", mainImageUrl: "b", userName: "c", userImageUrl: "d", imageDescription: "e", date: date)
                         rooms.append(room)
                     }
                 }
@@ -46,7 +46,7 @@ class ImageCollectionRepository {
 //                        guard let roomDescription = data["roomDescription"] as? String else { return }
                         guard let date = data["date"] as? Date else { return }
                         let roomId =  diff.document.documentID
-                        room = ImageContent(contentId: "a", mainImageUrl: "b", userName: "c", userImageUrl: "d", imageDescription: "e", date: date)
+                        room = ImageContent(imageId: "a", mainImageUrl: "b", userName: "c", userImageUrl: "d", imageDescription: "e", date: date)
                     }
                 }
                 return room
@@ -54,27 +54,25 @@ class ImageCollectionRepository {
     }
     
     //TODO:別に置くべきか?
-    func initialItem(oldSections: [ImageSection] ,item: [ImageContent], section: Int) -> SectionedCollectionViewState {
+    func initialItem(oldSections: [ImageSection] ,item: [ImageContent], section: Int) -> SectionedImageViewState {
         var sections = oldSections
         let items = sections[section].items + item
         sections[section] = ImageSection(original: sections[section], items: items)
-        return SectionedCollectionViewState(sections: sections)
+        return SectionedImageViewState(sections: sections)
     }
     
-    func addItem(oldSections: [ImageSection] ,item: ImageContent, section: Int) -> SectionedCollectionViewState {
+    func addItem(oldSections: [ImageSection] ,item: ImageContent, section: Int) -> SectionedImageViewState {
         var sections = oldSections
         let items = sections[section].items + item
         sections[section] = ImageSection(original: sections[section], items: items)
-        return SectionedCollectionViewState(sections: sections)
+        return SectionedImageViewState(sections: sections)
     }
     
-    func deleteItem(oldSections: [ImageSection], index: IndexPath) -> SectionedCollectionViewState {
+    func deleteItem(oldSections: [ImageSection], index: IndexPath) -> SectionedImageViewState {
         var sections = oldSections
-        print(index.section)
         var items = sections[index.section].items
-        print(items)
         items.remove(at: index.row)
         sections[index.section] = ImageSection(original: sections[index.section], items: items)
-        return SectionedCollectionViewState(sections: sections)
+        return SectionedImageViewState(sections: sections)
     }
 }

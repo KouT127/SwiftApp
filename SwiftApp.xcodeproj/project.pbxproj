@@ -43,11 +43,18 @@
 		9B35983321B0187C00019415 /* ImageCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B35983221B0187C00019415 /* ImageCollectionViewCell.xib */; };
 		9B35983521B01CAB00019415 /* ImageCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B35983421B01CAB00019415 /* ImageCollectionView.swift */; };
 		9B35983721B0217A00019415 /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B35983621B0217A00019415 /* ImageCollectionViewCell.swift */; };
-		9B35983921B02C3C00019415 /* ImageSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B35983821B02C3C00019415 /* ImageSection.swift */; };
+		9B35983921B02C3C00019415 /* ParentSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B35983821B02C3C00019415 /* ParentSection.swift */; };
 		9B35983B21B2277200019415 /* ImageCollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B35983A21B2277200019415 /* ImageCollectionViewModel.swift */; };
 		9B35983D21B2286700019415 /* ImageCollectionRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B35983C21B2286700019415 /* ImageCollectionRepository.swift */; };
 		9B35983F21B249AA00019415 /* ImageCollectionKindView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B35983E21B249AA00019415 /* ImageCollectionKindView.swift */; };
 		9B35984321B24A8100019415 /* ImageCollectionKindViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B35984221B24A8100019415 /* ImageCollectionKindViewCell.xib */; };
+		9B35984521B3A84100019415 /* ImageParentTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B35984421B3A84100019415 /* ImageParentTableView.swift */; };
+		9B35984721B3A9FE00019415 /* ImageParentTableView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B35984621B3A9FE00019415 /* ImageParentTableView.storyboard */; };
+		9B35984921B3B6DE00019415 /* ImageParentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B35984821B3B6DE00019415 /* ImageParentTableViewCell.swift */; };
+		9B35984B21B3B77600019415 /* TableViewInCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B35984A21B3B77600019415 /* TableViewInCollectionCell.xib */; };
+		9B46F00821B42256007762DB /* ImageSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B46F00721B42256007762DB /* ImageSection.swift */; };
+		9B46F00A21B425C2007762DB /* ImageParentTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B46F00921B425C2007762DB /* ImageParentTableViewModel.swift */; };
+		9B46F00C21B42603007762DB /* ImageParentTableRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B46F00B21B42603007762DB /* ImageParentTableRepository.swift */; };
 		9BB63EC7218B456800BEB6BE /* SVProgressHUD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BB63EC6218B456800BEB6BE /* SVProgressHUD.framework */; };
 		9BB63ECA218C828A00BEB6BE /* FirebaseSignIn.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9BB63EC9218C828A00BEB6BE /* FirebaseSignIn.storyboard */; };
 		9BB63ECC218DE0EE00BEB6BE /* Firebase+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BB63ECB218DE0EE00BEB6BE /* Firebase+Rx.swift */; };
@@ -154,11 +161,18 @@
 		9B35983221B0187C00019415 /* ImageCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageCollectionViewCell.xib; sourceTree = "<group>"; };
 		9B35983421B01CAB00019415 /* ImageCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollectionView.swift; sourceTree = "<group>"; };
 		9B35983621B0217A00019415 /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
-		9B35983821B02C3C00019415 /* ImageSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSection.swift; sourceTree = "<group>"; };
+		9B35983821B02C3C00019415 /* ParentSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParentSection.swift; sourceTree = "<group>"; };
 		9B35983A21B2277200019415 /* ImageCollectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewModel.swift; sourceTree = "<group>"; };
 		9B35983C21B2286700019415 /* ImageCollectionRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollectionRepository.swift; sourceTree = "<group>"; };
 		9B35983E21B249AA00019415 /* ImageCollectionKindView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollectionKindView.swift; sourceTree = "<group>"; };
 		9B35984221B24A8100019415 /* ImageCollectionKindViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageCollectionKindViewCell.xib; sourceTree = "<group>"; };
+		9B35984421B3A84100019415 /* ImageParentTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageParentTableView.swift; sourceTree = "<group>"; };
+		9B35984621B3A9FE00019415 /* ImageParentTableView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ImageParentTableView.storyboard; sourceTree = "<group>"; };
+		9B35984821B3B6DE00019415 /* ImageParentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageParentTableViewCell.swift; sourceTree = "<group>"; };
+		9B35984A21B3B77600019415 /* TableViewInCollectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableViewInCollectionCell.xib; sourceTree = "<group>"; };
+		9B46F00721B42256007762DB /* ImageSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSection.swift; sourceTree = "<group>"; };
+		9B46F00921B425C2007762DB /* ImageParentTableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageParentTableViewModel.swift; sourceTree = "<group>"; };
+		9B46F00B21B42603007762DB /* ImageParentTableRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageParentTableRepository.swift; sourceTree = "<group>"; };
 		9B4EB1D9A129BE59B66DD696 /* Pods-SwiftAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftAppUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftAppUITests/Pods-SwiftAppUITests.release.xcconfig"; sourceTree = "<group>"; };
 		9BB63EC6218B456800BEB6BE /* SVProgressHUD.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SVProgressHUD.framework; path = Carthage/Build/iOS/SVProgressHUD.framework; sourceTree = "<group>"; };
 		9BB63EC9218C828A00BEB6BE /* FirebaseSignIn.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FirebaseSignIn.storyboard; sourceTree = "<group>"; };
@@ -408,7 +422,8 @@
 				9BB63EFD2196A8B300BEB6BE /* FirebaseChatListModel.swift */,
 				9BB63F18219F0BA700BEB6BE /* AuthEnum.swift */,
 				9B35981821A8551B00019415 /* User.swift */,
-				9B35983821B02C3C00019415 /* ImageSection.swift */,
+				9B35983821B02C3C00019415 /* ParentSection.swift */,
+				9B46F00721B42256007762DB /* ImageSection.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -428,6 +443,8 @@
 				9B35983421B01CAB00019415 /* ImageCollectionView.swift */,
 				9B35983621B0217A00019415 /* ImageCollectionViewCell.swift */,
 				9B35983E21B249AA00019415 /* ImageCollectionKindView.swift */,
+				9B35984421B3A84100019415 /* ImageParentTableView.swift */,
+				9B35984821B3B6DE00019415 /* ImageParentTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -439,6 +456,7 @@
 				9BB63F0C219DB1A700BEB6BE /* FirebaseChatListViewModel.swift */,
 				9BE8162621A7B42700C5C371 /* FirebaseUserViewModel.swift */,
 				9B35983A21B2277200019415 /* ImageCollectionViewModel.swift */,
+				9B46F00921B425C2007762DB /* ImageParentTableViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -456,6 +474,8 @@
 				9B35983021B017D200019415 /* ImageCollection.storyboard */,
 				9B35983221B0187C00019415 /* ImageCollectionViewCell.xib */,
 				9B35984221B24A8100019415 /* ImageCollectionKindViewCell.xib */,
+				9B35984621B3A9FE00019415 /* ImageParentTableView.storyboard */,
+				9B35984A21B3B77600019415 /* TableViewInCollectionCell.xib */,
 			);
 			path = StoryBoard;
 			sourceTree = "<group>";
@@ -467,6 +487,7 @@
 				9BB63F0E219DB2F700BEB6BE /* FirebaseChatListRepository.swift */,
 				9BE8162421A7B40F00C5C371 /* FirebaseUserRepository.swift */,
 				9B35983C21B2286700019415 /* ImageCollectionRepository.swift */,
+				9B46F00B21B42603007762DB /* ImageParentTableRepository.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -642,11 +663,13 @@
 				9B35983321B0187C00019415 /* ImageCollectionViewCell.xib in Resources */,
 				9BB63F1F21A1A6D800BEB6BE /* FirebaseUser.storyboard in Resources */,
 				9BE8162321A7A09900C5C371 /* Firebase.plist in Resources */,
+				9B35984B21B3B77600019415 /* TableViewInCollectionCell.xib in Resources */,
 				9BB63ECA218C828A00BEB6BE /* FirebaseSignIn.storyboard in Resources */,
 				9B084002212C516F00C537D5 /* SampleList.storyboard in Resources */,
 				9B083FD2212AFF6F00C537D5 /* Main.storyboard in Resources */,
 				9BB63ECE218DE4C400BEB6BE /* GoogleService-Info.plist in Resources */,
 				9B35983121B017D200019415 /* ImageCollection.storyboard in Resources */,
+				9B35984721B3A9FE00019415 /* ImageParentTableView.storyboard in Resources */,
 				9BB63F1B219F18A200BEB6BE /* FirebaseCreateRoom.storyboard in Resources */,
 				9B35984321B24A8100019415 /* ImageCollectionKindViewCell.xib in Resources */,
 				9BB63ED6218EACF500BEB6BE /* FirebaseAuth.storyboard in Resources */,
@@ -817,14 +840,17 @@
 				9BB63F05219B15A300BEB6BE /* RoundPart.swift in Sources */,
 				9BB63EEB218F227600BEB6BE /* DefaultWireframe.swift in Sources */,
 				9B35983D21B2286700019415 /* ImageCollectionRepository.swift in Sources */,
+				9B46F00A21B425C2007762DB /* ImageParentTableViewModel.swift in Sources */,
 				9BB63F0F219DB2F700BEB6BE /* FirebaseChatListRepository.swift in Sources */,
 				9B35981D21AA7ECE00019415 /* ImagePickerService.swift in Sources */,
 				9BB63EE2218EC4C900BEB6BE /* FirebaseSignInRepository.swift in Sources */,
+				9B46F00C21B42603007762DB /* ImageParentTableRepository.swift in Sources */,
 				9BB63F1D21A181A500BEB6BE /* FirebaseCreateRoomView.swift in Sources */,
 				9BE8162521A7B40F00C5C371 /* FirebaseUserRepository.swift in Sources */,
 				9BE8162121A79EF300C5C371 /* Date.swift in Sources */,
 				9B084000212B0B8D00C537D5 /* SampleModel.swift in Sources */,
 				9BB63EE9218F158C00BEB6BE /* AuthUser.swift in Sources */,
+				9B46F00821B42256007762DB /* ImageSection.swift in Sources */,
 				9B083FCF212AFF6F00C537D5 /* ViewController.swift in Sources */,
 				9BB63EF021906F3100BEB6BE /* FirebaseChatView.swift in Sources */,
 				9BB63ED8218EBCBF00BEB6BE /* FirebaseSignInView.swift in Sources */,
@@ -844,6 +870,7 @@
 				9B2FB71821840C1800610D43 /* Provider.swift in Sources */,
 				9BB63F0D219DB1A700BEB6BE /* FirebaseChatListViewModel.swift in Sources */,
 				9BB63EFA2195AB5900BEB6BE /* FirebaseChatListView.swift in Sources */,
+				9B35984521B3A84100019415 /* ImageParentTableView.swift in Sources */,
 				9B35983521B01CAB00019415 /* ImageCollectionView.swift in Sources */,
 				9BB63EDF218EC02500BEB6BE /* FirebaseSignInViewModel.swift in Sources */,
 				9B35981B21AA5F7100019415 /* RoundImage.swift in Sources */,
@@ -852,8 +879,9 @@
 				9B31C9BD216B372000470A57 /* TabBarController.swift in Sources */,
 				9BB63EE7218ED75A00BEB6BE /* Realm.swift in Sources */,
 				9BB63F09219C668600BEB6BE /* Router.swift in Sources */,
+				9B35984921B3B6DE00019415 /* ImageParentTableViewCell.swift in Sources */,
 				9B35983721B0217A00019415 /* ImageCollectionViewCell.swift in Sources */,
-				9B35983921B02C3C00019415 /* ImageSection.swift in Sources */,
+				9B35983921B02C3C00019415 /* ParentSection.swift in Sources */,
 				9B35983B21B2277200019415 /* ImageCollectionViewModel.swift in Sources */,
 				9BB63ED4218E09C600BEB6BE /* AuthResult.swift in Sources */,
 				9B083FFE212B0B7E00C537D5 /* SampleViewModel.swift in Sources */,

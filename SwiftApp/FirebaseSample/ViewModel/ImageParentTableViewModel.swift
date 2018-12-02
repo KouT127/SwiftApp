@@ -1,8 +1,8 @@
 //
-//  ImageCollectionViewModel.swift
+//  ImageParentTableViewModel.swift
 //  SwiftApp
 //
-//  Created by kou on 2018/12/01.
+//  Created by kou on 2018/12/02.
 //  Copyright © 2018 kou. All rights reserved.
 //
 
@@ -10,18 +10,18 @@ import Foundation
 import RxSwift
 import RxCocoa
 
-class ImageCollectionViewModel {
+class ImageParentTableViewModel {
     
     typealias Dependency = (
-        repository: ImageCollectionRepository,
+        repository: ImageParentTableRepository,
         accessor: Accessor,
         wireframe: DefaultWireframe
     )
     
-    let stateEvent = BehaviorRelay<SectionedImageViewState?>(value: nil)
-    var sections: [ImageSection] = [ImageSection(header: "List", contents: [], updated: Date())]
+    let stateEvent = BehaviorRelay<SectionedParentViewState?>(value: nil)
+    var sections: [ParentSection] = [ParentSection(header: "List", contents: [], updated: Date())]
     
-    let updatedDataSource: Observable<[ImageSection]>
+    let updatedDataSource: Observable<[ParentSection]>
     
     let disposeBag = DisposeBag()
     
@@ -32,12 +32,12 @@ class ImageCollectionViewModel {
             .asObservable()
             .flatMap { $0.flatMap {Observable.just($0)} ?? Observable.empty() }
         
-        let initialState = SectionedImageViewState(sections: sections)
+        let initialState = SectionedParentViewState(sections: sections)
         stateEvent.accept(initialState)
         
         let initialData = dependency.repository.getInitialData()
             .withLatestFrom(state){ ($0, $1) }
-            .map { data, state  -> SectionedImageViewState in
+            .map { data, state  -> SectionedParentViewState in
                 return dependency.repository.initialItem(oldSections: state.sections, item: data, section: 0)}
         
         let updateData = dependency.repository.getUpdateData()
@@ -59,6 +59,5 @@ class ImageCollectionViewModel {
         roomData
             .subscribe(onNext: {self.stateEvent.accept($0)})
             .disposed(by: disposeBag)
-        
     }
 }

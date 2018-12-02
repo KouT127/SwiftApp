@@ -12,7 +12,7 @@ import RxSwift
 import RxCocoa
 import RxDataSources
 
-class ImageCollectionView: UIViewController, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+class ImageCollectionView: UIViewController {
 
     @IBOutlet weak var mainCollectionView: UICollectionView!
     
@@ -36,12 +36,12 @@ class ImageCollectionView: UIViewController, UICollectionViewDelegate, UICollect
         
         mainCollectionView.rx.setDelegate(self)
             .disposed(by: disposeBag)
-        
     }
-
 }
 
-extension ImageCollectionView {
+extension ImageCollectionView: UICollectionViewDelegate {
+    
+    
     static func dataSource() -> RxCollectionViewSectionedAnimatedDataSource<ImageSection> {
         return RxCollectionViewSectionedAnimatedDataSource(animationConfiguration: AnimationConfiguration(insertAnimation: .top,
                                                                    reloadAnimation: .fade,
@@ -63,7 +63,7 @@ extension ImageCollectionView {
     }
 }
 
-extension ImageCollectionView {
+extension ImageCollectionView: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = UIScreen.main.bounds.width * 0.5 - 10
         let height = UIScreen.main.bounds.height * 0.35
