@@ -19,7 +19,12 @@ class ImageParentTableViewModel {
     )
     
     let stateEvent = BehaviorRelay<SectionedParentViewState?>(value: nil)
-    var sections: [ParentSection] = [ParentSection(header: "List", contents: [], updated: Date())]
+    var sections: [ParentSection] = [ParentSection(header: "List",
+                                                   contents: [Content(contentId: "",
+                                                                      headerSection: [],
+                                                                      imageSection: [],
+                                                                      date: Date())],
+                                                   updated: Date())]
     
     let updatedDataSource: Observable<[ParentSection]>
     

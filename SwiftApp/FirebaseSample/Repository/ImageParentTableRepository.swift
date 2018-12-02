@@ -15,7 +15,26 @@ class ImageParentTableRepository {
     
     private let firestore = Firestore.firestore()
     
-    var mockData = [ImageSection(header: "List", contents: [], updated: Date())]
+    var mockData = [ImageSection(header: "List",
+                                 contents: [ImageContent(imageId: "a",
+                                                         mainImageUrl: "a",
+                                                         userName: "a",
+                                                         userImageUrl: "a",
+                                                         imageDescription: "a",
+                                                         date: Date()),
+                                            ImageContent(imageId: "a",
+                                                         mainImageUrl: "a",
+                                                         userName: "a",
+                                                         userImageUrl: "a",
+                                                         imageDescription: "a",
+                                                         date: Date()),
+                                            ImageContent(imageId: "a",
+                                                         mainImageUrl: "a",
+                                                         userName: "a",
+                                                         userImageUrl: "a",
+                                                         imageDescription: "a",
+                                                         date: Date())],
+                                updated: Date())]
     
     func getInitialData() -> Observable<[Content]> {
         return firestore.collection("rooms").order(by: "date").rx.getDocuments()
@@ -28,7 +47,7 @@ class ImageParentTableRepository {
                         //                        guard let roomDescription = data["roomDescription"] as? String else { return }
                         guard let date = data["date"] as? Date else { return }
                         let roomId =  diff.document.documentID
-                        let room = Content(contentId: "aa", headerSection: [], imageSection: [], date: Date())
+                        let room = Content(contentId: "aa", headerSection: [], imageSection: self.mockData, date: Date())
                         rooms.append(room)
                     }
                 }
@@ -47,7 +66,7 @@ class ImageParentTableRepository {
                         //                        guard let roomDescription = data["roomDescription"] as? String else { return }
                         guard let date = data["date"] as? Date else { return }
                         let roomId =  diff.document.documentID
-                        room = Content(contentId: "aa", headerSection: [], imageSection: [], date: Date())
+                        room = Content(contentId: "aa", headerSection: [], imageSection: self.mockData, date: Date())
                     }
                 }
                 return room
