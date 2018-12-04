@@ -40,10 +40,11 @@ class ImageParentTableView: UIViewController {
         
         tableView.rx.setDelegate(self)
             .disposed(by: disposeBag)
+        
     }
 }
 
-extension ImageParentTableView {
+extension ImageParentTableView: UICollectionViewDelegate {
     static func tableDataSource<T: UICollectionViewDelegateFlowLayout>(delegate: T) -> RxTableViewSectionedAnimatedDataSource<ParentSection> {
         return RxTableViewSectionedAnimatedDataSource(
             animationConfiguration: AnimationConfiguration(insertAnimation: .top,
@@ -52,16 +53,18 @@ extension ImageParentTableView {
             configureCell: { (dataSource, table, idxPath, item) in
                 guard let cell = table.dequeueReusableCell(withIdentifier: "TableViewInCollection",for: idxPath) as? ImageParentTableViewCell else { fatalError() }
                 
-                table.rowHeight = CGFloat(integerLiteral:  300 * idxPath.count)
                 
                 if let collectionView = cell.collectionView {
+                    if idxPath.row == 1 {
                     let dataSource = ImageCollectionView.dataSource()
-                    Observable.just(item.imageSection)
-                        .bind(to: collectionView.rx.items(dataSource: dataSource))
-                        .disposed(by: cell.disposeBag)
-                    
-                    collectionView.rx.setDelegate(delegate)
-                        .disposed(by: cell.disposeBag)
+                        Observable.just(item.imageSection)
+                            .bind(to: collectionView.rx.items(dataSource: dataSource))
+                            .disposed(by: cell.disposeBag)
+                        
+                        collectionView.rx.setDelegate(delegate)
+                            .disposed(by: cell.disposeBag)
+                    }
+                        
                 }
                 return cell
         })
@@ -76,8 +79,8 @@ extension ImageParentTableView {
                                                             let cell = collection.dequeueReusableCell(withReuseIdentifier: "CollectionCell", for: idxPath) as! ImageCollectionViewCell
                                                             cell.imageView.image = UIImage(named: "Bear")
                                                             cell.userImageView.image = UIImage(named: "Bear")
-                                                            cell.userName.text = "Name"
-                                                            cell.imageDescription.text = "description"
+                                                            cell.userName.text = item.userName
+                                                            cell.imageDescription.text = item.description
                                                             return cell
         },
                                                            configureSupplementaryView: {(dataSource, collection, kind, idxPath) in
@@ -99,5 +102,23 @@ extension ImageParentTableView: UICollectionViewDelegateFlowLayout {
         let width = UIScreen.main.bounds.width
         let height = UIScreen.main.bounds.height * 0.05
         return CGSize(width: width, height: height)
+    }
+    
+}
+
+extension ImageParentTableView: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        let headerHeight = UIScreen.main.bounds.height * 0.05
+        let contentsHeight = UIScreen.main.bounds.height * 0.35
+        if indexPath.row == 0{
+            return  contentsHeight + 10
+        } else if indexPath.row == 1{
+            return headerHeight + contentsHeight * 2 + 10
+        }
+        return UITableView.automaticDimension
+    }
+    
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return  UIScreen.main.bounds.height * 0.35
     }
 }
