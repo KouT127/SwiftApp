@@ -11,6 +11,8 @@ import UIKit
 import RxSwift
 import RxCocoa
 import RxDataSources
+import Nuke
+import RxNuke
 
 class ImageCollectionView: UIViewController {
 
@@ -49,10 +51,14 @@ extension ImageCollectionView: UICollectionViewDelegate {
                 configureCell: { (dataSource, collection, idxPath, item)  in
                     collection.register(UINib(nibName: "ImageCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "CollectionCell")
                     let cell = collection.dequeueReusableCell(withReuseIdentifier: "CollectionCell", for: idxPath) as! ImageCollectionViewCell
-                    cell.imageView.image = UIImage(named: "Bear")
-                    cell.userImageView.image = UIImage(named: "Bear")
-                    cell.userName.text = "Name"
-                    cell.imageDescription.text = "description"
+                    ImagePipeline.shared.rx.loadImage(with: URL(fileURLWithPath: item.mainImageUrl))
+                        .subscribe(onSuccess: { loadData in cell.imageView.image = loadData.image})
+//                        .disposed(by: DisposeBag())
+                    ImagePipeline.shared.rx.loadImage(with: URL(fileURLWithPath: item.userImageUrl))
+                        .subscribe(onSuccess: { loadData in cell.userImageView.image = loadData.image})
+//                        .disposed(by: DisposeBag())
+                    cell.userName.text = item.userName
+                    cell.imageDescription.text = item.imageDescription
                     return cell
                 },
                 configureSupplementaryView: {(dataSource, collection, kind, idxPath) in

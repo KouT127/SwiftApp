@@ -46,11 +46,9 @@ class ImageCollectionViewModel {
             .map { data, state in
                 dependency.repository.addItem(oldSections: state.sections , item: data, section: 0)}
         
-        
         let roomData = Observable.of(initialData, updateData)
             .merge()
             .share()
-        
         
         updatedDataSource = roomData
             .map { $0.sections }

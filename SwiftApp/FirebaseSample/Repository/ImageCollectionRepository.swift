@@ -17,39 +17,46 @@ class ImageCollectionRepository {
     private let firestore = Firestore.firestore()
     
     func getInitialData() -> Observable<[ImageContent]> {
-        return firestore.collection("rooms").order(by: "date").rx.getDocuments()
+        return firestore.collection("Posts").order(by: "createdAt").rx.getDocuments()
             .map { value -> [ImageContent] in
-                var rooms: [ImageContent] = []
+                var posts: [ImageContent] = []
                 value.documentChanges.forEach { diff in
                     if diff.type == .added {
                         let data = diff.document.data()
-//                        guard let roomName = data["roomName"] as? String else { return }
-//                        guard let roomDescription = data["roomDescription"] as? String else { return }
-                        guard let date = data["date"] as? Date else { return }
-                        let roomId =  diff.document.documentID
-                        let room: ImageContent = ImageContent(imageId: "a", mainImageUrl: "b", userName: "c", userImageUrl: "d", imageDescription: "e", date: date)
-                        rooms.append(room)
+                        guard let postImageUrl = data["postImage"] as? String else { return }
+                        guard let userImageUrl = data["userImage"] as? String else { return }
+                        guard let userName = data["userName"] as? String else { return }
+                        guard let postDescription = data["postDescription"] as? String else { return }
+                        guard let createdAt = data["createdAt"] as? Date else { return }
+//                        guard let updatedAt = data["updatedAt"] as? Date else { return }
+                        let id = diff.document.documentID
+                        
+                        let post: ImageContent = ImageContent(imageId: id, mainImageUrl: postImageUrl, userName: userName, userImageUrl: userImageUrl, imageDescription: postDescription, date: createdAt)
+                        posts.append(post)
                     }
                 }
-                return rooms
+                return posts
         }
     }
     
     func getUpdateData() -> Observable<ImageContent?> {
         return firestore.collection("rooms").rx.listen()
             .map { value -> ImageContent? in
-                var room: ImageContent?
+                var post: ImageContent?
                 value.documentChanges.forEach { diff in
                     if diff.type == .modified {
                         let data = diff.document.data()
-//                        guard let roomName = data["roomName"] as? String else { return }
-//                        guard let roomDescription = data["roomDescription"] as? String else { return }
-                        guard let date = data["date"] as? Date else { return }
-                        let roomId =  diff.document.documentID
-                        room = ImageContent(imageId: "a", mainImageUrl: "b", userName: "c", userImageUrl: "d", imageDescription: "e", date: date)
+                        guard let postImageUrl = data["postImage"] as? String else { return }
+                        guard let userImageUrl = data["userImage"] as? String else { return }
+                        guard let userName = data["userName"] as? String else { return }
+                        guard let postDescription = data["postDescription"] as? String else { return }
+                        guard let createdAt = data["createdAt"] as? Date else { return }
+                        //                        guard let updatedAt = data["updatedAt"] as? Date else { return }
+                        let id = diff.document.documentID
+                        post = ImageContent(imageId: id, mainImageUrl: postImageUrl, userName: userName, userImageUrl: userImageUrl, imageDescription: postDescription, date: createdAt)
                     }
                 }
-                return room
+                return post
         }
     }
     
