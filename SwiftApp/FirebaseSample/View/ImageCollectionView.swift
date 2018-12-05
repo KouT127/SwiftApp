@@ -51,12 +51,8 @@ extension ImageCollectionView: UICollectionViewDelegate {
                 configureCell: { (dataSource, collection, idxPath, item)  in
                     collection.register(UINib(nibName: "ImageCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "CollectionCell")
                     let cell = collection.dequeueReusableCell(withReuseIdentifier: "CollectionCell", for: idxPath) as! ImageCollectionViewCell
-                    ImagePipeline.shared.rx.loadImage(with: URL(fileURLWithPath: item.mainImageUrl))
-                        .subscribe(onSuccess: { loadData in cell.imageView.image = loadData.image})
-//                        .disposed(by: DisposeBag())
-                    ImagePipeline.shared.rx.loadImage(with: URL(fileURLWithPath: item.userImageUrl))
-                        .subscribe(onSuccess: { loadData in cell.userImageView.image = loadData.image})
-//                        .disposed(by: DisposeBag())
+                    cell.postImageDisplay(ImagePipeline.shared.rx.loadImage(with: URL(string: item.mainImageUrl)!))
+                    cell.userImageDisplay(ImagePipeline.shared.rx.loadImage(with: URL(string: item.userImageUrl)!))
                     cell.userName.text = item.userName
                     cell.imageDescription.text = item.imageDescription
                     return cell
