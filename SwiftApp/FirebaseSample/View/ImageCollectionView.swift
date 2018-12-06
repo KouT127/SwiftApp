@@ -74,7 +74,7 @@ extension ImageCollectionView: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
         
         let width = UIScreen.main.bounds.width
-        let height = UIScreen.main.bounds.height * 0.05
+        let height = UIScreen.main.bounds.height * 0.04
         return CGSize(width: width, height: height)
     }
 }
