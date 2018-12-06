@@ -21,6 +21,14 @@ class ImageParentTableViewCell: UITableViewCell {
         super.awakeFromNib()
         let nib = UINib(nibName: "TableViewInCollectionCell", bundle: nil)
         collectionView.register(nib, forCellWithReuseIdentifier: "TableViewInCollection")
+        
+        if let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
+            layout.sectionInset = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
+            
+            layout.minimumInteritemSpacing = 5
+            layout.minimumLineSpacing = 5
+        }
+        collectionView.isScrollEnabled = false
     }
     
     override func prepareForReuse() {
@@ -28,4 +36,5 @@ class ImageParentTableViewCell: UITableViewCell {
         //更新しない場合、上のDisposeBagに溜まっていってしまう。
         disposeBag = DisposeBag()
     }
+    
 }

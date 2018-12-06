@@ -22,16 +22,33 @@
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Sck-8i-yOt" userLabel="Image Stack View">
                             <rect key="frame" x="0.0" y="0.0" width="296" height="219"/>
                             <subviews>
-                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6fv-NS-qXO" customClass="RoundImage" customModule="SwiftApp" customModuleProvider="target">
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rjR-gm-LEL" customClass="RoundView" customModule="SwiftApp" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="0.0" width="296" height="131.33333333333334"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6fv-NS-qXO" customClass="RoundImage" customModule="SwiftApp" customModuleProvider="target">
+                                            <rect key="frame" x="5" y="4.9999999999999929" width="286" height="121.33333333333331"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="conerRadius">
+                                                    <real key="value" value="10"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                        </imageView>
+                                    </subviews>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstItem="6fv-NS-qXO" firstAttribute="leading" secondItem="rjR-gm-LEL" secondAttribute="leading" constant="5" id="15o-BY-DAf"/>
+                                        <constraint firstItem="6fv-NS-qXO" firstAttribute="top" secondItem="rjR-gm-LEL" secondAttribute="top" constant="5" id="9gd-sP-qdz"/>
+                                        <constraint firstAttribute="bottom" secondItem="6fv-NS-qXO" secondAttribute="bottom" constant="5" id="vtK-qq-etL"/>
+                                        <constraint firstAttribute="trailing" secondItem="6fv-NS-qXO" secondAttribute="trailing" constant="5" id="xkD-Ig-4YF"/>
+                                    </constraints>
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="number" keyPath="conerRadius">
                                             <real key="value" value="10"/>
                                         </userDefinedRuntimeAttribute>
                                     </userDefinedRuntimeAttributes>
-                                </imageView>
+                                </view>
                                 <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="51b-0e-7Us" userLabel="User Stack View">
-                                    <rect key="frame" x="3" y="136.33333333333334" width="290" height="30"/>
+                                    <rect key="frame" x="5" y="136.33333333333334" width="286" height="30"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="BAR-5n-psB" customClass="RoundImage" customModule="SwiftApp" customModuleProvider="target">
                                             <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
@@ -45,7 +62,7 @@
                                             </userDefinedRuntimeAttributes>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="biV-7A-O7h">
-                                            <rect key="frame" x="40" y="5" width="250" height="20.333333333333332"/>
+                                            <rect key="frame" x="40" y="5" width="246" height="20.333333333333332"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -56,18 +73,18 @@
                                     </constraints>
                                 </stackView>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lWF-IE-Jf5">
-                                    <rect key="frame" x="3" y="171.33333333333334" width="290" height="47.666666666666657"/>
+                                    <rect key="frame" x="5" y="171.33333333333334" width="286" height="47.666666666666657"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                             </subviews>
                             <constraints>
-                                <constraint firstItem="6fv-NS-qXO" firstAttribute="leading" secondItem="Sck-8i-yOt" secondAttribute="leading" id="F9m-G3-zGE"/>
-                                <constraint firstItem="51b-0e-7Us" firstAttribute="leading" secondItem="Sck-8i-yOt" secondAttribute="leading" constant="3" id="c3A-CL-2Xj"/>
-                                <constraint firstAttribute="trailing" secondItem="6fv-NS-qXO" secondAttribute="trailing" id="lSI-wn-R8P"/>
-                                <constraint firstItem="6fv-NS-qXO" firstAttribute="height" secondItem="Sck-8i-yOt" secondAttribute="height" multiplier="0.6" id="noq-Ag-dmh"/>
-                                <constraint firstItem="lWF-IE-Jf5" firstAttribute="leading" secondItem="Sck-8i-yOt" secondAttribute="leading" constant="3" id="qRZ-bJ-Xpu"/>
+                                <constraint firstItem="rjR-gm-LEL" firstAttribute="height" secondItem="Sck-8i-yOt" secondAttribute="height" multiplier="0.6" id="602-uW-upe"/>
+                                <constraint firstItem="51b-0e-7Us" firstAttribute="leading" secondItem="Sck-8i-yOt" secondAttribute="leading" constant="5" id="c3A-CL-2Xj"/>
+                                <constraint firstItem="rjR-gm-LEL" firstAttribute="leading" secondItem="Sck-8i-yOt" secondAttribute="leading" id="ead-uV-MQc"/>
+                                <constraint firstAttribute="trailing" secondItem="rjR-gm-LEL" secondAttribute="trailing" id="jGr-74-C2y"/>
+                                <constraint firstItem="lWF-IE-Jf5" firstAttribute="leading" secondItem="Sck-8i-yOt" secondAttribute="leading" constant="5" id="qRZ-bJ-Xpu"/>
                             </constraints>
                         </stackView>
                     </subviews>

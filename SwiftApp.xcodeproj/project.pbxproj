@@ -51,7 +51,7 @@
 		9B35984521B3A84100019415 /* ImageParentTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B35984421B3A84100019415 /* ImageParentTableView.swift */; };
 		9B35984721B3A9FE00019415 /* ImageParentTableView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B35984621B3A9FE00019415 /* ImageParentTableView.storyboard */; };
 		9B35984921B3B6DE00019415 /* ImageParentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B35984821B3B6DE00019415 /* ImageParentTableViewCell.swift */; };
-		9B35984B21B3B77600019415 /* TableViewInCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B35984A21B3B77600019415 /* TableViewInCollectionCell.xib */; };
+		9B35984B21B3B77600019415 /* ImageParentViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B35984A21B3B77600019415 /* ImageParentViewCell.xib */; };
 		9B46F00821B42256007762DB /* ImageSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B46F00721B42256007762DB /* ImageSection.swift */; };
 		9B46F00A21B425C2007762DB /* ImageParentTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B46F00921B425C2007762DB /* ImageParentTableViewModel.swift */; };
 		9B46F00C21B42603007762DB /* ImageParentTableRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B46F00B21B42603007762DB /* ImageParentTableRepository.swift */; };
@@ -169,7 +169,7 @@
 		9B35984421B3A84100019415 /* ImageParentTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageParentTableView.swift; sourceTree = "<group>"; };
 		9B35984621B3A9FE00019415 /* ImageParentTableView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ImageParentTableView.storyboard; sourceTree = "<group>"; };
 		9B35984821B3B6DE00019415 /* ImageParentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageParentTableViewCell.swift; sourceTree = "<group>"; };
-		9B35984A21B3B77600019415 /* TableViewInCollectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableViewInCollectionCell.xib; sourceTree = "<group>"; };
+		9B35984A21B3B77600019415 /* ImageParentViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageParentViewCell.xib; sourceTree = "<group>"; };
 		9B46F00721B42256007762DB /* ImageSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSection.swift; sourceTree = "<group>"; };
 		9B46F00921B425C2007762DB /* ImageParentTableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageParentTableViewModel.swift; sourceTree = "<group>"; };
 		9B46F00B21B42603007762DB /* ImageParentTableRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageParentTableRepository.swift; sourceTree = "<group>"; };
@@ -475,7 +475,7 @@
 				9B35983221B0187C00019415 /* ImageCollectionViewCell.xib */,
 				9B35984221B24A8100019415 /* ImageCollectionKindViewCell.xib */,
 				9B35984621B3A9FE00019415 /* ImageParentTableView.storyboard */,
-				9B35984A21B3B77600019415 /* TableViewInCollectionCell.xib */,
+				9B35984A21B3B77600019415 /* ImageParentViewCell.xib */,
 			);
 			path = StoryBoard;
 			sourceTree = "<group>";
@@ -663,7 +663,7 @@
 				9B35983321B0187C00019415 /* ImageCollectionViewCell.xib in Resources */,
 				9BB63F1F21A1A6D800BEB6BE /* FirebaseUser.storyboard in Resources */,
 				9BE8162321A7A09900C5C371 /* Firebase.plist in Resources */,
-				9B35984B21B3B77600019415 /* TableViewInCollectionCell.xib in Resources */,
+				9B35984B21B3B77600019415 /* ImageParentViewCell.xib in Resources */,
 				9BB63ECA218C828A00BEB6BE /* FirebaseSignIn.storyboard in Resources */,
 				9B084002212C516F00C537D5 /* SampleList.storyboard in Resources */,
 				9B083FD2212AFF6F00C537D5 /* Main.storyboard in Resources */,
