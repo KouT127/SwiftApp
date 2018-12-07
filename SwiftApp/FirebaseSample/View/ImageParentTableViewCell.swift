@@ -19,14 +19,14 @@ class ImageParentTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        let nib = UINib(nibName: "TableViewInCollectionCell", bundle: nil)
-        collectionView.register(nib, forCellWithReuseIdentifier: "TableViewInCollection")
+        let nib = UINib(nibName: "ImageCollectionViewCell", bundle: nil)
+        collectionView.register(nib, forCellWithReuseIdentifier: "CollectionViewCell")
         
         if let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
             layout.sectionInset = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
-            
-            layout.minimumInteritemSpacing = 5
-            layout.minimumLineSpacing = 5
+
+            layout.minimumInteritemSpacing = 0
+            layout.minimumLineSpacing = 0
         }
         collectionView.isScrollEnabled = false
     }
@@ -35,6 +35,18 @@ class ImageParentTableViewCell: UITableViewCell {
         //reuseするタイミングでDisposeBag()を更新
         //更新しない場合、上のDisposeBagに溜まっていってしまう。
         disposeBag = DisposeBag()
+    }
+    
+    override func systemLayoutSizeFitting(_ targetSize: CGSize, withHorizontalFittingPriority horizontalFittingPriority: UILayoutPriority, verticalFittingPriority: UILayoutPriority) -> CGSize {
+        print(collectionView.bounds.height)
+        print(collectionView.collectionViewLayout.collectionViewContentSize)
+        collectionView.setNeedsLayout()
+        print(collectionView.collectionViewLayout.collectionViewContentSize)
+        let contentSize = collectionView.collectionViewLayout.collectionViewContentSize
+//        let size = CGSize(width: targetSize.width,
+//                          height:)
+        return  contentSize
+        
     }
     
 }

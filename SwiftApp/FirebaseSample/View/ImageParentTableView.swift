@@ -30,14 +30,51 @@ class ImageParentTableView: UIViewController {
             )
         )
         
-        let nib = UINib(nibName: "TableViewInCollectionCell", bundle: nil)
-        tableView.register(nib, forCellReuseIdentifier: "TableViewInCollection")
+
+        let mock = [["a"], ["a","b","c","d","e","ff","w"],["s"]]
         
-        let dataSource = ImageParentTableView.tableDataSource(delegate: self)
-        viewModel.updatedDataSource
-            .bind(to: tableView.rx.items(dataSource: dataSource))
+
+        
+        
+        
+        Observable.just(mock)
+            .bind(to: tableView.rx.items) {[unowned self] (table, section, element) in
+                if section == 0{
+                    let imageNib = UINib(nibName: "ImageDetailSectionOne", bundle: nil)
+                    self.tableView.register(imageNib, forCellReuseIdentifier: "SectionOne")
+                    let cell = self.tableView.dequeueReusableCell(withIdentifier: "SectionOne") as! ImageDetailSectionOneCell
+                    cell.imageView?.image = UIImage(named: "PlaceHolder")
+                    return cell
+                } else if section == 1{
+                    let collectionNib = UINib(nibName: "ImageParentViewCell", bundle: nil)
+                    self.tableView.register(collectionNib, forCellReuseIdentifier: "CollectionViewCell")
+                    let cell = self.tableView.dequeueReusableCell(withIdentifier: "CollectionViewCell") as! ImageParentTableViewCell
+                    cell.collectionView.delegate = self
+                    Observable.just(element)
+                        .bind(to: cell.collectionView.rx.items(
+                            cellIdentifier: "CollectionViewCell",
+                            cellType: ImageCollectionViewCell.self
+                        )){[unowned self](collection, element, cell)  in
+                            cell.imageDescription.text = "aaaaaa"
+                        }
+                        .disposed(by: cell.disposeBag)
+                    cell.collectionView.reloadData()
+                    return cell
+                }
+                let collectionNib = UINib(nibName: "Card", bundle: nil)
+                self.tableView.register(collectionNib, forCellReuseIdentifier: "CardCell")
+                let cell = self.tableView.dequeueReusableCell(withIdentifier: "CardCell") as! FirebaseChatListCell
+                    cell.imageView?.image = UIImage(named: "PlaceHolder")
+                return cell
+            }
             .disposed(by: disposeBag)
+
         
+//        let dataSource = ImageParentTableView.tableDataSource(delegate: self)
+//        viewModel.updatedDataSource
+//            .bind(to: tableView.rx.items(dataSource: dataSource))
+//            .disposed(by: disposeBag)
+//
         tableView.rx.setDelegate(self)
             .disposed(by: disposeBag)
         
@@ -93,7 +130,7 @@ extension ImageParentTableView: UICollectionViewDelegate {
 
 extension ImageParentTableView: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let width = UIScreen.main.bounds.width * 0.5 - 10
+        let width = UIScreen.main.bounds.width * 0.45 - 10
         let height = UIScreen.main.bounds.height * 0.35
         return CGSize(width: width, height: height)
     }
@@ -108,13 +145,6 @@ extension ImageParentTableView: UICollectionViewDelegateFlowLayout {
 
 extension ImageParentTableView: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        let headerHeight = UIScreen.main.bounds.height * 0.05
-        let contentsHeight = UIScreen.main.bounds.height * 0.35
-        if indexPath.row == 0{
-            return  contentsHeight + 10
-        } else if indexPath.row == 1{
-            return headerHeight + contentsHeight * 2 + 10
-        }
         return UITableView.automaticDimension
     }
     
