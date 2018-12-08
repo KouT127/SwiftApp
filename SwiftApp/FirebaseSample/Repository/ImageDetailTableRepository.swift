@@ -11,7 +11,7 @@ import RxCocoa
 import RxDataSources
 import FirebaseFirestore
 
-class ImageParentTableRepository {
+class ImageDetailTableRepository {
     
     private let firestore = Firestore.firestore()
     

@@ -12,21 +12,21 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="ImageCollectionViewCell" customModule="SwiftApp" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="302" height="303"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="ImageDetailSectionTwoCollectionCell" customModule="SwiftApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="268" height="230"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0E9-st-3AW" customClass="RoundView" customModule="SwiftApp" customModuleProvider="target">
-                    <rect key="frame" x="3" y="47" width="296" height="219"/>
+                    <rect key="frame" x="0.0" y="44" width="268" height="152"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Sck-8i-yOt" userLabel="Image Stack View">
-                            <rect key="frame" x="0.0" y="0.0" width="296" height="219"/>
+                            <rect key="frame" x="0.0" y="0.0" width="268" height="152"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rjR-gm-LEL" customClass="RoundView" customModule="SwiftApp" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="0.0" width="296" height="131.33333333333334"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="268" height="91.333333333333329"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6fv-NS-qXO" customClass="RoundImage" customModule="SwiftApp" customModuleProvider="target">
-                                            <rect key="frame" x="5" y="4.9999999999999929" width="286" height="121.33333333333331"/>
+                                            <rect key="frame" x="5" y="5" width="258" height="81.333333333333329"/>
                                             <userDefinedRuntimeAttributes>
                                                 <userDefinedRuntimeAttribute type="number" keyPath="conerRadius">
                                                     <real key="value" value="10"/>
@@ -48,7 +48,7 @@
                                     </userDefinedRuntimeAttributes>
                                 </view>
                                 <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="51b-0e-7Us" userLabel="User Stack View">
-                                    <rect key="frame" x="5" y="136.33333333333334" width="286" height="30"/>
+                                    <rect key="frame" x="5" y="96.333333333333343" width="258" height="30"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="BAR-5n-psB" customClass="RoundImage" customModule="SwiftApp" customModuleProvider="target">
                                             <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
@@ -62,7 +62,7 @@
                                             </userDefinedRuntimeAttributes>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="biV-7A-O7h">
-                                            <rect key="frame" x="40" y="5" width="246" height="20.333333333333332"/>
+                                            <rect key="frame" x="40" y="4.6666666666666572" width="218" height="20.333333333333332"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -73,7 +73,7 @@
                                     </constraints>
                                 </stackView>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lWF-IE-Jf5">
-                                    <rect key="frame" x="5" y="171.33333333333334" width="286" height="47.666666666666657"/>
+                                    <rect key="frame" x="5" y="131.33333333333334" width="258" height="20.666666666666657"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
@@ -115,20 +115,20 @@
                 </view>
             </subviews>
             <constraints>
-                <constraint firstItem="0E9-st-3AW" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="3" id="7tN-Jb-X7c"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="0E9-st-3AW" secondAttribute="trailing" constant="3" id="Oju-BR-Gea"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="0E9-st-3AW" secondAttribute="bottom" constant="3" id="kUG-dQ-JRt"/>
-                <constraint firstItem="0E9-st-3AW" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="3" id="ykL-5Z-8zI"/>
+                <constraint firstItem="0E9-st-3AW" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="7tN-Jb-X7c"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="0E9-st-3AW" secondAttribute="trailing" id="Oju-BR-Gea"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="0E9-st-3AW" secondAttribute="bottom" id="kUG-dQ-JRt"/>
+                <constraint firstItem="0E9-st-3AW" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="ykL-5Z-8zI"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <connections>
-                <outlet property="imageDescription" destination="lWF-IE-Jf5" id="AGw-Hx-It2"/>
-                <outlet property="imageView" destination="6fv-NS-qXO" id="Xce-M0-a8l"/>
-                <outlet property="userImageView" destination="BAR-5n-psB" id="3Rb-Xp-dx9"/>
-                <outlet property="userName" destination="biV-7A-O7h" id="aVW-o2-MkE"/>
+                <outlet property="imageDescription" destination="lWF-IE-Jf5" id="ZMa-ng-mXc"/>
+                <outlet property="imageView" destination="6fv-NS-qXO" id="Rim-X7-sF2"/>
+                <outlet property="userImageView" destination="BAR-5n-psB" id="9ld-lR-zvJ"/>
+                <outlet property="userName" destination="biV-7A-O7h" id="f0Z-jw-wWF"/>
             </connections>
-            <point key="canvasLocation" x="-8.6956521739130448" y="-120.87053571428571"/>
+            <point key="canvasLocation" x="-114.49275362318842" y="-112.5"/>
         </view>
     </objects>
 </document>

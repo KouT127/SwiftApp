@@ -11,7 +11,7 @@ import RxSwift
 import RxCocoa
 import Nuke
 
-class ImageCollectionViewCell: UICollectionViewCell {
+class ImageDetailSectionTwoCollectionCell: UICollectionViewCell {
     
     var disposeBag = DisposeBag()
     
@@ -26,7 +26,6 @@ class ImageCollectionViewCell: UICollectionViewCell {
     
     func postImageDisplay(_ image: Single<ImageResponse>) {
         imageView.image = UIImage(named: "PlaceHolder")
-        // Load an image and display the result on success.
         image.subscribe(onSuccess: { [weak self] response in
             self?.imageView.image = response.image
         }).disposed(by: disposeBag)
@@ -34,7 +33,6 @@ class ImageCollectionViewCell: UICollectionViewCell {
     
     func userImageDisplay(_ image: Single<ImageResponse>) {
         imageView.image = UIImage(named: "PlaceHolder")
-        // Load an image and display the result on success.
         image.subscribe(onSuccess: { [weak self] response in
             self?.userImageView.image = response.image
         }).disposed(by: disposeBag)

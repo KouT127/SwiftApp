@@ -10,10 +10,10 @@ import Foundation
 import RxSwift
 import RxCocoa
 
-class ImageParentTableViewModel {
+class ImageDetailTableViewModel {
     
     typealias Dependency = (
-        repository: ImageParentTableRepository,
+        repository: ImageDetailTableRepository,
         accessor: Accessor,
         wireframe: DefaultWireframe
     )

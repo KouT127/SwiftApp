@@ -33,10 +33,8 @@ class ViewController: UIViewController {
     }
     
     private func getStoryBoard() -> UIStoryboard {
-        return UIStoryboard(name: "Router", bundle: nil)
+        return UIStoryboard(name: "ImageDetailTableView", bundle: nil)
     }
-
-
 
 }
 

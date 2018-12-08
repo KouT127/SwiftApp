@@ -49,8 +49,8 @@ extension ImageCollectionView: UICollectionViewDelegate {
                                                                    reloadAnimation: .fade,
                                                                    deleteAnimation: .left),
                 configureCell: { (dataSource, collection, idxPath, item)  in
-                    collection.register(UINib(nibName: "ImageCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "CollectionCell")
-                    let cell = collection.dequeueReusableCell(withReuseIdentifier: "CollectionCell", for: idxPath) as! ImageCollectionViewCell
+                    collection.register(UINib(nibName: "ImageDetailCollectionCell", bundle: nil), forCellWithReuseIdentifier: "CollectionCell")
+                    let cell = collection.dequeueReusableCell(withReuseIdentifier: "CollectionCell", for: idxPath) as! ImageDetailSectionTwoCollectionCell
                     cell.postImageDisplay(ImagePipeline.shared.rx.loadImage(with: URL(string: item.mainImageUrl)!))
                     cell.userImageDisplay(ImagePipeline.shared.rx.loadImage(with: URL(string: item.userImageUrl)!))
                     cell.userName.text = item.userName
