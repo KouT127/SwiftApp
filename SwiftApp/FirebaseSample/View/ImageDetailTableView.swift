@@ -10,6 +10,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 import RxDataSources
+import Nuke
 
 class ImageDetailTableView: UIViewController {
     
@@ -31,7 +32,7 @@ class ImageDetailTableView: UIViewController {
         )
         
 
-        let mock = [["a"], ["a","b","c","d","e","ff","w"],["s"]]
+        let mock = [["a"], ["https://firebasestorage.googleapis.com/v0/b/practicefirebase-25801.appspot.com/o/user_images%2Fvje2AHXRsuMHBZi0R6aWqzErwmk1?alt=media&token=0f822cbd-2f97-411d-8099-db99dc287701","https://firebasestorage.googleapis.com/v0/b/practicefirebase-25801.appspot.com/o/user_images%2FTGsLFcRpnKUgKCL0niq84AxJQo13?alt=media&token=b62bf5c1-9ef1-4e9f-b3e1-860ffa27711e"],["s"]]
         
         Observable.just(mock)
             .bind(to: tableView.rx.items) {[unowned self] (table, section, element) in
@@ -57,7 +58,7 @@ class ImageDetailTableView: UIViewController {
                             cellIdentifier: "SectionTwoCollection",
                             cellType: ImageDetailSectionTwoCollectionCell.self
                         )){(collection, element, cell)  in
-//                            cell.imageDescription.text = "aaaaaa"
+                            cell.postImageDisplay(ImagePipeline.shared.rx.loadImage(with: URL(string: element)!))
                         }
                         .disposed(by: cell.disposeBag)
                     cell.collectionView.setNeedsLayout()
