@@ -16,7 +16,7 @@
             <rect key="frame" x="0.0" y="0.0" width="495" height="192"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0KH-hk-PWI">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Bear" translatesAutoresizingMaskIntoConstraints="NO" id="0KH-hk-PWI">
                     <rect key="frame" x="0.0" y="0.0" width="495" height="192"/>
                 </imageView>
             </subviews>
@@ -35,4 +35,7 @@
             <point key="canvasLocation" x="234.40000000000001" y="-60.26986506746627"/>
         </view>
     </objects>
+    <resources>
+        <image name="Bear" width="257" height="256"/>
+    </resources>
 </document>

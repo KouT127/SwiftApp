@@ -32,7 +32,7 @@ class ImageDetailSectionTwoCollectionCell: UICollectionViewCell {
     }
     
     func userImageDisplay(_ image: Single<ImageResponse>) {
-        imageView.image = UIImage(named: "PlaceHolder")
+        userImageView.image = UIImage(named: "PlaceHolder")
         image.subscribe(onSuccess: { [weak self] response in
             self?.userImageView.image = response.image
         }).disposed(by: disposeBag)

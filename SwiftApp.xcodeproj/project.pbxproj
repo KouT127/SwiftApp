@@ -59,6 +59,8 @@
 		9B46F01621B96ACA007762DB /* ImageDetailSectionOne.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B46F01521B96ACA007762DB /* ImageDetailSectionOne.xib */; };
 		9B46F01821B96B6E007762DB /* ImageDetailSectionOneCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B46F01721B96B6E007762DB /* ImageDetailSectionOneCell.swift */; };
 		9B46F01A21BAB1AB007762DB /* Card.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B46F01921BAB1AB007762DB /* Card.xib */; };
+		9B46F01E21BD0137007762DB /* ImageDetailHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B46F01D21BD0137007762DB /* ImageDetailHeaderView.swift */; };
+		9B46F02021BD0BD3007762DB /* ImageDetailHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B46F01F21BD0BD3007762DB /* ImageDetailHeaderView.xib */; };
 		9BB63EC7218B456800BEB6BE /* SVProgressHUD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BB63EC6218B456800BEB6BE /* SVProgressHUD.framework */; };
 		9BB63ECA218C828A00BEB6BE /* FirebaseSignIn.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9BB63EC9218C828A00BEB6BE /* FirebaseSignIn.storyboard */; };
 		9BB63ECC218DE0EE00BEB6BE /* Firebase+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BB63ECB218DE0EE00BEB6BE /* Firebase+Rx.swift */; };
@@ -181,6 +183,8 @@
 		9B46F01521B96ACA007762DB /* ImageDetailSectionOne.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageDetailSectionOne.xib; sourceTree = "<group>"; };
 		9B46F01721B96B6E007762DB /* ImageDetailSectionOneCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDetailSectionOneCell.swift; sourceTree = "<group>"; };
 		9B46F01921BAB1AB007762DB /* Card.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Card.xib; sourceTree = "<group>"; };
+		9B46F01D21BD0137007762DB /* ImageDetailHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDetailHeaderView.swift; sourceTree = "<group>"; };
+		9B46F01F21BD0BD3007762DB /* ImageDetailHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageDetailHeaderView.xib; sourceTree = "<group>"; };
 		9B4EB1D9A129BE59B66DD696 /* Pods-SwiftAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftAppUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftAppUITests/Pods-SwiftAppUITests.release.xcconfig"; sourceTree = "<group>"; };
 		9BB63EC6218B456800BEB6BE /* SVProgressHUD.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SVProgressHUD.framework; path = Carthage/Build/iOS/SVProgressHUD.framework; sourceTree = "<group>"; };
 		9BB63EC9218C828A00BEB6BE /* FirebaseSignIn.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FirebaseSignIn.storyboard; sourceTree = "<group>"; };
@@ -455,6 +459,7 @@
 				9B46F01721B96B6E007762DB /* ImageDetailSectionOneCell.swift */,
 				9B35984821B3B6DE00019415 /* ImageDetailSectionTwoCell.swift */,
 				9B35983621B0217A00019415 /* ImageDetailSectionTwoCollectionCell.swift */,
+				9B46F01D21BD0137007762DB /* ImageDetailHeaderView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -487,6 +492,7 @@
 				9B46F01521B96ACA007762DB /* ImageDetailSectionOne.xib */,
 				9B35984A21B3B77600019415 /* ImageDetailSectionTwo.xib */,
 				9B35983221B0187C00019415 /* ImageDetailSectionTwoCollection.xib */,
+				9B46F01F21BD0BD3007762DB /* ImageDetailHeaderView.xib */,
 				9B46F01921BAB1AB007762DB /* Card.xib */,
 			);
 			path = StoryBoard;
@@ -672,6 +678,7 @@
 				9BB63EF82195A70D00BEB6BE /* FirebaseChatList.storyboard in Resources */,
 				9BB63F0B219C66A900BEB6BE /* Router.storyboard in Resources */,
 				9B46F01621B96ACA007762DB /* ImageDetailSectionOne.xib in Resources */,
+				9B46F02021BD0BD3007762DB /* ImageDetailHeaderView.xib in Resources */,
 				9B083FD4212AFF7000C537D5 /* Assets.xcassets in Resources */,
 				9B35983321B0187C00019415 /* ImageDetailSectionTwoCollection.xib in Resources */,
 				9BB63F1F21A1A6D800BEB6BE /* FirebaseUser.storyboard in Resources */,
@@ -865,6 +872,7 @@
 				9B084000212B0B8D00C537D5 /* SampleModel.swift in Sources */,
 				9BB63EE9218F158C00BEB6BE /* AuthUser.swift in Sources */,
 				9B46F00821B42256007762DB /* ImageSection.swift in Sources */,
+				9B46F01E21BD0137007762DB /* ImageDetailHeaderView.swift in Sources */,
 				9B083FCF212AFF6F00C537D5 /* ViewController.swift in Sources */,
 				9BB63EF021906F3100BEB6BE /* FirebaseChatView.swift in Sources */,
 				9BB63ED8218EBCBF00BEB6BE /* FirebaseSignInView.swift in Sources */,
