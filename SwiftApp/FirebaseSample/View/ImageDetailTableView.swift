@@ -35,7 +35,7 @@ class ImageDetailTableView: UIViewController {
         )
         
 
-        let mock = [["https://firebasestorage.googleapis.com/v0/b/practicefirebase-25801.appspot.com/o/user_images%2FTGsLFcRpnKUgKCL0niq84AxJQo13?alt=media&token=b62bf5c1-9ef1-4e9f-b3e1-860ffa27711e"], ["https://firebasestorage.googleapis.com/v0/b/practicefirebase-25801.appspot.com/o/user_images%2Fvje2AHXRsuMHBZi0R6aWqzErwmk1?alt=media&token=0f822cbd-2f97-411d-8099-db99dc287701","https://firebasestorage.googleapis.com/v0/b/practicefirebase-25801.appspot.com/o/user_images%2FTGsLFcRpnKUgKCL0niq84AxJQo13?alt=media&token=b62bf5c1-9ef1-4e9f-b3e1-860ffa27711e"],["s"]]
+        let mock = [["https://firebasestorage.googleapis.com/v0/b/practicefirebase-25801.appspot.com/o/user_images%2FTGsLFcRpnKUgKCL0niq84AxJQo13?alt=media&token=b62bf5c1-9ef1-4e9f-b3e1-860ffa27711e"], ["https://firebasestorage.googleapis.com/v0/b/practicefirebase-25801.appspot.com/o/user_images%2Fvje2AHXRsuMHBZi0R6aWqzErwmk1?alt=media&token=0f822cbd-2f97-411d-8099-db99dc287701","https://firebasestorage.googleapis.com/v0/b/practicefirebase-25801.appspot.com/o/user_images%2FTGsLFcRpnKUgKCL0niq84AxJQo13?alt=media&token=b62bf5c1-9ef1-4e9f-b3e1-860ffa27711e"],["s","a"],["a","a"]]
         
         Observable.just(mock)
             .bind(to: tableView.rx.items) {[unowned self] (table, section, element) in
@@ -68,7 +68,31 @@ class ImageDetailTableView: UIViewController {
                     cell.collectionView.setNeedsLayout()
                     cell.collectionView.layoutIfNeeded()
                     return cell
-                }
+                } else if section == 2{
+                    let sectionTwo = UINib(nibName: "ImageDetailSectionThree", bundle: nil)
+                    self.tableView.register(sectionTwo, forCellReuseIdentifier: "SectionThree")
+                    let cell = self.tableView.dequeueReusableCell(withIdentifier: "SectionThree") as! ImageDetailSectionThreeCell
+                    let layout = UICollectionViewFlowLayout()
+                    let height = UIScreen.main.bounds.height * 0.35
+                    layout.itemSize = CGSize(width: UIScreen.main.bounds.width, height: height)
+                    layout.sectionInset = UIEdgeInsets(top: 0,left: 0,bottom: 0,right: 0)
+                    layout.minimumLineSpacing = 0
+                    layout.scrollDirection = .horizontal
+                    cell.collectionView.collectionViewLayout = layout
+                    
+                    Observable.just(element)
+                        .bind(to: cell.collectionView.rx.items(
+                            cellIdentifier: "SectionThreeCollection",
+                            cellType: ImageDetailSectionThreeCollectionCell.self
+                        )){(collection, element, cell)  in
+                            cell.imageDisplay(ImagePipeline.shared.rx.loadImage(with: URL(string: element)!))
+                        }
+                        .disposed(by: cell.disposeBag)
+                    cell.collectionView.setNeedsLayout()
+                    cell.collectionView.layoutIfNeeded()
+                    return cell
+        }
+                
                 let collectionNib = UINib(nibName: "Card", bundle: nil)
                 self.tableView.register(collectionNib, forCellReuseIdentifier: "CardCell")
                 let cell = self.tableView.dequeueReusableCell(withIdentifier: "CardCell") as! FirebaseChatListCell
@@ -133,8 +157,9 @@ extension ImageDetailTableView: UITableViewDelegate {
         if indexPath.row == 0 {
             let height = UIScreen.main.bounds.height * 0.3
             return height
-        } else if indexPath.row == 2{
-            return 1000
+        } else if indexPath.row == 2 {
+            let height = UIScreen.main.bounds.height * 0.3
+            return height
         }
         return UITableView.automaticDimension
     }
