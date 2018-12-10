@@ -36,6 +36,7 @@ class ImageDetailSectionTwoCell: UITableViewCell {
 //            layout.minimumInteritemSpacing = 0
 //            layout.minimumLineSpacing = 0
 //        }
+        collectionView.isPagingEnabled = true
         collectionView.isScrollEnabled = false
     }
     
