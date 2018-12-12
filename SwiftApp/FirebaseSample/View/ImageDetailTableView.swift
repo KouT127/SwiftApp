@@ -76,7 +76,7 @@ class ImageDetailTableView: UIViewController {
         self.tableView.register(sectionTwo, forCellReuseIdentifier: "ImagesDisplaySectionCell")
         let cell = self.tableView.dequeueReusableCell(withIdentifier: "ImagesDisplaySectionCell") as! ImagesDisplaySectionCell
         let layout = UICollectionViewFlowLayout()
-        let size = (self.view.frame.width - 20) / 2
+        let size = (self.view.frame.width - 10) / 2
         layout.itemSize = CGSize(width: size, height: size)
         layout.sectionInset = UIEdgeInsets(top: 0,left: 0,bottom: 0,right: 0)
         layout.minimumInteritemSpacing = 10
@@ -164,24 +164,6 @@ extension ImageDetailTableView: UITableViewDelegate {
                 self.statusBarHidden = false
                 self.setNeedsStatusBarAppearanceUpdate()
             }, completion: nil)
-        }
-    }
-    
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        if headerView != nil {
-            //スクロールビューのオフセットを取得
-            let yPos: CGFloat = -scrollView.contentOffset.y
-            //マイナス値を超えた場合
-            //すなわち,表示されたときより上にスクロールしようとした場合
-            if yPos > 0 {
-                var imgRect: CGRect? = headerView.frame
-                //rectのY軸を変更
-                imgRect?.origin.y = scrollView.contentOffset.y
-                //sizeのは高さを変更
-                //ContentInsetのHeight - 画像のサイズ + 縦スクロールした分
-                imgRect?.size.height = (UIScreen.main.bounds.height / 3) - (UIScreen.main.bounds.height / 3) + yPos
-                headerView.frame = imgRect!
-            }
         }
     }
 }
