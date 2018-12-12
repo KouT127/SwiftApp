@@ -154,13 +154,14 @@ extension ImageDetailTableView: UITableViewDelegate {
     func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
         if(velocity.y > 0) {
             UIView.animate(withDuration: 0.5, delay: 0, options: UIView.AnimationOptions(), animations: {
-                //Navigation等を入れる。
+                self.navigationController?.setNavigationBarHidden(true, animated: true)
                 self.statusBarHidden = true
                 self.setNeedsStatusBarAppearanceUpdate()
             }, completion: nil)
 
         } else {
             UIView.animate(withDuration: 0.5, delay: 0, options: UIView.AnimationOptions(), animations: {
+                self.navigationController?.setNavigationBarHidden(false, animated: true)
                 self.statusBarHidden = false
                 self.setNeedsStatusBarAppearanceUpdate()
             }, completion: nil)
