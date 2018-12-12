@@ -12,15 +12,15 @@ import RxSwift
 import RxCocoa
 import RxDataSources
 
-class ImageDetailSectionThreeCell: UITableViewCell {
+class ImageSwipeSectionCell: UITableViewCell {
     
     @IBOutlet weak var collectionView: UICollectionView!
     var disposeBag = DisposeBag()
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        let nib = UINib(nibName: "ImageDetailSectionThreeCollection", bundle: nil)
-        collectionView.register(nib, forCellWithReuseIdentifier: "SectionThreeCollection")
+        let nib = UINib(nibName: "ImageSwipeSectionCollection", bundle: nil)
+        collectionView.register(nib, forCellWithReuseIdentifier: "ImageSwipeSectionCollectionCell")
         
         self.contentView.translatesAutoresizingMaskIntoConstraints = false
         self.collectionView.isScrollEnabled = true

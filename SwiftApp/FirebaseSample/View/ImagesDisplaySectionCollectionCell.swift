@@ -11,14 +11,11 @@ import RxSwift
 import RxCocoa
 import Nuke
 
-class ImageDetailSectionTwoCollectionCell: UICollectionViewCell {
+class ImagesDisplaySectionCollectionCell: UICollectionViewCell {
     
     var disposeBag = DisposeBag()
     
     @IBOutlet weak var imageView: UIImageView!
-    @IBOutlet weak var userImageView: UIImageView!
-    @IBOutlet weak var userName: UILabel!
-    @IBOutlet weak var imageDescription: UILabel!
     
     override func prepareForReuse() {
         disposeBag = DisposeBag()
@@ -30,12 +27,4 @@ class ImageDetailSectionTwoCollectionCell: UICollectionViewCell {
             self?.imageView.image = response.image
         }).disposed(by: disposeBag)
     }
-    
-    func userImageDisplay(_ image: Single<ImageResponse>) {
-        userImageView.image = UIImage(named: "PlaceHolder")
-        image.subscribe(onSuccess: { [weak self] response in
-            self?.userImageView.image = response.image
-        }).disposed(by: disposeBag)
-    }
-    
 }

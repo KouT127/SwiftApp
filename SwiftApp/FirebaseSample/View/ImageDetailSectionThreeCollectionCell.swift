@@ -12,7 +12,7 @@ import RxCocoa
 import RxNuke
 import Nuke
 
-class ImageDetailSectionThreeCollectionCell: UICollectionViewCell {
+class ImageSwipeSectionCollectionCell: UICollectionViewCell {
     @IBOutlet weak var imageView: UIImageView!
     
     var disposeBag = DisposeBag()

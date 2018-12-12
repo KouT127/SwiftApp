@@ -12,15 +12,15 @@ import RxSwift
 import RxCocoa
 import RxDataSources
 
-class ImageDetailSectionTwoCell: UITableViewCell {
+class ImagesDisplaySectionCell: UITableViewCell {
     
     @IBOutlet weak var collectionView: UICollectionView!
     var disposeBag = DisposeBag()
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        let nib = UINib(nibName: "ImageDetailSectionTwoCollection", bundle: nil)
-        collectionView.register(nib, forCellWithReuseIdentifier: "SectionTwoCollection")
+        let nib = UINib(nibName: "ImagesDisplaySectionCollection", bundle: nil)
+        collectionView.register(nib, forCellWithReuseIdentifier: "ImagesDisplaySectionCollectionCell")
         
         self.contentView.translatesAutoresizingMaskIntoConstraints = false
 //        let screenWidth = UIScreen.main.bounds.width
