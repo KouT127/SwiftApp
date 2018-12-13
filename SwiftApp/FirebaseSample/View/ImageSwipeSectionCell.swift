@@ -14,6 +14,7 @@ import RxDataSources
 
 class ImageSwipeSectionCell: UITableViewCell {
     
+    @IBOutlet weak var pageControl: UIPageControl!
     @IBOutlet weak var collectionView: UICollectionView!
     var disposeBag = DisposeBag()
     

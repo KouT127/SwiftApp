@@ -34,23 +34,21 @@ class ImageDetailTableView: UIViewController {
             )
         )
         
+        let url = "https://firebasestorage.googleapis.com/v0/b/practicefirebase-25801.appspot.com/o/user_images%2FTGsLFcRpnKUgKCL0niq84AxJQo13?alt=media&token=b62bf5c1-9ef1-4e9f-b3e1-860ffa27711e"
 
-        let mock = [["https://firebasestorage.googleapis.com/v0/b/practicefirebase-25801.appspot.com/o/user_images%2FTGsLFcRpnKUgKCL0niq84AxJQo13?alt=media&token=b62bf5c1-9ef1-4e9f-b3e1-860ffa27711e","https://firebasestorage.googleapis.com/v0/b/practicefirebase-25801.appspot.com/o/user_images%2FTGsLFcRpnKUgKCL0niq84AxJQo13?alt=media&token=b62bf5c1-9ef1-4e9f-b3e1-860ffa27711e"], ["https://firebasestorage.googleapis.com/v0/b/practicefirebase-25801.appspot.com/o/user_images%2Fvje2AHXRsuMHBZi0R6aWqzErwmk1?alt=media&token=0f822cbd-2f97-411d-8099-db99dc287701","https://firebasestorage.googleapis.com/v0/b/practicefirebase-25801.appspot.com/o/user_images%2FTGsLFcRpnKUgKCL0niq84AxJQo13?alt=media&token=b62bf5c1-9ef1-4e9f-b3e1-860ffa27711e"],["https://firebasestorage.googleapis.com/v0/b/practicefirebase-25801.appspot.com/o/user_images%2FTGsLFcRpnKUgKCL0niq84AxJQo13?alt=media&token=b62bf5c1-9ef1-4e9f-b3e1-860ffa27711e","https://firebasestorage.googleapis.com/v0/b/practicefirebase-25801.appspot.com/o/user_images%2FTGsLFcRpnKUgKCL0niq84AxJQo13?alt=media&token=b62bf5c1-9ef1-4e9f-b3e1-860ffa27711e"],["a","a"]]
+        let mock = [[url,url], [""],[url, url, url, url, url, url, url]]
+        tableView.register(UINib(nibName: "ImageDetailTableSectionHeader", bundle: nil), forHeaderFooterViewReuseIdentifier: "SectionHeader")
         
         Observable.just(mock)
             .bind(to: tableView.rx.items) {[unowned self] (table, section, element) in
                 if section == 0{
                     return self.createImageSwipeSection(element)
                 } else if section == 1{
-                    return self.createImagesDisplaySection(element)
+                    return self.createImageDescriptionSection(element)
                 } else if section == 2{
-                    return self.createImageSection(element)
+                    return self.createImagesDisplaySection(element)
                 }
-                let collectionNib = UINib(nibName: "Card", bundle: nil)
-                self.tableView.register(collectionNib, forCellReuseIdentifier: "CardCell")
-                let cell = self.tableView.dequeueReusableCell(withIdentifier: "CardCell") as! FirebaseChatListCell
-                    cell.imageView?.image = UIImage(named: "PlaceHolder")
-                return cell
+                return self.createImageSection(element)
             }
             .disposed(by: disposeBag)
         
@@ -58,7 +56,7 @@ class ImageDetailTableView: UIViewController {
             .disposed(by: disposeBag)
     }
     
-    override func viewWillAppear(_ animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         tableView.setNeedsLayout()
         tableView.layoutIfNeeded()
     }
@@ -72,14 +70,14 @@ class ImageDetailTableView: UIViewController {
     }
     
     private func createImagesDisplaySection(_ element: [String]) -> UITableViewCell {
-        let sectionTwo = UINib(nibName: "ImagesDisplaySection", bundle: nil)
-        self.tableView.register(sectionTwo, forCellReuseIdentifier: "ImagesDisplaySectionCell")
+        let section = UINib(nibName: "ImagesDisplaySection", bundle: nil)
+        self.tableView.register(section, forCellReuseIdentifier: "ImagesDisplaySectionCell")
         let cell = self.tableView.dequeueReusableCell(withIdentifier: "ImagesDisplaySectionCell") as! ImagesDisplaySectionCell
         let layout = UICollectionViewFlowLayout()
-        let size = (self.view.frame.width - 10) / 2
+        let size = (UIScreen.main.bounds.width - 20) / 2
         layout.itemSize = CGSize(width: size, height: size)
-        layout.sectionInset = UIEdgeInsets(top: 0,left: 0,bottom: 0,right: 0)
-        layout.minimumInteritemSpacing = 10
+        layout.sectionInset = UIEdgeInsets(top: 0,left: 5,bottom: 5,right: 5)
+        layout.minimumInteritemSpacing = 5
         cell.collectionView.collectionViewLayout = layout
         
         Observable.just(element)
@@ -90,8 +88,8 @@ class ImageDetailTableView: UIViewController {
                 cell.postImageDisplay(ImagePipeline.shared.rx.loadImage(with: URL(string: element)!))
             }
             .disposed(by: cell.disposeBag)
-        cell.collectionView.setNeedsLayout()
-        cell.collectionView.layoutIfNeeded()
+            cell.collectionView.setNeedsLayout()
+            cell.collectionView.layoutIfNeeded()
         return cell
     }
     
@@ -100,12 +98,19 @@ class ImageDetailTableView: UIViewController {
         self.tableView.register(section, forCellReuseIdentifier: "ImageSwipeSectionCell")
         let cell = self.tableView.dequeueReusableCell(withIdentifier: "ImageSwipeSectionCell") as! ImageSwipeSectionCell
         let layout = UICollectionViewFlowLayout()
-        let height = UIScreen.main.bounds.height * 0.6
+        let height = UIScreen.main.bounds.width
         layout.itemSize = CGSize(width: UIScreen.main.bounds.width, height: height)
         layout.sectionInset = UIEdgeInsets(top: 0,left: 0,bottom: 0,right: 0)
         layout.minimumLineSpacing = 0
         layout.scrollDirection = .horizontal
         cell.collectionView.collectionViewLayout = layout
+        cell.pageControl.numberOfPages = element.count
+        
+        cell.collectionView.rx.currentPage
+            .subscribe(onNext: {
+                cell.pageControl.currentPage = $0
+            })
+            .disposed(by: cell.disposeBag)
         
         Observable.just(element)
             .bind(to: cell.collectionView.rx.items(
@@ -117,6 +122,15 @@ class ImageDetailTableView: UIViewController {
             .disposed(by: cell.disposeBag)
         cell.collectionView.setNeedsLayout()
         cell.collectionView.layoutIfNeeded()
+        return cell
+    }
+    
+    private func createImageDescriptionSection(_ element: [String]) -> UITableViewCell {
+        let collectionNib = UINib(nibName: "ImageDescriptionSection", bundle: nil)
+        self.tableView.register(collectionNib, forCellReuseIdentifier: "ImageDescriptionSectionCell")
+        let cell = self.tableView.dequeueReusableCell(withIdentifier: "ImageDescriptionSectionCell") as! ImageDesriptionSection
+        cell.imageTitle.text = "タイトル"
+        cell.imageDescription.text = "画像の説明〜〜〜〜〜〜〜〜"
         return cell
     }
 }
@@ -138,10 +152,11 @@ extension ImageDetailTableView {
 extension ImageDetailTableView: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.row == 0 {
-            let height = UIScreen.main.bounds.height * 0.6
+            let height = UIScreen.main.bounds.width
             return height
-        } else if indexPath.row == 2 {
-            let height = UIScreen.main.bounds.height * 0.3
+        } else if indexPath.row == 2{
+            //とりあえず固定値
+            let height = ((UIScreen.main.bounds.width) / 2) * 4
             return height
         }
         return UITableView.automaticDimension
@@ -166,5 +181,15 @@ extension ImageDetailTableView: UITableViewDelegate {
                 self.setNeedsStatusBarAppearanceUpdate()
             }, completion: nil)
         }
+    }
+}
+
+fileprivate extension Reactive where Base: UIScrollView {
+    fileprivate var currentPage: Observable<Int> {
+        return didEndDecelerating.map({
+            let pageWidth = self.base.frame.width
+            let page = floor((self.base.contentOffset.x - pageWidth / 2) / pageWidth) + 1
+            return Int(page)
+        })
     }
 }

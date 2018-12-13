@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="ImageDesriptionSection" customModule="SwiftApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="384" height="204"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ecx-cf-PQT">
+                    <rect key="frame" x="0.0" y="0.0" width="384" height="204"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SOC-ir-jm0" customClass="RoundView" customModule="SwiftApp" customModuleProvider="target">
+                            <rect key="frame" x="5" y="5" width="374" height="194"/>
+                            <subviews>
+                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="VZP-Ao-ohp">
+                                    <rect key="frame" x="10" y="10" width="354" height="174"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="タイトル" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xOw-oa-u1c">
+                                            <rect key="frame" x="0.0" y="0.0" width="354" height="35"/>
+                                            <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="22"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明説明" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="6" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yZC-AV-3p0">
+                                            <rect key="frame" x="0.0" y="35" width="354" height="139"/>
+                                            <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="18"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="xOw-oa-u1c" firstAttribute="height" secondItem="VZP-Ao-ohp" secondAttribute="height" multiplier="0.2" id="ceu-kl-1eo"/>
+                                    </constraints>
+                                </stackView>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="trailing" secondItem="VZP-Ao-ohp" secondAttribute="trailing" constant="10" id="Cgb-Mx-Owc"/>
+                                <constraint firstItem="VZP-Ao-ohp" firstAttribute="top" secondItem="SOC-ir-jm0" secondAttribute="top" constant="10" id="pY6-RQ-0Wz"/>
+                                <constraint firstAttribute="bottom" secondItem="VZP-Ao-ohp" secondAttribute="bottom" constant="10" id="tgN-BH-0Zw"/>
+                                <constraint firstItem="VZP-Ao-ohp" firstAttribute="leading" secondItem="SOC-ir-jm0" secondAttribute="leading" constant="10" id="xWK-ng-dyR"/>
+                            </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="conerRadius">
+                                    <real key="value" value="10"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" white="0.86669234149999996" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="SOC-ir-jm0" firstAttribute="leading" secondItem="Ecx-cf-PQT" secondAttribute="leading" constant="5" id="bNP-Ol-nsq"/>
+                        <constraint firstAttribute="bottom" secondItem="SOC-ir-jm0" secondAttribute="bottom" constant="5" id="eCC-v6-SSL"/>
+                        <constraint firstItem="SOC-ir-jm0" firstAttribute="top" secondItem="Ecx-cf-PQT" secondAttribute="top" constant="5" id="qvS-Uc-27h"/>
+                        <constraint firstAttribute="trailing" secondItem="SOC-ir-jm0" secondAttribute="trailing" constant="5" id="zbO-HX-SxF"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Ecx-cf-PQT" secondAttribute="trailing" id="IRN-gh-OkK"/>
+                <constraint firstItem="Ecx-cf-PQT" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="NQa-9g-V2B"/>
+                <constraint firstItem="Ecx-cf-PQT" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="g4X-Hx-hrj"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="Ecx-cf-PQT" secondAttribute="bottom" id="ozj-D9-A3E"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="imageDescription" destination="yZC-AV-3p0" id="kq3-gr-sUU"/>
+                <outlet property="imageTitle" destination="xOw-oa-u1c" id="bUq-dP-d4f"/>
+            </connections>
+            <point key="canvasLocation" x="60.799999999999997" y="-160.11994002998503"/>
+        </view>
+    </objects>
+</document>

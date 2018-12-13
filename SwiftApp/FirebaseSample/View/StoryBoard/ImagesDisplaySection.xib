@@ -41,10 +41,14 @@
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="GMO-Oe-ZhW" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="09Z-qG-Uxc"/>
                 <constraint firstItem="GMO-Oe-ZhW" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="0ph-hR-UIP"/>
+                <constraint firstItem="GMO-Oe-ZhW" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="6e3-iX-FUc"/>
+                <constraint firstItem="GMO-Oe-ZhW" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="E5Y-l0-37V"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="GMO-Oe-ZhW" secondAttribute="trailing" id="Lsg-mQ-ufi"/>
                 <constraint firstItem="GMO-Oe-ZhW" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="a4n-rv-b3u"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="GMO-Oe-ZhW" secondAttribute="bottom" id="ks9-iy-HLG"/>
+                <constraint firstItem="GMO-Oe-ZhW" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="tBH-kS-irZ"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <connections>

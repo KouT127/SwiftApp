@@ -29,11 +29,16 @@
                                 <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                             </collectionViewFlowLayout>
                         </collectionView>
+                        <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="PEv-TE-5eo">
+                            <rect key="frame" x="168" y="600" width="39" height="37"/>
+                        </pageControl>
                     </subviews>
                     <color key="backgroundColor" white="0.86669234149999996" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstItem="cCk-LJ-axS" firstAttribute="leading" secondItem="NaA-Q2-9Dk" secondAttribute="leading" id="00X-rX-QAt"/>
+                        <constraint firstAttribute="bottom" secondItem="PEv-TE-5eo" secondAttribute="bottom" constant="10" id="IVM-D6-DFl"/>
                         <constraint firstItem="cCk-LJ-axS" firstAttribute="top" secondItem="NaA-Q2-9Dk" secondAttribute="top" id="Ug7-7A-5aP"/>
+                        <constraint firstItem="PEv-TE-5eo" firstAttribute="centerX" secondItem="NaA-Q2-9Dk" secondAttribute="centerX" id="Zn3-ez-vhn"/>
                         <constraint firstAttribute="bottom" secondItem="cCk-LJ-axS" secondAttribute="bottom" id="duU-x6-sU1"/>
                         <constraint firstAttribute="trailing" secondItem="cCk-LJ-axS" secondAttribute="trailing" id="fCu-gg-A0O"/>
                     </constraints>
@@ -42,13 +47,18 @@
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="LUq-zg-9M5" firstAttribute="bottom" secondItem="NaA-Q2-9Dk" secondAttribute="bottom" id="0nG-kR-ALZ"/>
+                <constraint firstItem="NaA-Q2-9Dk" firstAttribute="bottom" secondItem="LUq-zg-9M5" secondAttribute="bottom" id="11y-HN-c4R"/>
+                <constraint firstItem="NaA-Q2-9Dk" firstAttribute="top" secondItem="LUq-zg-9M5" secondAttribute="top" id="1Vb-8W-PZy"/>
+                <constraint firstItem="NaA-Q2-9Dk" firstAttribute="leading" secondItem="LUq-zg-9M5" secondAttribute="leading" id="6F4-aA-zNg"/>
                 <constraint firstItem="NaA-Q2-9Dk" firstAttribute="leading" secondItem="LUq-zg-9M5" secondAttribute="leading" id="ata-32-tcB"/>
                 <constraint firstItem="LUq-zg-9M5" firstAttribute="trailing" secondItem="NaA-Q2-9Dk" secondAttribute="trailing" id="c5O-e4-Mqk"/>
                 <constraint firstItem="NaA-Q2-9Dk" firstAttribute="top" secondItem="LUq-zg-9M5" secondAttribute="top" id="jzD-fR-Zws"/>
+                <constraint firstItem="NaA-Q2-9Dk" firstAttribute="trailing" secondItem="LUq-zg-9M5" secondAttribute="trailing" id="nsQ-Us-slI"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="LUq-zg-9M5"/>
             <connections>
                 <outlet property="collectionView" destination="cCk-LJ-axS" id="Dac-un-tBO"/>
+                <outlet property="pageControl" destination="PEv-TE-5eo" id="Zi5-48-7yh"/>
             </connections>
         </view>
     </objects>

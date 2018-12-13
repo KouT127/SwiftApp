@@ -58,14 +58,16 @@
 		9B46F01221B96A10007762DB /* ImageDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B46F01121B96A10007762DB /* ImageDetailView.swift */; };
 		9B46F01621B96ACA007762DB /* ImageDetailSectionOne.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B46F01521B96ACA007762DB /* ImageDetailSectionOne.xib */; };
 		9B46F01821B96B6E007762DB /* ImageDetailSectionOneCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B46F01721B96B6E007762DB /* ImageDetailSectionOneCell.swift */; };
-		9B46F01A21BAB1AB007762DB /* Card.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B46F01921BAB1AB007762DB /* Card.xib */; };
+		9B46F01A21BAB1AB007762DB /* ImageDescriptionSection.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B46F01921BAB1AB007762DB /* ImageDescriptionSection.xib */; };
 		9B46F01E21BD0137007762DB /* ImageDetailHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B46F01D21BD0137007762DB /* ImageDetailHeaderView.swift */; };
 		9B46F02021BD0BD3007762DB /* ImageDetailHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B46F01F21BD0BD3007762DB /* ImageDetailHeaderView.xib */; };
 		9B46F02221BEAF47007762DB /* ImageSwipeSection.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B46F02121BEAF47007762DB /* ImageSwipeSection.xib */; };
 		9B46F02421BEAFAB007762DB /* ImageSwipeSectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B46F02321BEAFAB007762DB /* ImageSwipeSectionCell.swift */; };
 		9B46F02621BEB026007762DB /* ImageSwipeSectionCollection.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B46F02521BEB026007762DB /* ImageSwipeSectionCollection.xib */; };
-		9B46F02821BEB0BA007762DB /* ImageDetailSectionThreeCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B46F02721BEB0BA007762DB /* ImageDetailSectionThreeCollectionCell.swift */; };
+		9B46F02821BEB0BA007762DB /* ImageSwipeSectionCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B46F02721BEB0BA007762DB /* ImageSwipeSectionCollectionCell.swift */; };
 		9B653E4F21C1530F00632D78 /* ImagesDisplaySectionCollection.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B653E4E21C1530F00632D78 /* ImagesDisplaySectionCollection.xib */; };
+		9B653E5321C15C6700632D78 /* ImageDetailTableSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B653E5221C15C6700632D78 /* ImageDetailTableSectionHeader.swift */; };
+		9B653E5521C2973000632D78 /* ImageDescriptionSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B653E5421C2973000632D78 /* ImageDescriptionSection.swift */; };
 		9BB63EC7218B456800BEB6BE /* SVProgressHUD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BB63EC6218B456800BEB6BE /* SVProgressHUD.framework */; };
 		9BB63ECA218C828A00BEB6BE /* FirebaseSignIn.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9BB63EC9218C828A00BEB6BE /* FirebaseSignIn.storyboard */; };
 		9BB63ECC218DE0EE00BEB6BE /* Firebase+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BB63ECB218DE0EE00BEB6BE /* Firebase+Rx.swift */; };
@@ -187,15 +189,17 @@
 		9B46F01121B96A10007762DB /* ImageDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDetailView.swift; sourceTree = "<group>"; };
 		9B46F01521B96ACA007762DB /* ImageDetailSectionOne.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageDetailSectionOne.xib; sourceTree = "<group>"; };
 		9B46F01721B96B6E007762DB /* ImageDetailSectionOneCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDetailSectionOneCell.swift; sourceTree = "<group>"; };
-		9B46F01921BAB1AB007762DB /* Card.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Card.xib; sourceTree = "<group>"; };
+		9B46F01921BAB1AB007762DB /* ImageDescriptionSection.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageDescriptionSection.xib; sourceTree = "<group>"; };
 		9B46F01D21BD0137007762DB /* ImageDetailHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDetailHeaderView.swift; sourceTree = "<group>"; };
 		9B46F01F21BD0BD3007762DB /* ImageDetailHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageDetailHeaderView.xib; sourceTree = "<group>"; };
 		9B46F02121BEAF47007762DB /* ImageSwipeSection.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageSwipeSection.xib; sourceTree = "<group>"; };
 		9B46F02321BEAFAB007762DB /* ImageSwipeSectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSwipeSectionCell.swift; sourceTree = "<group>"; };
 		9B46F02521BEB026007762DB /* ImageSwipeSectionCollection.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageSwipeSectionCollection.xib; sourceTree = "<group>"; };
-		9B46F02721BEB0BA007762DB /* ImageDetailSectionThreeCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDetailSectionThreeCollectionCell.swift; sourceTree = "<group>"; };
+		9B46F02721BEB0BA007762DB /* ImageSwipeSectionCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSwipeSectionCollectionCell.swift; sourceTree = "<group>"; };
 		9B4EB1D9A129BE59B66DD696 /* Pods-SwiftAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftAppUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftAppUITests/Pods-SwiftAppUITests.release.xcconfig"; sourceTree = "<group>"; };
 		9B653E4E21C1530F00632D78 /* ImagesDisplaySectionCollection.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImagesDisplaySectionCollection.xib; sourceTree = "<group>"; };
+		9B653E5221C15C6700632D78 /* ImageDetailTableSectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDetailTableSectionHeader.swift; sourceTree = "<group>"; };
+		9B653E5421C2973000632D78 /* ImageDescriptionSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDescriptionSection.swift; sourceTree = "<group>"; };
 		9BB63EC6218B456800BEB6BE /* SVProgressHUD.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SVProgressHUD.framework; path = Carthage/Build/iOS/SVProgressHUD.framework; sourceTree = "<group>"; };
 		9BB63EC9218C828A00BEB6BE /* FirebaseSignIn.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FirebaseSignIn.storyboard; sourceTree = "<group>"; };
 		9BB63ECB218DE0EE00BEB6BE /* Firebase+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Firebase+Rx.swift"; sourceTree = "<group>"; };
@@ -470,8 +474,10 @@
 				9B35984821B3B6DE00019415 /* ImagesDisplaySectionCell.swift */,
 				9B35983621B0217A00019415 /* ImagesDisplaySectionCollectionCell.swift */,
 				9B46F02321BEAFAB007762DB /* ImageSwipeSectionCell.swift */,
-				9B46F02721BEB0BA007762DB /* ImageDetailSectionThreeCollectionCell.swift */,
+				9B46F02721BEB0BA007762DB /* ImageSwipeSectionCollectionCell.swift */,
 				9B46F01D21BD0137007762DB /* ImageDetailHeaderView.swift */,
+				9B653E5221C15C6700632D78 /* ImageDetailTableSectionHeader.swift */,
+				9B653E5421C2973000632D78 /* ImageDescriptionSection.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -508,7 +514,7 @@
 				9B46F02121BEAF47007762DB /* ImageSwipeSection.xib */,
 				9B46F02521BEB026007762DB /* ImageSwipeSectionCollection.xib */,
 				9B46F01F21BD0BD3007762DB /* ImageDetailHeaderView.xib */,
-				9B46F01921BAB1AB007762DB /* Card.xib */,
+				9B46F01921BAB1AB007762DB /* ImageDescriptionSection.xib */,
 			);
 			path = StoryBoard;
 			sourceTree = "<group>";
@@ -710,7 +716,7 @@
 				9BB63F1B219F18A200BEB6BE /* FirebaseCreateRoom.storyboard in Resources */,
 				9B35984321B24A8100019415 /* ImageCollectionKindViewCell.xib in Resources */,
 				9B46F02621BEB026007762DB /* ImageSwipeSectionCollection.xib in Resources */,
-				9B46F01A21BAB1AB007762DB /* Card.xib in Resources */,
+				9B46F01A21BAB1AB007762DB /* ImageDescriptionSection.xib in Resources */,
 				9BB63ED6218EACF500BEB6BE /* FirebaseAuth.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -879,7 +885,8 @@
 				9BB63F05219B15A300BEB6BE /* RoundPart.swift in Sources */,
 				9BB63EEB218F227600BEB6BE /* DefaultWireframe.swift in Sources */,
 				9B35983D21B2286700019415 /* ImageCollectionRepository.swift in Sources */,
-				9B46F02821BEB0BA007762DB /* ImageDetailSectionThreeCollectionCell.swift in Sources */,
+				9B46F02821BEB0BA007762DB /* ImageSwipeSectionCollectionCell.swift in Sources */,
+				9B653E5521C2973000632D78 /* ImageDescriptionSection.swift in Sources */,
 				9B46F00A21B425C2007762DB /* ImageDetailTableViewModel.swift in Sources */,
 				9BB63F0F219DB2F700BEB6BE /* FirebaseChatListRepository.swift in Sources */,
 				9B35981D21AA7ECE00019415 /* ImagePickerService.swift in Sources */,
@@ -895,6 +902,7 @@
 				9B083FCF212AFF6F00C537D5 /* ViewController.swift in Sources */,
 				9BB63EF021906F3100BEB6BE /* FirebaseChatView.swift in Sources */,
 				9BB63ED8218EBCBF00BEB6BE /* FirebaseSignInView.swift in Sources */,
+				9B653E5321C15C6700632D78 /* ImageDetailTableSectionHeader.swift in Sources */,
 				9BE8162721A7B42700C5C371 /* FirebaseUserViewModel.swift in Sources */,
 				9BC803142185ED8B00E16993 /* GitHubCell.swift in Sources */,
 				9BC803192186CAA000E16993 /* SampleWebView.swift in Sources */,
