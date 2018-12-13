@@ -36,7 +36,7 @@ class ImageDetailTableView: UIViewController {
         
         let url = "https://firebasestorage.googleapis.com/v0/b/practicefirebase-25801.appspot.com/o/user_images%2FTGsLFcRpnKUgKCL0niq84AxJQo13?alt=media&token=b62bf5c1-9ef1-4e9f-b3e1-860ffa27711e"
 
-        let mock = [[url,url], [""],[url, url, url, url, url, url, url]]
+        let mock = [[url,url,url,url], [""],[url, url, url, url, url, url, url]]
         tableView.register(UINib(nibName: "ImageDetailTableSectionHeader", bundle: nil), forHeaderFooterViewReuseIdentifier: "SectionHeader")
         
         Observable.just(mock)
@@ -105,6 +105,13 @@ class ImageDetailTableView: UIViewController {
         layout.scrollDirection = .horizontal
         cell.collectionView.collectionViewLayout = layout
         cell.pageControl.numberOfPages = element.count
+        
+        cell.pageControl.rx.controlEvent(.valueChanged)
+            .subscribe(onNext: {
+                let currentPage = cell.pageControl.currentPage
+                cell.collectionView.setCurrentPage(currentPage, animated: true)
+            })
+            .disposed(by: disposeBag)
         
         cell.collectionView.rx.currentPage
             .subscribe(onNext: {
@@ -184,12 +191,22 @@ extension ImageDetailTableView: UITableViewDelegate {
     }
 }
 
-fileprivate extension Reactive where Base: UIScrollView {
-    fileprivate var currentPage: Observable<Int> {
+extension Reactive where Base: UIScrollView {
+    var currentPage: Observable<Int> {
         return didEndDecelerating.map({
             let pageWidth = self.base.frame.width
             let page = floor((self.base.contentOffset.x - pageWidth / 2) / pageWidth) + 1
             return Int(page)
         })
+    }
+}
+extension UIScrollView {
+    func setCurrentPage(_ page: Int, animated: Bool) {
+        var rect = bounds
+        //左の開始地点 = Cellの幅 * ページコントロールが示すページ
+        print(page)
+        rect.origin.x = rect.width * CGFloat(page)
+        rect.origin.y = 0
+        scrollRectToVisible(rect, animated: animated)
     }
 }
