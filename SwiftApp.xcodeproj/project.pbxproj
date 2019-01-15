@@ -420,6 +420,39 @@
 			path = Service;
 			sourceTree = "<group>";
 		};
+		9B9F520021EE265900E00D30 /* Firebase */ = {
+			isa = PBXGroup;
+			children = (
+				9BB63ED7218EBCBF00BEB6BE /* FirebaseSignInView.swift */,
+				9BB63ECF218DE65500BEB6BE /* FirebaseAuthView.swift */,
+				9BB63EEF21906F3100BEB6BE /* FirebaseChatView.swift */,
+				9BB63EF92195AB5900BEB6BE /* FirebaseChatListView.swift */,
+				9BB63EFB2195AC7000BEB6BE /* FirebaseChatListCell.swift */,
+				9BB63F1C21A181A500BEB6BE /* FirebaseCreateRoomView.swift */,
+				9BE8161121A3037F00C5C371 /* FirebaseUserView.swift */,
+			);
+			path = Firebase;
+			sourceTree = "<group>";
+		};
+		9B9F520121EE267C00E00D30 /* StretchTableView */ = {
+			isa = PBXGroup;
+			children = (
+				9B46F01121B96A10007762DB /* ImageDetailView.swift */,
+				9B35983421B01CAB00019415 /* ImageCollectionView.swift */,
+				9B35983E21B249AA00019415 /* ImageCollectionKindView.swift */,
+				9B35984421B3A84100019415 /* ImageDetailTableView.swift */,
+				9B46F01721B96B6E007762DB /* ImageDetailSectionOneCell.swift */,
+				9B35984821B3B6DE00019415 /* ImagesDisplaySectionCell.swift */,
+				9B35983621B0217A00019415 /* ImagesDisplaySectionCollectionCell.swift */,
+				9B46F02321BEAFAB007762DB /* ImageSwipeSectionCell.swift */,
+				9B46F02721BEB0BA007762DB /* ImageSwipeSectionCollectionCell.swift */,
+				9B46F01D21BD0137007762DB /* ImageDetailHeaderView.swift */,
+				9B653E5221C15C6700632D78 /* ImageDetailTableSectionHeader.swift */,
+				9B653E5421C2973000632D78 /* ImageDescriptionSection.swift */,
+			);
+			path = StretchTableView;
+			sourceTree = "<group>";
+		};
 		9BB63EC8218C81F200BEB6BE /* FirebaseSample */ = {
 			isa = PBXGroup;
 			children = (
@@ -457,27 +490,10 @@
 		9BB63EDB218EBFBA00BEB6BE /* View */ = {
 			isa = PBXGroup;
 			children = (
+				9B9F520121EE267C00E00D30 /* StretchTableView */,
+				9B9F520021EE265900E00D30 /* Firebase */,
 				9BB63EDD218EC00000BEB6BE /* StoryBoard */,
-				9BB63ED7218EBCBF00BEB6BE /* FirebaseSignInView.swift */,
-				9BB63ECF218DE65500BEB6BE /* FirebaseAuthView.swift */,
-				9BB63EEF21906F3100BEB6BE /* FirebaseChatView.swift */,
-				9BB63EF92195AB5900BEB6BE /* FirebaseChatListView.swift */,
-				9BB63EFB2195AC7000BEB6BE /* FirebaseChatListCell.swift */,
-				9BB63F1C21A181A500BEB6BE /* FirebaseCreateRoomView.swift */,
-				9BE8161121A3037F00C5C371 /* FirebaseUserView.swift */,
 				9BB63F08219C668600BEB6BE /* Router.swift */,
-				9B46F01121B96A10007762DB /* ImageDetailView.swift */,
-				9B35983421B01CAB00019415 /* ImageCollectionView.swift */,
-				9B35983E21B249AA00019415 /* ImageCollectionKindView.swift */,
-				9B35984421B3A84100019415 /* ImageDetailTableView.swift */,
-				9B46F01721B96B6E007762DB /* ImageDetailSectionOneCell.swift */,
-				9B35984821B3B6DE00019415 /* ImagesDisplaySectionCell.swift */,
-				9B35983621B0217A00019415 /* ImagesDisplaySectionCollectionCell.swift */,
-				9B46F02321BEAFAB007762DB /* ImageSwipeSectionCell.swift */,
-				9B46F02721BEB0BA007762DB /* ImageSwipeSectionCollectionCell.swift */,
-				9B46F01D21BD0137007762DB /* ImageDetailHeaderView.swift */,
-				9B653E5221C15C6700632D78 /* ImageDetailTableSectionHeader.swift */,
-				9B653E5421C2973000632D78 /* ImageDescriptionSection.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
