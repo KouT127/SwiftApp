@@ -36,7 +36,7 @@ class Router: UIViewController {
     }
     private func getStoryBoard() -> UIStoryboard {
         let auth = UIStoryboard(name: "FirebaseAuth", bundle: nil)
-        let list = UIStoryboard(name: "ImageDetailTableView", bundle: nil)
+        let list = UIStoryboard(name: "FirebaseChatList", bundle: nil)
         return validateAuth() ? list : auth
     }
     
